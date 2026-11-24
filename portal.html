@@ -16,6 +16,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
 .nav-toggle:checked~* .side-nav{display:flex!important;position:fixed;top:0;left:0;bottom:0;z-index:60;width:280px!important;overflow-y:auto;box-shadow:0 8px 24px rgba(17,17,17,.2)}
 .nav-toggle:checked~* .scrim{display:block}.nav-toggle:checked~* .nav-close{display:flex}}
 @media (max-width:720px){.hdr-search{display:none!important}.app-header{padding:12px 16px!important}.logo{font-size:28px!important}.pg-num{display:none!important}main,.page-main{padding:20px 16px 40px!important}}
+tbody tr:hover>td{background-color:#F7F9FA}
 </style>
 </head>
 <body>
@@ -45,72 +46,95 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
   </header>
   <div style="display:flex;flex-wrap:wrap">
     <nav aria-label="Main" class="side-nav" style="flex:0 0 240px;width:240px;padding:24px 16px;border-right:1px solid #E2E7EB;background:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;font-family:'Noto Sans','Noto Sans TC',sans-serif">
-<label for="navtoggle" class="nav-close" style="align-items:center;gap:8px;align-self:flex-end;min-height:44px;padding:0 12px;border-radius:8px;cursor:pointer;color:#4A555C;font-size:14px;font-weight:600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Close</label><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">MY TEACHING</div><button onClick="{{go_dash}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_dash}}">Dashboard</button><a href="index.html" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none">My Classes</a><button onClick="{{go_rec}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_rec}}">All Recordings</button><a href="#" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none">Practice Packs</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">ORGANIZATION MANAGEMENT</div><button onClick="{{go_ov}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_ov}}">Overview</button><button onClick="{{go_teach}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_teach}}">Teachers</button><button onClick="{{go_stud}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_stud}}">Students</button><button onClick="{{go_ros}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_ros}}">Rosters</button><button onClick="{{go_cls}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_cls}}">Classes</button><button onClick="{{go_bill}}" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_bill}}">Plan &amp; billing</button></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">HELP &amp; SUPPORT</div><a href="#" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none">Tutorial Videos</a><a href="#" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none">Help Desk</a><a href="#" style="display:block;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none">Contact Sensay</a></div></nav>
+<label for="navtoggle" class="nav-close" style="align-items:center;gap:8px;align-self:flex-end;min-height:44px;padding:0 12px;border-radius:8px;cursor:pointer;color:#4A555C;font-size:14px;font-weight:600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Close</label><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">MY TEACHING</div><button onClick="{{go_dash}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_dash}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>Dashboard</button><a href="index.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg>My Classes</a><button onClick="{{go_rec}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_rec}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>All Recordings</button><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg>Practice Packs</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">ORGANIZATION MANAGEMENT</div><button onClick="{{go_ov}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_ov}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Overview</button><button onClick="{{go_teach}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_teach}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></svg>Teachers</button><button onClick="{{go_stud}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_stud}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>Students</button><button onClick="{{go_ros}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_ros}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>Rosters</button><button onClick="{{go_cls}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_cls}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>Classes</button><button onClick="{{go_bill}}" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;{{st_bill}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></svg>Plan &amp; billing</button></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">HELP &amp; SUPPORT</div><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10l6-3v10l-6-3z"/></svg>Tutorial Videos</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.2v.1"/></svg>Help Desk</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>Contact Sensay</a></div></nav>
 <label for="navtoggle" class="scrim" aria-hidden="true"></label>
     <sc-if value="{{isDash}}" hint-placeholder-val="{{ false }}">
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <h1 style="margin:0 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Dashboard</h1>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">My Teaching</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Dashboard</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">Your classes</p>
         </div>
         <button style="background:#00A094;color:#fff;border:0;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">+ Invite students</button>
       </div>
 
-      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
-        <p style="margin:0;color:#5F6B73;font-size:14px">Nov 1 – Nov 24, 2026 · compared with Oct 8 – Oct 31, 2026</p>
-        <div role="group" aria-label="Period" style="display:flex;gap:8px;flex-wrap:wrap">
-          <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 18px;font:inherit;font-size:14px;color:#4A555C">Last 7 days</button>
-          <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 18px;font:inherit;font-size:14px;color:#0B6B63;font-weight:600">This month</button>
-          <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 18px;font:inherit;font-size:14px;color:#4A555C">Last 3 months</button>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 16px;justify-content:space-between;align-items:flex-end">
+          <fieldset style="border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end">
+            <legend style="font-size:13px;font-weight:600;color:#4A555C;padding:0;margin-bottom:6px">Date range</legend>
+            <sc-if value="{{dbOn_month}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-11-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            <sc-if value="{{dbOn_3m}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            <sc-if value="{{dbOn_year}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            <sc-if value="{{dbOn_all}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            </fieldset>
+          <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{dbSet_month}}" aria-pressed="{{dbOn_month}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_month}}">This month</button><button onClick="{{dbSet_3m}}" aria-pressed="{{dbOn_3m}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_3m}}">Last 3 months</button><button onClick="{{dbSet_year}}" aria-pressed="{{dbOn_year}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_year}}">This year</button><button onClick="{{dbSet_all}}" aria-pressed="{{dbOn_all}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_all}}">All time</button></div>
         </div>
-      </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Students who recorded</div>
-          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">1</span> <span style="color:#5F6B73;font-size:16px">of 12 in my classes</span></div>
-          <div style="color:#0B6B63;font-size:13px">▲ 1 vs the period before</div>
+          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbStu}}</span> <span style="color:#5F6B73;font-size:16px">of 12 in my classes</span></div>
         </div>
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Recordings</div>
-          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">1</span></div>
-          <div style="color:#0B6B63;font-size:13px">▲ 1 vs the period before</div>
+          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbRec}}</span></div>
         </div>
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Average practice time</div>
-          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">[X]</span> <span style="color:#5F6B73;font-size:16px">min / student</span></div>
-          <div style="color:#5F6B73;font-size:13px">Metric to confirm</div>
+          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbAvg}}</span> <span style="color:#5F6B73;font-size:16px">min / student</span></div>
+          
         </div>
       </div>
 
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
         <h2 style="margin:0 0 8px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px;display:flex;align-items:center;gap:10px">Needs attention <span style="background:#FDEFD3;color:#8A5A00;font-size:13px;border-radius:999px;padding:2px 10px">3</span></h2>
         <p style="margin:0 0 8px;color:#5F6B73;font-size:14px">Only students in your classes</p>
-        <div style="display:flex;flex-direction:column">
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div role="group" aria-label="Urgent">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#B42323">Urgent <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">1</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">8 students haven’t recorded in 14 days</div>
               <div style="color:#5F6B73;font-size:14px">A quick reminder often gets them practicing again.</div>
             </div>
-            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Send reminder</button>
+            <button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Send reminder →</button>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+          </div>
+          <div role="group" aria-label="To do">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#8A5A00">To do <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">2</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">3 recordings are waiting for your feedback</div>
               <div style="color:#5F6B73;font-size:14px">Submitted in the last 7 days.</div>
             </div>
-            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Review</button>
+            <button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Review →</button>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#8A959C;flex:none"></span>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">2 students haven’t accepted their invitation</div>
               <div style="color:#5F6B73;font-size:14px">They can’t join your class until they accept.</div>
             </div>
-            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Resend</button>
+            <button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Resend →</button>
+          </div>
           </div>
         </div>
       </section>
@@ -131,9 +155,9 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               </tr>
             </thead>
             <tbody>
-              <tr><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="index.html">[Class name A]</a></td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">6</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">1 of 6</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">1</td></tr>
-              <tr><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="index.html">[Class name B]</a></td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">4</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">0 of 4</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">0</td></tr>
-              <tr><td style="padding:14px 8px;font-weight:600"><a href="index.html">[Class name C]</a></td><td style="padding:14px 8px">2</td><td style="padding:14px 8px">0 of 2</td><td style="padding:14px 8px">0</td></tr>
+              <tr><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="index.html">G5-B Reading Practice</a></td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">6</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbA1}}</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbA2}}</td></tr>
+              <tr><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="index.html">Sensay Class (Lite Report)</a></td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">4</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbB1}}</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbB2}}</td></tr>
+              <tr><td style="padding:14px 8px;font-weight:600"><a href="index.html">Sensay DM (Simple)</a></td><td style="padding:14px 8px">2</td><td style="padding:14px 8px">{{dbC1}}</td><td style="padding:14px 8px">{{dbC2}}</td></tr>
             </tbody>
           </table>
         </div>
@@ -144,7 +168,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Overview</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">How your organization is doing, and what needs attention</p>
         </div>
@@ -157,27 +181,28 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
       <div style="display:flex;flex-wrap:wrap;gap:12px 16px;justify-content:space-between;align-items:flex-end">
           <fieldset style="border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end">
             <legend style="font-size:13px;font-weight:600;color:#4A555C;padding:0;margin-bottom:6px">Date range</legend>
-            <sc-if value="{{p3m}}" hint-placeholder-val="{{ true }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #D5DCE1;border-radius:8px;min-height:40px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:10px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #D5DCE1;border-radius:8px;min-height:40px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <sc-if value="{{ovOn_month}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-11-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
-            <sc-if value="{{pYear}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #D5DCE1;border-radius:8px;min-height:40px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:10px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #D5DCE1;border-radius:8px;min-height:40px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <sc-if value="{{ovOn_3m}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
-            <sc-if value="{{pAll}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #D5DCE1;border-radius:8px;min-height:40px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:10px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #D5DCE1;border-radius:8px;min-height:40px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <sc-if value="{{ovOn_year}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
-          </fieldset>
-          <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap">
-            <button onClick="{{set3m}}" aria-pressed="{{p3m}}" style="border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer;{{pill3m}}">Last 3 months</button>
-            <button onClick="{{setYear}}" aria-pressed="{{pYear}}" style="border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer;{{pillYear}}">This year</button>
-            <button onClick="{{setAll}}" aria-pressed="{{pAll}}" style="border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer;{{pillAll}}">All time</button>
-          </div>
+            <sc-if value="{{ovOn_all}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            </fieldset>
+          <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ovSet_month}}" aria-pressed="{{ovOn_month}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_month}}">This month</button><button onClick="{{ovSet_3m}}" aria-pressed="{{ovOn_3m}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_3m}}">Last 3 months</button><button onClick="{{ovSet_year}}" aria-pressed="{{ovOn_year}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_year}}">This year</button><button onClick="{{ovSet_all}}" aria-pressed="{{ovOn_all}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_all}}">All time</button></div>
         </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
@@ -202,46 +227,52 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
 
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
         <h2 style="margin:0 0 8px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px;display:flex;align-items:center;gap:10px">Needs attention <span style="background:#FDEFD3;color:#8A5A00;font-size:13px;border-radius:999px;padding:2px 10px">5</span></h2>
-        <div style="display:flex;flex-direction:column">
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div role="group" aria-label="Urgent">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#B42323">Urgent <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">2</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">26 students haven’t recorded in 14 days</div>
               <div style="color:#5F6B73;font-size:14px">They joined a class but stopped practicing. Their teachers may want to remind them.</div>
             </div>
             <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">See who →</button>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">500 credits expire on Jan 15, 2027</div>
               <div style="color:#5F6B73;font-size:14px">At your recent pace, about 220 of them may go unused. Owners only.</div>
             </div>
             <button onClick="{{go_bill}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">View credits →</button>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+          </div>
+          <div role="group" aria-label="To do">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#8A5A00">To do <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">3</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">21 students aren’t in a class yet</div>
               <div style="color:#5F6B73;font-size:14px">They can’t practice until they’re added to a class. They don’t use a seat.</div>
             </div>
             <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Add to a class →</button>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">4 students haven’t accepted their invitation</div>
               <div style="color:#5F6B73;font-size:14px">Pending invitations use a seat until they’re accepted or revoked.</div>
             </div>
             <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Review invitations →</button>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span style="width:10px;height:10px;border-radius:50%;background:#8A959C;flex:none"></span>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
             <div style="flex:1 1 360px">
               <div style="font-weight:700;font-size:16px">2 teacher invitations not accepted yet</div>
               <div style="color:#5F6B73;font-size:14px">teacher01@oksensay.com, lalaine+teacher+260907A@oksensay.com</div>
             </div>
             <button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Review →</button>
+          </div>
           </div>
         </div>
       </section>
@@ -265,9 +296,9 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
           <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:600px">
             <thead><tr style="text-align:left;color:#5F6B73;font-size:13px"><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Teacher</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Classes</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Students who recorded</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th></tr></thead>
             <tbody>
-              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Teacher Lin</button></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">13</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uLinStu}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uLinRec}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">6 days ago</td></tr>
-              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Annie Wang</button></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">0</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uAnnStu}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uAnnRec}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">Never</td></tr>
-              <tr><td style="padding:12px 8px"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Sensay Admin</button></td><td style="padding:12px 8px">1</td><td style="padding:12px 8px">{{uAdmStu}}</td><td style="padding:12px 8px">{{uAdmRec}}</td><td style="padding:12px 8px">5 months ago</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="font-weight:600">Teacher Lin</span></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">13</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uLinStu}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uLinRec}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span title="Nov 18, 2026">6 days ago</span></td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="font-weight:600">Annie Wang</span></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">0</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uAnnStu}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uAnnRec}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">Never</td></tr>
+              <tr><td style="padding:12px 8px"><span style="font-weight:600">Sensay Admin</span></td><td style="padding:12px 8px">1</td><td style="padding:12px 8px">{{uAdmStu}}</td><td style="padding:12px 8px">{{uAdmRec}}</td><td style="padding:12px 8px"><span title="Jun 20, 2026">5 months ago</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -302,7 +333,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Teachers</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">Everyone who teaches in your organization, and what they can do</p>
         </div>
@@ -315,18 +346,15 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
       </div>
 
       <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
-        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
           <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
-            <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:260px;color:#5F6B73;font-size:14px">Search name or email</label>
-            <div role="group" aria-label="Filter" style="display:flex;gap:8px;flex-wrap:wrap">
-              <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#0B6B63;font-weight:600">All 5</button>
-              <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">Joined 3</button>
-              <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">Invited 2</button>
-            </div>
+            <label style="flex:1 1 240px;max-width:420px;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 12px;color:#5F6B73;font-size:14px;box-sizing:border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search name or email</label>
+            
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto"><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Sort: Status <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Export CSV</button></div>
           </div>
-          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-            <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>Status: pending first</option><option>Name</option><option>Last recording</option></select></label><span style="color:#5F6B73;font-size:14px">Teacher seats <b style="color:#222222">5 / 25</b></span>
-            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Export CSV</button>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between">
+            <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap"><button aria-pressed="true" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;">All 5</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">Joined 3</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">Invited 2</button></div>
+            <span style="color:#5F6B73;font-size:14px">Teacher seats <b style="color:#222222">5 / 25</b></span>
           </div>
         </div>
         <div style="overflow-x:auto">
@@ -346,7 +374,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               <tr><td colspan="7" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:13px;font-weight:700;color:#4A555C;letter-spacing:.3px">Pending invitations <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">2</span> <span style="font-weight:400;color:#5F6B73">· Invited but not signed up yet</span></td></tr>
               <tr>
                 <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;font-weight:700">teacher01@oksensay.com</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Invited</span><div style="color:#5F6B73;font-size:13px;margin-top:4px">Sent 2 years ago · <a href="#">Resend</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Invited</span><div style="color:#5F6B73;font-size:13px;margin-top:4px">Sent <span title="Sep 2, 2024">2 years ago</span> · <a href="#">Resend</a></div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
@@ -355,7 +383,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               </tr>
               <tr>
                 <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;font-weight:700">lalaine+teacher+260907A@oksensay.com</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Invited</span><div style="color:#5F6B73;font-size:13px;margin-top:4px">Sent 3 months ago · <a href="#">Resend</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Invited</span><div style="color:#5F6B73;font-size:13px;margin-top:4px">Sent <span title="Aug 21, 2026">3 months ago</span> · <a href="#">Resend</a></div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
@@ -368,7 +396,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Joined</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">28</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">27</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">6 days ago</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span title="Nov 18, 2026">6 days ago</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><select aria-label="Student account permission for Teacher Lin" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 10px;font:inherit;font-size:14px;color:#222222;min-height:44px"><option>Can edit</option><option>View only</option></select></td>
                 <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
@@ -386,7 +414,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Joined</span></td>
                 <td style="padding:14px 12px">16</td>
                 <td style="padding:14px 12px">1</td>
-                <td style="padding:14px 12px">5 months ago</td>
+                <td style="padding:14px 12px"><span title="Jun 20, 2026">5 months ago</span></td>
                 <td style="padding:14px 12px"><select aria-label="Student account permission for Sensay Admin" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 10px;font:inherit;font-size:14px;color:#222222;min-height:44px"><option>Can edit</option><option>View only</option></select></td>
                 <td style="padding:14px 20px;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
@@ -401,7 +429,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Students</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">Every student account in your organization</p>
         </div>
@@ -413,27 +441,26 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
 
       <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
         <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
-            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-              <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:240px;color:#5F6B73;font-size:14px">Search name or email</label>
-              <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Class <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>All classes</option></select></label>
-              <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Teacher <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>All teachers</option></select></label>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>Status: pending first</option><option>Name</option><option>Last recording</option></select></label><span style="color:#5F6B73;font-size:14px">Student seats <b style="color:#222222">31 / 250</b></span><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Export CSV</button></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <label style="flex:1 1 240px;max-width:420px;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 12px;color:#5F6B73;font-size:14px;box-sizing:border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search name or email</label>
+            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Class <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Teacher <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Roster <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto"><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Sort: Status <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Export CSV</button></div>
           </div>
-          <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap">
-            <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#0B6B63;font-weight:600">All 70</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">In a class 27</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">Not in a class 39</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">Invited 4</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">No roster 25</button>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between">
+            <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap"><button aria-pressed="true" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;">All 70</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">In a class 27</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">Not in a class 39</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">Invited 4</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">No roster 25</button></div>
+            <span style="color:#5F6B73;font-size:14px">Student seats <b style="color:#222222">31 / 250</b></span>
           </div>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:10px 20px;background:#FDF5E6;border-bottom:1px solid #F0D3A0;font-size:14px">
           <span><b>39 students aren’t in a class.</b> They can’t practice until they’re added to one.</span>
           <a href="#" style="font-size:14px">Select them and add to a class →</a>
         </div>
+        <sc-if value="{{sbHas}}" hint-placeholder-val="{{ false }}"><div role="region" aria-label="Selected rows" style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:10px 20px;background:#0B6B63;color:#FFFFFF;font-size:14px"><b>{{sbCount}} selected</b><div style="display:flex;flex-wrap:wrap;gap:8px"><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Add to class</button><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Add to roster</button><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Resend invite</button><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Export CSV</button><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Archive</button><button style="background:#FBE1E1;border:0;color:#8A1F1F;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Delete</button></div><button onClick="{{sbClear}}" style="margin-left:auto;background:none;border:0;color:#FFFFFF;font:inherit;font-size:14px;font-weight:600;text-decoration:underline;cursor:pointer">Clear selection</button></div></sc-if>
         <div style="overflow-x:auto">
           <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:920px">
             <thead>
               <tr style="text-align:left;color:#5F6B73;font-size:13px">
-                <th style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;width:20px"><input type="checkbox" aria-label="Select all" style="width:20px;height:20px"></th>
+                <th style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;width:20px"><input type="checkbox" aria-label="Select all on this page" checked="{{sbAllC}}" onChange="{{sbAll}}" style="width:20px;height:20px"></th>
                 <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Student</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Status ↓</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Classes</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Rosters</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th>
                 <th style="padding:14px 20px 14px 12px;border-bottom:1px solid #E2E7EB"><span style="position:absolute;left:-9999px">Actions</span></th>
               </tr>
@@ -441,9 +468,9 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
             <tbody>
               <tr><td colspan="8" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:13px;font-weight:700;color:#4A555C;letter-spacing:.3px">Pending invitations <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">4</span> <span style="font-weight:400;color:#5F6B73">· Invited but not signed up yet</span></td></tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ethan Wu" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Ethan Wu</div><div style="color:#5F6B73;font-size:13px">100003@school.example</div></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">Invited</span><div style="margin-top:6px;color:#5F6B73;font-size:13px">Sent 5 days ago · <a href="#">Resend</a></div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ethan Wu" checked="{{sbC0}}" onChange="{{sbT0}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ethan Wu</a></div><div style="color:#5F6B73;font-size:13px">100003@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">Invited</span><div style="margin-top:6px;color:#5F6B73;font-size:13px">Sent <span title="Nov 19, 2026">5 days ago</span> · <a href="#">Resend</a></div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
@@ -452,8 +479,8 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               </tr>
               <tr><td colspan="8" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:13px;font-weight:700;color:#4A555C;letter-spacing:.3px">Joined · not in a class <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">39</span> <span style="font-weight:400;color:#5F6B73">· Signed up, but can’t practice yet</span></td></tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Kevin Chen" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Kevin Chen</div><div style="color:#5F6B73;font-size:13px">100001@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Kevin Chen" checked="{{sbC1}}" onChange="{{sbT1}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Kevin Chen</a></div><div style="color:#5F6B73;font-size:13px">100001@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">Not in a class</span><div style="margin-top:6px"><a href="#" style="font-size:13px">Add to a class</a></div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
@@ -462,8 +489,8 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Kevin Chen" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Grace Lin" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Grace Lin</div><div style="color:#5F6B73;font-size:13px">100002@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Grace Lin" checked="{{sbC2}}" onChange="{{sbT2}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Grace Lin</a></div><div style="color:#5F6B73;font-size:13px">100002@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">Not in a class</span><div style="margin-top:6px"><a href="#" style="font-size:13px">Add to a class</a></div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
@@ -472,8 +499,8 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Grace Lin" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Leo Tsai" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Leo Tsai</div><div style="color:#5F6B73;font-size:13px">100005@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Leo Tsai" checked="{{sbC3}}" onChange="{{sbT3}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Leo Tsai</a></div><div style="color:#5F6B73;font-size:13px">100005@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">Not in a class</span><div style="margin-top:6px"><a href="#" style="font-size:13px">Add to a class</a></div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
@@ -483,43 +510,43 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               </tr>
               <tr><td colspan="8" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:13px;font-weight:700;color:#4A555C;letter-spacing:.3px">Joined · in a class <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">27</span></td></tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Mia Huang 黃米亞" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Mia Huang 黃米亞</div><div style="color:#5F6B73;font-size:13px">100004@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Mia Huang 黃米亞" checked="{{sbC4}}" onChange="{{sbT4}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Mia Huang 黃米亞</a></div><div style="color:#5F6B73;font-size:13px">100004@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">In a class</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:13px">Sharon's Cram School (Friday Class)</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">396</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">2 years ago</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Oct 3, 2024">2 years ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Mia Huang 黃米亞" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Chloe Yang" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Chloe Yang</div><div style="color:#5F6B73;font-size:13px">100006@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Chloe Yang" checked="{{sbC5}}" onChange="{{sbT5}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Chloe Yang</a></div><div style="color:#5F6B73;font-size:13px">100006@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">In a class</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:13px">Sharon's Cram School (Friday Class)</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">330</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">2 years ago</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Oct 3, 2024">2 years ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Chloe Yang" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ryan Hsu" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Ryan Hsu</div><div style="color:#5F6B73;font-size:13px">100007@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ryan Hsu" checked="{{sbC6}}" onChange="{{sbT6}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ryan Hsu</a></div><div style="color:#5F6B73;font-size:13px">100007@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">In a class</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:13px">Sharon's Cram School (Friday Class)</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">427</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">2 years ago</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Oct 3, 2024">2 years ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Ryan Hsu" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
-                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ivy Chang" style="width:20px;height:20px"></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Ivy Chang</div><div style="color:#5F6B73;font-size:13px">100008@school.example</div></td>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ivy Chang" checked="{{sbC7}}" onChange="{{sbT7}}" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ivy Chang</a></div><div style="color:#5F6B73;font-size:13px">100008@school.example</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">In a class</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:13px">G5-B Reading Practice</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Wed)</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">22</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">6 days ago</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Nov 18, 2026">6 days ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Ivy Chang" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
             </tbody>
@@ -541,7 +568,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Rosters</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px;max-width:640px">A roster is a saved list of students, such as one school class or one course group. Add a whole roster to a class in one step.</p>
         </div>
@@ -549,20 +576,23 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
       </div>
       
       <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
-        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-            <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:240px;color:#5F6B73;font-size:14px">Search rosters</label>
-            <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Owner <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>All teachers</option></select></label>
-            <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>Recently updated</option><option>Name</option><option>Most students</option></select></label>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <label style="flex:1 1 240px;max-width:420px;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 12px;color:#5F6B73;font-size:14px;box-sizing:border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search rosters</label>
+            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Owner <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto"><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Sort: Recently updated <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Export CSV</button></div>
           </div>
-          
+          <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between">
+            <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap"><button aria-pressed="true" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;">All 11</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">With pending students 4</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">Empty 2</button></div>
+            <span style="color:#5F6B73;font-size:14px"></span>
+          </div>
         </div>
         <div style="overflow-x:auto">
           <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:760px">
             <thead>
               <tr style="text-align:left;color:#5F6B73;font-size:13px">
                 <th style="padding:14px 12px 14px 20px;font-weight:600;border-bottom:1px solid #E2E7EB">Roster</th>
-                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Owner</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Students</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Updated ↓</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Owner</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Students</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Last updated ↓</th>
                 <th style="padding:14px 20px 14px 12px;border-bottom:1px solid #E2E7EB"><span style="position:absolute;left:-9999px">Actions</span></th>
               </tr>
             </thead>
@@ -571,77 +601,77 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">Test</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Annie Wang</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">0 · Empty</span></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Oct 20, 2026</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Oct 20, 2026">1 month ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Test" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">Roster C***</a><div style="color:#5F6B73;font-size:13px">Class A</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">4</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">May 21, 2026</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="May 21, 2026">6 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Roster C***" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">2026 April 7 QA</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0 <span style="color:#8A5A00;font-size:13px">· 2 pending</span></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Apr 7, 2026</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Apr 7, 2026">7 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for 2026 April 7 QA" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">260128 QA</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0 <span style="color:#8A5A00;font-size:13px">· 4 pending</span></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Jan 28, 2026</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Jan 28, 2026">10 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for 260128 QA" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">November</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">5</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Nov 10, 2025</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Nov 10, 2025">1 year ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for November" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">Apple班</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">10 <span style="color:#8A5A00;font-size:13px">· 2 pending</span></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Oct 14, 2025</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Oct 14, 2025">1 year ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Apple班" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">Sample Roster</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">9</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Oct 9, 2025</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Oct 9, 2025">1 year ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Sample Roster" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">Hsinchu Seminar 20250926</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">0 · Empty</span></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sep 25, 2025</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Sep 25, 2025">1 year ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Hsinchu Seminar 20250926" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">SCS (Friday)</a><div style="color:#5F6B73;font-size:13px">Sharon's Cram School (Friday)</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">14</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Apr 20, 2025</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Apr 20, 2025">1 year ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for SCS (Friday)" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">SCS (Wed)</a><div style="color:#5F6B73;font-size:13px">Sharon's Cram School (Wednesday 19:00–21:00)</div></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">11</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Apr 20, 2025</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Apr 20, 2025">1 year ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for SCS (Wed)" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
               <tr>
                 <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:14px">Roster B</a></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">1 <span style="color:#8A5A00;font-size:13px">· 2 pending</span></td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Nov 20, 2024</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span title="Nov 20, 2024">2 years ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Roster B" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></td>
               </tr>
             </tbody>
@@ -655,7 +685,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Classes</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">Every class in your organization. Students can only practice once they’re in a class.</p>
         </div>
@@ -664,16 +694,14 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
 
       <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
         <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
-            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-              <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:240px;color:#5F6B73;font-size:14px">Search classes</label>
-              <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Teacher <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>All teachers</option></select></label>
-              <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>Name</option><option>Most students</option><option>Most recordings</option><option>Last recording</option></select></label>
-            </div>
-            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Export CSV</button>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <label style="flex:1 1 240px;max-width:420px;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 12px;color:#5F6B73;font-size:14px;box-sizing:border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search classes</label>
+            <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Teacher <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto"><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Sort: Name <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Export CSV</button></div>
           </div>
-          <div role="group" aria-label="Filter classes" style="display:flex;gap:8px;flex-wrap:wrap">
-            <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#0B6B63;font-weight:600">All 10</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">With students 7</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">No students 3</button>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between">
+            <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap"><button aria-pressed="true" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;">All 10</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">With students 7</button><button aria-pressed="false" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;">No students 3</button></div>
+            <span style="color:#5F6B73;font-size:14px"></span>
           </div>
         </div>
         <div style="overflow-x:auto">
@@ -691,7 +719,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">–</td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for 26.10.20 QA: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -699,7 +727,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">–</td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for 601: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -707,7 +735,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">No students</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">–</td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#00A094;color:#fff;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Copy of: 26.10.20 QA: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -715,7 +743,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">12</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">1,040</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73"><span title="Nov 18, 2026">6 days ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for G5-B Reading Practice: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -723,7 +751,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">No students</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">9</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73"><span title="Sep 12, 2026">2 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#00A094;color:#fff;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for MOE (Simple): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -731,7 +759,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap">No students</span></td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">–</td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#00A094;color:#fff;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sample Exercises: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -739,7 +767,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">4</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73"><span title="Jun 20, 2026">5 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay (Higher-Ed Detailed Report): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -747,7 +775,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">118</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73"><span title="Sep 24, 2026">2 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay Class (Detailed Report): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -755,7 +783,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">268</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73"><span title="Nov 18, 2026">6 days ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay Class (Lite Report): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
               <tr>
@@ -763,7 +791,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">1</td>
                 <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">73</td>
-                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73"><span title="Sep 21, 2026">2 months ago</span></td>
                 <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#FFFFFF;color:#222222;border:1px solid #C0C0C0;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay DM (Simple): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:16px;color:#4A555C">⋯</button></div></td>
               </tr>
             </tbody>
@@ -781,10 +809,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">All Recordings</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">Every student recording across your classes</p>
         </div>
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          
-          <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Export CSV</button>
-        </div>
+        
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #E2E7EB">
@@ -810,17 +835,20 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
       </div>
       </sc-if>
 
-      <section aria-label="Filters" style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
-          <label style="flex:1 1 280px;display:flex;align-items:center;gap:8px;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 12px;color:#5F6B73;font-size:14px;box-sizing:border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search student, class, lesson or exercise</label>
-          <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Class <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-          <button disabled="disabled" title="Choose a class first" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:#F2F2F2;color:#5F6B73;border-color:#E2E7EB;cursor:not-allowed">Lesson <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-          <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Date: Any time <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-          <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Score <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-          <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Type <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-          <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border-style:dashed">+ More filters <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <section aria-label="Filters" style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;border-bottom:0">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <label style="flex:1 1 220px;max-width:320px;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 12px;color:#5F6B73;font-size:14px;box-sizing:border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search student, class, lesson or exercise</label>
+            <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Class <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button disabled="disabled" title="Choose a class first" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:#F2F2F2;color:#5F6B73;border-color:#E2E7EB;cursor:not-allowed">Lesson <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Date: Any time <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Score <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">Type <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button onClick="{{recFilter}}" style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border-style:dashed">+ More filters <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto"><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">Sort: Newest first <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Export CSV</button></div>
+          </div>
+          <p style="margin:0;color:#5F6B73;font-size:13px">{{recShowing}}</p>
         </div>
-        <p style="margin:0;color:#5F6B73;font-size:13px">{{recShowing}}</p>
       </section>
 
       <section aria-label="Summary" style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:16px">
@@ -883,100 +911,101 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
           <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:16px;border-radius:4px;background:#FBE1E1"></span>Below 60</span>
           <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:16px;border-radius:4px;background:#D3EEDD;box-shadow:inset 0 0 0 2px #4357AD"></span>Teacher-adjusted</span>
         </div>
+        <sc-if value="{{rbHas}}" hint-placeholder-val="{{ false }}"><div role="region" aria-label="Selected rows" style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:10px 20px;background:#0B6B63;color:#FFFFFF;font-size:14px"><b>{{rbCount}} selected</b><div style="display:flex;flex-wrap:wrap;gap:8px"><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Mark as reviewed</button><button style="background:#FFFFFF;border:0;color:#0B6B63;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Export CSV</button><button style="background:#FBE1E1;border:0;color:#8A1F1F;border-radius:8px;min-height:36px;padding:0 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Delete</button></div><button onClick="{{rbClear}}" style="margin-left:auto;background:none;border:0;color:#FFFFFF;font:inherit;font-size:14px;font-weight:600;text-decoration:underline;cursor:pointer">Clear selection</button></div></sc-if>
         <div style="overflow-x:auto">
           <table style="width:100%;border-collapse:collapse;min-width:1040px">
             <thead><tr>
-              <th scope="col" style="padding:12px 8px 12px 20px;border-bottom:1px solid #E2E7EB;width:32px;text-align:left"><input type="checkbox" aria-label="Select all recordings" style="width:20px;height:20px"></th>
+              <th scope="col" style="padding:12px 8px 12px 20px;border-bottom:1px solid #E2E7EB;width:32px;text-align:left"><input type="checkbox" aria-label="Select all on this page" checked="{{rbAllC}}" onChange="{{rbAll}}" style="width:20px;height:20px"></th>
               <th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Student ↕</th><th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Exercise ↕</th><th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Type ↕</th><th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Score ↕</th><th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Teacher review ↕</th><th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Length ↕</th><th scope="col" style="padding:12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:left;border-bottom:1px solid #E2E7EB;white-space:nowrap">Recorded ↓</th>
               <th scope="col" style="padding:12px 20px 12px 8px;font-weight:600;font-size:13px;color:#4A555C;text-align:right;border-bottom:1px solid #E2E7EB">Listen</th>
             </tr></thead>
             <tbody>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Luna Lee" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Luna Lee</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Lite Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Luna Lee" checked="{{rbC0}}" onChange="{{rbT0}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Luna Lee</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Lite Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Reading Exercise (short)</div><div style="color:#5F6B73;font-size:13px">Sample Lesson</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span aria-label="Teacher score 30, AI score 57" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FBE1E1;color:#B42323;box-shadow:inset 0 0 0 2px #4357AD"><span>30</span><span style="font-size:11px;font-weight:500;text-decoration:line-through">AI 57</span></span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#1E5C3C;font-weight:600;font-size:14px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:03</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Nov 18, 11:27 AM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Nov 18, 2026, 11:27 AM">6 days ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Luna Lee" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Reading Exercise (short) in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Ryan Hsu" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Ryan Hsu</div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Ryan Hsu" checked="{{rbC1}}" onChange="{{rbT1}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ryan Hsu</a></div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Part 3</div><div style="color:#5F6B73;font-size:13px">Goldilocks &amp; the Three Bears</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FBE1E1;color:#B42323">48</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;white-space:nowrap">To review</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:42</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Nov 16, 3:05 PM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Nov 16, 2026, 3:05 PM">8 days ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Ryan Hsu" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Part 3 in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Ivy Chang" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Ivy Chang</div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Ivy Chang" checked="{{rbC2}}" onChange="{{rbT2}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ivy Chang</a></div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Part 2</div><div style="color:#5F6B73;font-size:13px">Goldilocks &amp; the Three Bears</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111">84</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:38</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Nov 16, 2:58 PM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Nov 16, 2026, 2:58 PM">8 days ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Ivy Chang" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Part 2 in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Mia Huang 黃米亞" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Mia Huang 黃米亞</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Mia Huang 黃米亞" checked="{{rbC3}}" onChange="{{rbT3}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Mia Huang 黃米亞</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Describe the picture</div><div style="color:#5F6B73;font-size:13px">Week 3</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading w/ Image</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111">72</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:51</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Oct 2, 9:14 AM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Oct 2, 2026, 9:14 AM">2 months ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Mia Huang 黃米亞" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Describe the picture in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Luna Lee" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Luna Lee</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Luna Lee" checked="{{rbC4}}" onChange="{{rbT4}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Luna Lee</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Reading with Image</div><div style="color:#5F6B73;font-size:13px">Week 1</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading w/ Image</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FDEFD3;color:#8A5A00">66</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;white-space:nowrap">To review</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:01</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Sep 24, 4:52 PM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Sep 24, 2026, 4:52 PM">2 months ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Luna Lee" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Reading with Image in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Luna Lee" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Luna Lee</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Luna Lee" checked="{{rbC5}}" onChange="{{rbT5}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Luna Lee</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Reading with Image</div><div style="color:#5F6B73;font-size:13px">Week 1</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading w/ Image</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FDEFD3;color:#8A5A00">67</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;white-space:nowrap">To review</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:02</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Sep 24, 4:51 PM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Sep 24, 2026, 4:51 PM">2 months ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Luna Lee" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Reading with Image in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Chloe Yang" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Chloe Yang</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Lite Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Chloe Yang" checked="{{rbC6}}" onChange="{{rbT6}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Chloe Yang</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Lite Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Free talk: my weekend</div><div style="color:#5F6B73;font-size:13px">Unit 2</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Speaking</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span aria-label="Teacher score 93, AI score 91" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111;box-shadow:inset 0 0 0 2px #4357AD"><span>93</span><span style="font-size:11px;font-weight:500;text-decoration:line-through">AI 91</span></span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-flex;align-items:center;gap:4px;color:#1E5C3C;font-weight:600;font-size:14px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">1:12</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Sep 22, 10:40 AM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Sep 22, 2026, 10:40 AM">2 months ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Chloe Yang" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Free talk: my weekend in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Kevin Chen" style="width:20px;height:20px"></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:700">Kevin Chen</div><div style="color:#5F6B73;font-size:13px">Sensay DM (Simple)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px;width:32px"><input type="checkbox" aria-label="Select recording by Kevin Chen" checked="{{rbC7}}" onChange="{{rbT7}}" style="width:20px;height:20px"></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Kevin Chen</a></div><div style="color:#5F6B73;font-size:13px">Sensay DM (Simple)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="font-weight:600">Part 1</div><div style="color:#5F6B73;font-size:13px">The Three Little Pigs</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#EEF2F5;color:#4A555C;border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;white-space:nowrap">Reading</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FDEFD3;color:#8A5A00">63</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;color:#4A555C">0:35</td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C">Sep 21, 8:02 PM</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;white-space:nowrap;color:#4A555C"><span title="Sep 21, 2026, 8:02 PM">2 months ago</span></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px"><div style="display:flex;gap:8px;justify-content:flex-end"><button aria-label="Play recording by Kevin Chen" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button><button aria-label="Open Part 1 in the lesson overview" style="width:44px;height:44px;border-radius:50%;border:1px solid #C0C0C0;background:#FFFFFF;color:#0B6B63;display:inline-flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h5v5M14 2L7.5 8.5M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/></svg></button></div></td>
               </tr>
             </tbody>
@@ -1012,52 +1041,52 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
             </tr></thead>
             <tbody>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div style="font-weight:700">Luna Lee</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report) +1</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Luna Lee</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report) +1</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">64</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FDEFD3;color:#8A5A00">61</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">22</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;white-space:nowrap">To review</span> <span style="font-size:13px;color:#4A555C">2</span></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C">Nov 18</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C"><span title="Nov 18, 2026">6 days ago</span></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div style="font-weight:700">Ryan Hsu</div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ryan Hsu</a></div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">427</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111">74</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">61</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="display:inline-block;background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;white-space:nowrap">To review</span> <span style="font-size:13px;color:#4A555C">1</span></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C">Nov 16</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C"><span title="Nov 16, 2026">8 days ago</span></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div style="font-weight:700">Ivy Chang</div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Ivy Chang</a></div><div style="color:#5F6B73;font-size:13px">G5-B Reading Practice</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">22</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111">81</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">1</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C">Nov 16</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C"><span title="Nov 16, 2026">8 days ago</span></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div style="font-weight:700">Mia Huang 黃米亞</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Mia Huang 黃米亞</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Detailed Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">396</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111">77</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">58</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C">Oct 2</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C"><span title="Oct 2, 2026">2 months ago</span></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div style="font-weight:700">Chloe Yang</div><div style="color:#5F6B73;font-size:13px">Sensay Class (Lite Report)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Chloe Yang</a></div><div style="color:#5F6B73;font-size:13px">Sensay Class (Lite Report)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">330</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#D3EEDD;color:#111111">83</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">24</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C">Sep 22</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C"><span title="Sep 22, 2026">2 months ago</span></td>
               </tr>
               <tr>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div style="font-weight:700">Kevin Chen</div><div style="color:#5F6B73;font-size:13px">Sensay DM (Simple)</div></td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-left:20px"><div><a href="student.html" style="font-weight:700;text-decoration:none">Kevin Chen</a></div><div style="color:#5F6B73;font-size:13px">Sensay DM (Simple)</div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">73</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:48px;box-sizing:border-box;padding:4px;border-radius:8px;font:600 15px 'Noto Sans',sans-serif;line-height:1.2;background:#FBE1E1;color:#B42323">58</span></div></td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px">39</td>
                 <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px"><span style="color:#5F6B73">–</span></td>
-                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C">Sep 21</td>
+                <td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;vertical-align:middle;font-size:14px;padding-right:20px;color:#4A555C"><span title="Sep 21, 2026">2 months ago</span></td>
               </tr>
             </tbody>
           </table>
@@ -1079,7 +1108,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
         <div>
-          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Plan &amp; billing</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">1 credit = 1 active student for 1 month. A student counts as active when they submit at least one recording that month.</p>
         </div>
@@ -1195,8 +1224,8 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               </tr>
             </thead>
             <tbody>
-              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">[Top-up date]</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">[Credits]</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right;font-weight:700">500</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Jan 15, 2027</span></td></tr>
-              <tr><td style="padding:12px 8px">[Top-up date]</td><td style="padding:12px 8px;text-align:right">[Credits]</td><td style="padding:12px 8px;text-align:right;font-weight:700">240</td><td style="padding:12px 8px">[Expiry date]</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">Jan 15, 2026</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">2,000</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right;font-weight:700">500</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600">Jan 15, 2027</span></td></tr>
+              <tr><td style="padding:12px 8px">Oct 1, 2026</td><td style="padding:12px 8px;text-align:right">240</td><td style="padding:12px 8px;text-align:right;font-weight:700">240</td><td style="padding:12px 8px">Oct 1, 2027</td></tr>
             </tbody>
           </table>
         </div>
@@ -1219,11 +1248,22 @@ class Component extends DCLogic {
     const tOff = 'border-bottom:3px solid transparent;font-weight:400;color:#4A555C;';
     const go = (k) => () => { try { var t = document.getElementById('navtoggle'); if (t) t.checked = false; } catch (e) {} this.setState({ screen: k, menuOpen: false }); };
 
+
+    const PON = 'background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;';
+    const POFF = 'background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;';
+    const rangeVals = (px, key, cur) => { const o = {}; ['month', '3m', 'year', 'all'].forEach((k) => { o[px + 'On_' + k] = cur === k; o[px + 'Pill_' + k] = cur === k ? PON : POFF; o[px + 'Set_' + k] = () => this.setState({ [key]: k }); }); return o; };
+    const dper = (this.state && this.state.dper) || 'month';
+    const DB = { month: ['1', '1', '4', '1 of 6', '1', '0 of 4', '0', '0 of 2', '0'], '3m': ['1', '9', '6', '1 of 6', '9', '0 of 4', '0', '0 of 2', '0'],
+      year: ['9', '1,950', '11', '5 of 6', '1,210', '3 of 4', '640', '1 of 2', '100'], all: ['12', '6,120', '12', '6 of 6', '3,800', '4 of 4', '1,820', '2 of 2', '500'] }[dper];
     const per = (this.state && this.state.period) || '3m';
+    const RANGES = Object.assign({}, rangeVals('ov', 'period', per), rangeVals('db', 'dper', dper));
     const pOn = 'background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;';
     const pOff = 'background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;';
     const setP = (k) => () => this.setState({ period: k });
     const P = {
+      'month': { rec: '1', stu: '1', stuOf: 'of 27 in classes', perS: '1', tea: '1', teaOf: 'of 3', title: 'Recordings per week', unit: 'week',
+        x: ['Nov 2','Nov 9','Nov 16','Nov 23'], v: [0,0,1,0],
+        u: ['1 of 27','1','0 of 0','0','0 of 1','0'], act: ['1','3%'] },
       '3m': { rec: '9', stu: '1', stuOf: 'of 27 in classes', perS: '9', tea: '1', teaOf: 'of 3', title: 'Recordings per week', unit: 'week',
         x: ['Aug 24','Aug 31','Sep 7','Sep 14','Sep 21','Sep 28','Oct 5','Oct 12','Oct 19','Oct 26','Nov 2','Nov 9','Nov 16','Nov 23'], v: [0,0,0,0,8,0,0,0,0,0,0,0,1,0],
         u: ['1 of 27','9','0 of 0','0','0 of 1','0'], act: ['1','3%'] },
@@ -1253,7 +1293,15 @@ class Component extends DCLogic {
     const segOff = 'background:transparent;color:#4A555C;';
     const viewNames = { all: 'All recordings', rev: 'To review', low: 'Below 60' };
     const setView = (k) => () => this.setState({ recView: k, recMod: false });
-    return {
+
+    const selOf = (px, key, n) => { const sel = (this.state && this.state[key]) || {}; const o = {}; let c = 0;
+      for (let i = 0; i < n; i++) { o[px + 'C' + i] = !!sel[i]; if (sel[i]) c++; o[px + 'T' + i] = () => { const nx = Object.assign({}, (this.state && this.state[key]) || {}); nx[i] = !nx[i]; this.setState({ [key]: nx }); }; }
+      o[px + 'Count'] = c; o[px + 'Has'] = c > 0; o[px + 'AllC'] = c === n;
+      o[px + 'All'] = () => { const all = {}; if (c !== n) for (let i = 0; i < n; i++) all[i] = true; this.setState({ [key]: all }); };
+      o[px + 'Clear'] = () => this.setState({ [key]: {} }); return o; };
+    const SEL = Object.assign(selOf('sb', 'stuSel', 8), selOf('rb', 'recSel', 8));
+    return Object.assign(RANGES, SEL, {
+      dbStu: DB[0], dbRec: DB[1], dbAvg: DB[2], dbA1: DB[3], dbA2: DB[4], dbB1: DB[5], dbB2: DB[6], dbC1: DB[7], dbC2: DB[8],
       vAllOn: rv === 'all', vRevOn: rv === 'rev', vLowOn: rv === 'low', vAllSt: rv === 'all' ? tabOn : tabOff, vRevSt: rv === 'rev' ? tabOn : tabOff, vLowSt: rv === 'low' ? tabOn : tabOff,
       viewAll: setView('all'), viewRev: setView('rev'), viewLow: setView('low'),
       recModified: rMod, recViewName: viewNames[rv], recReset: () => this.setState({ recMod: false }), recFilter: () => this.setState({ recMod: true }),
@@ -1269,7 +1317,7 @@ class Component extends DCLogic {
       st_dash: s === 'dash' ? on : off, st_ov: s === 'ov' ? on : off, st_bill: s === 'bill' ? on : off, st_teach: s === 'teach' ? on : off, st_stud: s === 'stud' ? on : off, st_ros: s === 'ros' ? on : off, st_cls: s === 'cls' ? on : off, st_rec: s === 'rec' ? on : off,
       go_dash: go('dash'), go_ov: go('ov'), go_bill: go('bill'), go_teach: go('teach'), go_stud: go('stud'), go_ros: go('ros'), go_cls: go('cls'), go_rec: go('rec'),
       toggleMenu: () => this.setState({ menuOpen: !open })
-    };
+    });
   }
 }
 mountDC(Component, 'tpl', 'app');

@@ -6,6 +6,7 @@ Clickable mockup of the redesigned teacher reporting screens. Open `index.html` 
 |---|---|
 | `portal.html` | **Admin portal** — one user with every role (owner · admin · teacher). Sidebar switches between Dashboard, Overview, Teachers, Students, Rosters, Classes and Plan & billing |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
+| `student.html` | **Student profile** — reached from any student name |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
 | `dc-lite.js` | Tiny template renderer used by both pages (mockup only, not production code) |
 
@@ -40,6 +41,17 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 **Seats and subscription alerts**
 - Seat counts sit where invites happen (Teachers and Students toolbars) and in Plan & billing.
 - Overview's Needs attention shows them only when action is needed, e.g. subscription ending within 60 days or seats about 80% full.
+
+**Shared patterns**
+- Page header: uppercase section label + title on portal pages; class, lesson and student pages add a white breadcrumb bar.
+- One toolbar for every list: search (with icon), filter dropdowns, Sort and Export CSV on the right, status filters as rounded buttons underneath. Rounded buttons filter; the grey switch changes how data is shown (e.g. Best score / Attempts, Recordings / By student).
+- Export CSV: in the page header for whole-page reports (Overview, Class Overview), in the toolbar for lists.
+- Date range: From / To plus quick ranges This month · Last 3 months · This year · All time (Dashboard and Overview).
+- Needs attention: grouped into Urgent and To do, each row with a text link to the fix.
+- Student names link to the student profile everywhere; teacher names are plain for now.
+- Lists show relative times ("6 days ago") with the full date on hover; empty values use "–".
+- Selecting rows (Students, All Recordings) shows a bulk action bar; table rows highlight on hover.
+- Sidebar items have icons.
 
 **Definitions**
 | Term | Meaning |
