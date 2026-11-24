@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lessons · Sensay (mockup)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0B6B63}a:hover{color:#1A4A47}
+table{border-collapse:separate;border-spacing:0}
+th,td{vertical-align:middle}
+.sk{position:sticky;z-index:2}
+thead th,thead td{position:sticky;z-index:3}
+thead .sk{z-index:5}
+.burger,.nav-close{display:none}
+.nav-toggle{position:absolute;opacity:0;width:1px;height:1px}
+.nav-toggle:focus-visible~header .burger{outline:2px solid #FFFFFF;outline-offset:2px}
+.scrim{display:none;position:fixed;inset:0;background:rgba(17,17,17,.4);z-index:50}
+@media (max-width:1023px){.burger{display:inline-flex!important}.side-nav{display:none!important}
+.nav-toggle:checked~* .side-nav{display:flex!important;position:fixed;top:0;left:0;bottom:0;z-index:60;width:280px!important;overflow-y:auto;box-shadow:0 8px 24px rgba(17,17,17,.2)}
+.nav-toggle:checked~* .scrim{display:block}.nav-toggle:checked~* .nav-close{display:flex}}
+@media (max-width:720px){.hdr-search{display:none!important}.app-header{padding:12px 16px!important}.logo{font-size:28px!important}main,.page-main{padding:20px 16px 40px!important}.kpi-row{grid-template-columns:1fr!important}}
+tbody tr:hover>td{background-color:#F7F9FA}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="tpl">
+<div style="min-height:1500px;background:#EEF2F5">
+<input type="checkbox" id="navtoggle" class="nav-toggle" aria-label="Show navigation menu">
+<header class="app-header" style="background:#00A094;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:16px 32px;font-family:'Noto Sans','Noto Sans TC',sans-serif">
+<div style="display:flex;align-items:center;gap:8px"><label for="navtoggle" class="burger" aria-label="Open menu" style="align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;cursor:pointer;color:#FFFFFF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></label><div class="logo" style="font-size:36px;font-weight:700;color:#fff;letter-spacing:-0.5px">sensay</div></div>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+<label class="hdr-search" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:10px 16px;width:320px;color:#5F6B73;font-size:14px"><span>Search students, classes, lessons…</span></label>
+<button style="display:flex;align-items:center;gap:12px;background:none;border:0;color:#fff;font:inherit;font-size:16px;cursor:pointer"><span style="width:40px;height:40px;border-radius:50%;background:#E6F7F5;color:#0B6B63;display:flex;align-items:center;justify-content:center;font-weight:700">L</span>L ▾</button>
+</div>
+</header>
+<div style="display:flex;flex-wrap:wrap">
+<nav aria-label="Main" class="side-nav" style="flex:0 0 240px;width:240px;padding:24px 16px;border-right:1px solid #E2E7EB;background:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;font-family:'Noto Sans','Noto Sans TC',sans-serif">
+<label for="navtoggle" class="nav-close" style="align-items:center;gap:8px;align-self:flex-end;min-height:44px;padding:0 12px;border-radius:8px;cursor:pointer;color:#4A555C;font-size:14px;font-weight:600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Close</label><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">MY TEACHING</div><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>Dashboard</a><a href="classes.html" aria-current="page" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#0B6B63;font-weight:700;background:#E6F7F5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg>My Classes</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>All Recordings</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg>Practice Packs</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">ORGANIZATION MANAGEMENT</div><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Overview</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></svg>Teachers</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>Students</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>Rosters</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>Classes</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></svg>Plan &amp; billing</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">HELP &amp; SUPPORT</div><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10l6-3v10l-6-3z"/></svg>Tutorial Videos</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.2v.1"/></svg>Help Desk</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>Contact Sensay</a></div></nav>
+<label for="navtoggle" class="scrim" aria-hidden="true"></label>
+<div style="flex: 999 1 560px; min-width: 0; background: #EEF2F5; font-family: 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; box-sizing: border-box; padding: 0 0 56px">
+<div style="background: #FFFFFF; border-bottom: 1px solid #D5DCE1">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; min-height: 72px">
+<nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; color: #5F6B73">
+<a href="classes.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">My Classes</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<span aria-current="page" style="color: #222222">G5-B Reading Practice</span>
+</nav>
+</div>
+</div>
+
+<div class="page-main" style="max-width: 1360px; margin: 0 auto; padding: 32px 24px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-end">
+<div>
+<div style="font-size: 13px; font-weight: 700; color: #4A555C; text-transform: uppercase; letter-spacing: 0.04em">Class</div>
+<h1 style="margin: 4px 0 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.15; color: #111111">G5-B Reading Practice</h1>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Add from Practice Packs</button>
+<button onClick="{{openDlg}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">+ Create lesson</button>
+</div>
+</div>
+<nav aria-label="Class sections" style="display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #D5DCE1">
+<a href="class-lessons.html" aria-current="page" style="padding: 12px 16px; text-decoration: none; color: #0B6B63; font: 700 16px 'Noto Sans','Noto Sans TC',sans-serif; border-bottom: 3px solid #00A094; margin-bottom: -1px">Lessons <span style="background: #E2E7EB; border-radius: 999px; padding: 2px 8px; font-size: 13px">{{lessonCount}}</span></a>
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans','Noto Sans TC',sans-serif">Students <span style="background: #E2E7EB; border-radius: 999px; padding: 2px 8px; font-size: 13px">12</span></a>
+<a href="index.html" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans','Noto Sans TC',sans-serif">Class Overview</a>
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans','Noto Sans TC',sans-serif">Analytics <span style="font-weight: 400; font-size: 13px; color: #5F6B73">· trends</span></a>
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans','Noto Sans TC',sans-serif">Co-Teachers</a>
+</nav>
+
+<section style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 16px 20px; background: #F7F9FA; border-bottom: 1px solid #E2E7EB">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<label style="flex: 1 1 240px; max-width: 420px; display: flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #C0C0C0; border-radius: 8px; min-height: 44px; padding: 0 12px; color: #5F6B73; font-size: 14px; box-sizing: border-box"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>Search lessons</label>
+<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-left: auto"><button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 12px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap">Sort: Lesson order <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Export CSV</button></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between">
+<div role="group" aria-label="Filter by availability" style="display: flex; gap: 8px; flex-wrap: wrap">
+<button aria-pressed="true" style="border-radius: 999px; min-height: 36px; padding: 0 14px; font: 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; background: #E6F7F5; border: 1px solid #00A094; color: #0B6B63; font-weight: 600">All {{lessonCount}}</button>
+<button style="border-radius: 999px; min-height: 36px; padding: 0 14px; font: 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; background: #FFFFFF; border: 1px solid #D5DCE1; color: #4A555C">Open 3</button>
+<button style="border-radius: 999px; min-height: 36px; padding: 0 14px; font: 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; background: #FFFFFF; border: 1px solid #D5DCE1; color: #4A555C">Scheduled 0</button>
+<button style="border-radius: 999px; min-height: 36px; padding: 0 14px; font: 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; background: #FFFFFF; border: 1px solid #D5DCE1; color: #4A555C">Ended 0</button>
+</div>
+<span style="color: #5F6B73; font-size: 14px">{{lessonCount}} lessons · 1,040 recordings · drag <span style="display: inline-flex; vertical-align: middle"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span> to reorder</span>
+</div>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; min-width: 820px">
+<thead><tr><th scope="col" style="padding: 12px 8px 12px 16px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Reorder</span></th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">#</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Lesson</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Availability</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Exercises</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Recordings</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Last recording</th><th scope="col" style="padding: 12px 16px 12px 8px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Open</span></th></tr></thead>
+<tbody>
+<sc-for list="{{lessons}}" as="l" hint-placeholder-count="4">
+<tr>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-left: 16px; width: 32px"><span title="Drag to reorder" style="display: inline-flex; cursor: grab"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; width: 32px; color: #4A555C">{{l.n}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><a href="lesson-exercises.html" style="font-weight: 700; font-size: 15px; text-decoration: none">{{l.name}}</a><sc-if value="{{l.isNew}}" hint-placeholder-val="{{ false }}"><span style="background: #D6F0EE; color: #0B6B63; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">New</span></sc-if></div><div style="color: #5F6B73; font-size: 13px; max-width: 520px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{l.sub}}</div></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><span style="display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700; white-space: nowrap; background: {{l.avBg}}; color: {{l.avFg}}">{{l.av}}</span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{l.ex}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{l.recs}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C; white-space: nowrap"><span title="{{l.lastFull}}">{{l.last}}</span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-right: 16px; text-align: right; white-space: nowrap"><a href="lesson-exercises.html" aria-label="Open {{l.name}}" style="display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 8px; color: #0B6B63"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<sc-if value="{{dlgOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 80; background: rgba(17,17,17,.45); display: flex; align-items: flex-start; justify-content: center; padding: 48px 16px; box-sizing: border-box; overflow-y: auto">
+<div role="dialog" aria-modal="true" aria-labelledby="newLessonTitle" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 16px 48px rgba(17,17,17,.25); width: 100%; max-width: 560px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid #E2E7EB">
+<h2 id="newLessonTitle" style="margin: 0; font-family: Lato, sans-serif; font-size: 20px; font-weight: 700; color: #111111">Create lesson</h2>
+<button onClick="{{closeDlg}}" aria-label="Close" style="width: 44px; height: 44px; border: 0; background: #F2F2F2; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Lesson name<input id="lessonName" type="text" value="{{draftName}}" onInput="{{onName}}" placeholder="e.g. Little Red Riding Hood" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222"><span>Description or source link <span style="font-size: 13px; font-weight: 400; color: #5F6B73">(optional)</span></span><input type="text" placeholder="Shown to students under the lesson name" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"></label>
+<fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 14px; font-weight: 600; color: #222222; margin-bottom: 6px; padding: 0">When can students do it?</legend>
+<label style="display: flex; gap: 10px; align-items: center; font-size: 14px; min-height: 32px"><input type="radio" name="avail" checked="{{avAlways}}" onChange="{{setAlways}}" style="width: 18px; height: 18px">Always available</label>
+<label style="display: flex; gap: 10px; align-items: center; font-size: 14px; min-height: 32px"><input type="radio" name="avail" checked="{{avDates}}" onChange="{{setDates}}" style="width: 18px; height: 18px">Between dates</label>
+<sc-if value="{{avDates}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding-left: 28px"><label style="display: flex; align-items: center"><span style="position: absolute; left: -9999px">Opens</span><input type="date" value="2026-11-25" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto"></label><span aria-hidden="true" style="color: #5F6B73">–</span><label style="display: flex; align-items: center"><span style="position: absolute; left: -9999px">Closes</span><input type="date" value="2026-12-20" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto"></label></div></sc-if>
+</fieldset>
+<p style="margin: 0; font-size: 13px; font-weight: 400; color: #5F6B73">You'll add exercises next. To reuse ready-made lessons, use <b>Add from Practice Packs</b> instead.</p>
+<sc-if value="{{dlgErr}}" hint-placeholder-val="{{ false }}"><div role="alert" style="font-size: 13px; color: #B42323">Give the lesson a name.</div></sc-if>
+</div>
+<div style="display: flex; justify-content: flex-end; gap: 8px; padding: 16px 24px; border-top: 1px solid #E2E7EB">
+<button onClick="{{closeDlg}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Cancel</button>
+<button onClick="{{createLesson}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Create lesson</button>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25)">{{toastText}}<button onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
+</div>
+</div>
+</div>
+</script>
+<script src="dc-lite.js"></script>
+<script>
+var LESSONS = [
+  { name: 'How to Use Sensay', sub: 'Getting started · 1 exercise to try every feature', av: 'Always available', kind: 'always', ex: 1, recs: '182', last: '1 year ago', lastFull: 'May 12, 2025' },
+  { name: 'Goldilocks & the Three Bears', sub: 'https://storiestogrowby.org/story/goldilocks-and-the-three-bears-bedtime-stories-for-kids/', av: 'Open until Dec 20, 2026', kind: 'open', ex: 5, recs: '640', last: '6 days ago', lastFull: 'Nov 18, 2026' },
+  { name: 'The Three Little Pigs', sub: 'https://storiestogrowby.org/story/the-three-little-pigs-fairy-tale-for-kids/', av: 'Open until Jan 15, 2027', kind: 'open', ex: 4, recs: '170', last: '8 days ago', lastFull: 'Nov 16, 2026' },
+  { name: 'Jack and the Beanstalk', sub: 'https://storiestogrowby.org/story/jack-and-the-beanstalk-story-for-kids/', av: 'Open until Dec 31, 2026', kind: 'open', ex: 3, recs: '48', last: '2 weeks ago', lastFull: 'Nov 10, 2026' }
+];
+var AV = { always: ['#EEF2F5', '#4A555C'], open: ['#D3EEDD', '#1E5C3C'], scheduled: ['#E8EAFF', '#33438A'], ended: ['#F2F2F2', '#5F6B73'] };
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { added: [], dlg: false, name: '', avail: 'always', err: false, toast: '' }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var all = LESSONS.concat(st.added);
+    return {
+      lessons: all.map(function (l, i) { return { n: i + 1, name: l.name, sub: l.sub, av: l.av, avBg: AV[l.kind][0], avFg: AV[l.kind][1], ex: l.ex, recs: l.recs, last: l.last, lastFull: l.lastFull, isNew: !!l.isNew }; }),
+      lessonCount: all.length,
+      dlgOpen: st.dlg, draftName: st.name, dlgErr: st.err, avAlways: st.avail === 'always', avDates: st.avail === 'dates',
+      openDlg: function () { self.setState({ dlg: true, name: '', avail: 'always', err: false, toast: '' }); },
+      closeDlg: function () { self.setState({ dlg: false, err: false }); },
+      onName: function (e) { self.setState({ name: e.target.value, err: false }); },
+      setAlways: function () { self.setState({ avail: 'always' }); },
+      setDates: function () { self.setState({ avail: 'dates' }); },
+      createLesson: function () {
+        var n = (self.state.name || '').trim();
+        if (!n) { self.setState({ err: true }); return; }
+        var dates = self.state.avail === 'dates';
+        var l = { name: n, sub: 'No exercises yet · open it to add the first one', av: dates ? 'Opens Nov 25, 2026' : 'Always available', kind: dates ? 'scheduled' : 'always', ex: 0, recs: '0', last: '–', lastFull: 'No recordings yet', isNew: true };
+        self.setState({ added: self.state.added.concat([l]), dlg: false, toast: '“' + n + '” created. Open it to add exercises.' });
+      },
+      toast: !!st.toast, toastText: st.toast, dismissToast: function () { self.setState({ toast: '' }); }
+    };
+  }
+}
+mountDC(Component, 'tpl', 'app');
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson exercises · Sensay (mockup)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0B6B63}a:hover{color:#1A4A47}
+table{border-collapse:separate;border-spacing:0}
+th,td{vertical-align:middle}
+.sk{position:sticky;z-index:2}
+thead th,thead td{position:sticky;z-index:3}
+thead .sk{z-index:5}
+.burger,.nav-close{display:none}
+.nav-toggle{position:absolute;opacity:0;width:1px;height:1px}
+.nav-toggle:focus-visible~header .burger{outline:2px solid #FFFFFF;outline-offset:2px}
+.scrim{display:none;position:fixed;inset:0;background:rgba(17,17,17,.4);z-index:50}
+@media (max-width:1023px){.burger{display:inline-flex!important}.side-nav{display:none!important}
+.nav-toggle:checked~* .side-nav{display:flex!important;position:fixed;top:0;left:0;bottom:0;z-index:60;width:280px!important;overflow-y:auto;box-shadow:0 8px 24px rgba(17,17,17,.2)}
+.nav-toggle:checked~* .scrim{display:block}.nav-toggle:checked~* .nav-close{display:flex}}
+@media (max-width:720px){.hdr-search{display:none!important}.app-header{padding:12px 16px!important}.logo{font-size:28px!important}main,.page-main{padding:20px 16px 40px!important}.kpi-row{grid-template-columns:1fr!important}}
+tbody tr:hover>td{background-color:#F7F9FA}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="tpl">
+<div style="min-height:1500px;background:#EEF2F5">
+<input type="checkbox" id="navtoggle" class="nav-toggle" aria-label="Show navigation menu">
+<header class="app-header" style="background:#00A094;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:16px 32px;font-family:'Noto Sans','Noto Sans TC',sans-serif">
+<div style="display:flex;align-items:center;gap:8px"><label for="navtoggle" class="burger" aria-label="Open menu" style="align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;cursor:pointer;color:#FFFFFF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></label><div class="logo" style="font-size:36px;font-weight:700;color:#fff;letter-spacing:-0.5px">sensay</div></div>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+<label class="hdr-search" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:10px 16px;width:320px;color:#5F6B73;font-size:14px"><span>Search students, classes, lessons…</span></label>
+<button style="display:flex;align-items:center;gap:12px;background:none;border:0;color:#fff;font:inherit;font-size:16px;cursor:pointer"><span style="width:40px;height:40px;border-radius:50%;background:#E6F7F5;color:#0B6B63;display:flex;align-items:center;justify-content:center;font-weight:700">L</span>L ▾</button>
+</div>
+</header>
+<div style="display:flex;flex-wrap:wrap">
+<nav aria-label="Main" class="side-nav" style="flex:0 0 240px;width:240px;padding:24px 16px;border-right:1px solid #E2E7EB;background:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;font-family:'Noto Sans','Noto Sans TC',sans-serif">
+<label for="navtoggle" class="nav-close" style="align-items:center;gap:8px;align-self:flex-end;min-height:44px;padding:0 12px;border-radius:8px;cursor:pointer;color:#4A555C;font-size:14px;font-weight:600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Close</label><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">MY TEACHING</div><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>Dashboard</a><a href="classes.html" aria-current="page" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#0B6B63;font-weight:700;background:#E6F7F5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg>My Classes</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>All Recordings</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg>Practice Packs</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">ORGANIZATION MANAGEMENT</div><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Overview</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></svg>Teachers</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>Students</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>Rosters</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>Classes</a><a href="portal.html" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></svg>Plan &amp; billing</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin:0 0 6px 12px">HELP &amp; SUPPORT</div><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10l6-3v10l-6-3z"/></svg>Tutorial Videos</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.2v.1"/></svg>Help Desk</a><a href="#" style="display:flex;align-items:center;gap:10px;text-align:left;width:100%;box-sizing:border-box;border:0;border-radius:8px;padding:8px 12px;font-family:inherit;font-size:15px;line-height:1.4;text-decoration:none;cursor:pointer;color:#4A555C;font-weight:400;background:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>Contact Sensay</a></div></nav>
+<label for="navtoggle" class="scrim" aria-hidden="true"></label>
+<div style="flex: 999 1 560px; min-width: 0; background: #EEF2F5; font-family: 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; box-sizing: border-box; padding: 0 0 56px">
+<div style="background: #FFFFFF; border-bottom: 1px solid #D5DCE1">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; min-height: 72px">
+<nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; color: #5F6B73">
+<a href="classes.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">My Classes</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">G5-B Reading Practice</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">Lessons</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<span aria-current="page" style="color: #222222">Goldilocks &amp; the Three Bears</span>
+</nav>
+</div>
+</div>
+
+<div class="page-main" style="max-width: 1360px; margin: 0 auto; padding: 32px 24px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-end">
+<div>
+<div style="font-size: 13px; font-weight: 700; color: #4A555C; text-transform: uppercase; letter-spacing: 0.04em">Lesson</div>
+<h1 style="margin: 4px 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.15; color: #111111">Goldilocks &amp; the Three Bears</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; color: #5F6B73"><span style="background: #D3EEDD; color: #1E5C3C; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700">Open until Dec 20, 2026</span><a href="#" style="font-size: 13px">storiestogrowby.org</a></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Edit lesson</button>
+<button onClick="{{openEx}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">+ Create exercise</button>
+</div>
+</div>
+<nav aria-label="Lesson sections" style="display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #D5DCE1">
+<a href="lesson-exercises.html" aria-current="page" style="padding: 12px 16px; text-decoration: none; color: #0B6B63; font: 700 16px 'Noto Sans','Noto Sans TC',sans-serif; border-bottom: 3px solid #00A094; margin-bottom: -1px">Exercises <span style="background: #E2E7EB; border-radius: 999px; padding: 2px 8px; font-size: 13px">{{exCount}}</span></a>
+<a href="lesson.html" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans','Noto Sans TC',sans-serif">Results</a>
+</nav>
+
+<section style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; padding: 16px 20px; background: #F7F9FA; border-bottom: 1px solid #E2E7EB">
+<span style="color: #5F6B73; font-size: 14px">{{exCount}} exercises · 640 recordings · drag <span style="display: inline-flex; vertical-align: middle"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span> to reorder</span>
+<button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Export CSV</button>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; min-width: 900px">
+<thead><tr><th scope="col" style="padding: 12px 8px 12px 16px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Reorder</span></th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">#</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Exercise</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Type</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Recordings</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Last recording</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Recording time</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Words read</th><th scope="col" style="padding: 12px 16px 12px 8px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Actions</span></th></tr></thead>
+<tbody>
+<sc-for list="{{exercises}}" as="e" hint-placeholder-count="5">
+<tr>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-left: 16px; width: 32px"><span title="Drag to reorder" style="display: inline-flex; cursor: grab"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; width: 32px; color: #4A555C">{{e.n}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span style="font-weight: 700; font-size: 15px">{{e.title}}</span><sc-if value="{{e.isNew}}" hint-placeholder-val="{{ false }}"><span style="background: #D6F0EE; color: #0B6B63; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">New</span></sc-if></div><div style="color: #5F6B73; font-size: 13px; max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{e.preview}}</div></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><span style="display: inline-flex; gap: 6px; align-items: center; background: #EEF2F5; color: #4A555C; border-radius: 6px; padding: 3px 8px; font-size: 13px; font-weight: 600; white-space: nowrap">{{e.type}}</span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{e.recs}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C; white-space: nowrap"><span title="{{e.lastFull}}">{{e.last}}</span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C">{{e.time}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C">{{e.words}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-right: 16px; text-align: right"><button aria-label="More actions for {{e.title}}: edit, preview as student, duplicate, move up, move down, delete" style="background: #FFFFFF; border: 1px solid #C0C0C0; border-radius: 8px; width: 44px; height: 44px; font-size: 18px; color: #4A555C; cursor: pointer">⋯</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<div style="padding: 12px 20px; border-top: 1px solid #E2E7EB"><button onClick="{{openEx}}" style="background: none; border: 0; padding: 0; color: #0B6B63; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; min-height: 44px">+ Add another exercise</button></div>
+</section>
+</div>
+<sc-if value="{{exOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 80; background: rgba(17,17,17,.45)"></div>
+<div role="dialog" aria-modal="true" aria-labelledby="newExTitle" style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 81; width: 100%; max-width: 640px; background: #FFFFFF; box-shadow: -8px 0 32px rgba(17,17,17,.2); display: flex; flex-direction: column; font-family: 'Noto Sans','Noto Sans TC',sans-serif">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 24px; border-bottom: 1px solid #E2E7EB">
+<div>
+<div style="font-size: 13px; color: #5F6B73">Goldilocks &amp; the Three Bears</div>
+<h2 id="newExTitle" style="margin: 2px 0 0; font-family: Lato, sans-serif; font-size: 20px; font-weight: 700; color: #111111">Create exercise</h2>
+</div>
+<button onClick="{{closeEx}}" aria-label="Close" style="width: 44px; height: 44px; border: 0; background: #F2F2F2; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<div style="display: flex; gap: 8px 20px; flex-wrap: wrap; padding: 12px 24px; border-bottom: 1px solid #E2E7EB; background: #F7F9FA"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: {{s1Fg}}"><span style="width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; background: {{s1Bg}}; color: {{s1DotFg}}">1</span>Type</span><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: {{s2Fg}}"><span style="width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; background: {{s2Bg}}; color: {{s2DotFg}}">2</span>Content</span><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: {{s3Fg}}"><span style="width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; background: {{s3Bg}}; color: {{s3DotFg}}">3</span>Settings</span></div>
+<div style="flex: 1; overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px">
+
+<sc-if value="{{step1}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 14px; color: #4A555C">What should students do?</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px"><button type="button" onClick="{{pick_reading}}" aria-pressed="{{on_reading}}" style="text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; cursor: pointer; font-family: 'Noto Sans','Noto Sans TC',sans-serif; {{st_reading}}"><span style="width: 40px; height: 40px; border-radius: 50%; background: #E6F7F5; color: #0B6B63; display: inline-flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg></span><span><span style="display: block; font-weight: 700; font-size: 15px; color: #111111">Reading</span><span style="display: block; font-size: 13px; color: #5F6B73; margin-top: 2px">Students read a passage out loud. Scored on pronunciation and fluency.</span></span></button><button type="button" onClick="{{pick_image}}" aria-pressed="{{on_image}}" style="text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; cursor: pointer; font-family: 'Noto Sans','Noto Sans TC',sans-serif; {{st_image}}"><span style="width: 40px; height: 40px; border-radius: 50%; background: #E6F7F5; color: #0B6B63; display: inline-flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span><span><span style="display: block; font-weight: 700; font-size: 15px; color: #111111">Reading w/ Image</span><span style="display: block; font-size: 13px; color: #5F6B73; margin-top: 2px">A passage with a picture to support understanding.</span></span></button><button type="button" onClick="{{pick_speaking}}" aria-pressed="{{on_speaking}}" style="text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; cursor: pointer; font-family: 'Noto Sans','Noto Sans TC',sans-serif; {{st_speaking}}"><span style="width: 40px; height: 40px; border-radius: 50%; background: #E6F7F5; color: #0B6B63; display: inline-flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><span><span style="display: block; font-weight: 700; font-size: 15px; color: #111111">Speaking</span><span style="display: block; font-size: 13px; color: #5F6B73; margin-top: 2px">Students answer a spoken or written prompt in their own words.</span></span></button><button type="button" onClick="{{pick_repeat}}" aria-pressed="{{on_repeat}}" style="text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; cursor: pointer; font-family: 'Noto Sans','Noto Sans TC',sans-serif; {{st_repeat}}"><span style="width: 40px; height: 40px; border-radius: 50%; background: #E6F7F5; color: #0B6B63; display: inline-flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg></span><span><span style="display: block; font-weight: 700; font-size: 15px; color: #111111">Listen &amp; repeat</span><span style="display: block; font-size: 13px; color: #5F6B73; margin-top: 2px">Students hear a model sentence, then repeat it.</span></span></button></div>
+</sc-if>
+
+<sc-if value="{{step2}}" hint-placeholder-val="{{ false }}">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Title<input id="exTitle" type="text" value="{{exTitleVal}}" onInput="{{onExTitle}}" placeholder="e.g. Part 6" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"></label>
+<sc-if value="{{needsPassage}}" hint-placeholder-val="{{ true }}">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222"><span>{{passageLabel}}</span><textarea id="exPassage" rows="6" value="{{exPassage}}" onInput="{{onPassage}}" placeholder="{{passageHint}}" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; min-height: 140px; padding: 10px 12px; resize: vertical"></textarea><span style="font-size: 13px; font-weight: 400; color: #5F6B73">{{wordCount}} words · about {{readSecs}} seconds to read</span></label>
+</sc-if>
+<sc-if value="{{needsImage}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Picture<div style="border: 1.5px dashed #A9B3BA; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-weight: 400; color: #5F6B73; font-size: 14px; text-align: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>Drag a picture here, or <button style="background: none; border: 0; padding: 0; color: #0B6B63; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; text-decoration: underline">choose a file</button><span style="font-size: 12px">JPG or PNG, up to 5 MB</span></div></div>
+</sc-if>
+<sc-if value="{{needsAudio}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Model audio<div style="display: flex; flex-wrap: wrap; gap: 8px"><button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Record it</button><button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Upload audio</button><button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Use a computer voice</button></div><span style="font-size: 13px; font-weight: 400; color: #5F6B73">Students hear this before they repeat.</span></div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{step3}}" hint-placeholder-val="{{ false }}">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Time limit per attempt<select style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"><option>30 seconds</option><option>60 seconds</option><option>90 seconds</option><option>2 minutes</option><option>No limit</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Attempts allowed<select style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"><option>Unlimited (best score counts)</option><option>3 attempts</option><option>1 attempt</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Preparation time<select style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"><option>15 seconds</option><option>None</option><option>30 seconds</option><option>60 seconds</option></select><span style="font-size: 13px; font-weight: 400; color: #5F6B73">Time to read or think before recording starts.</span></label>
+<div style="display: flex; flex-direction: column; gap: 4px; background: #F7F9FA; border-radius: 12px; padding: 14px 16px; font-size: 14px">
+<b>Summary</b>
+<span>{{summaryType}} · “{{summaryTitle}}”</span>
+<span style="color: #5F6B73">Added as exercise {{nextN}} in Goldilocks &amp; the Three Bears. You can reorder it later.</span>
+</div>
+</sc-if>
+<sc-if value="{{exErr}}" hint-placeholder-val="{{ false }}"><div role="alert" style="font-size: 13px; color: #B42323">{{exErrText}}</div></sc-if>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 8px; padding: 16px 24px; border-top: 1px solid #E2E7EB; flex-wrap: wrap">
+<sc-if value="{{showBack}}" hint-placeholder-val="{{ false }}"><button onClick="{{backEx}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Back</button></sc-if>
+<sc-if value="{{step1}}" hint-placeholder-val="{{ true }}"><button onClick="{{closeEx}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Cancel</button></sc-if>
+<div style="display: flex; gap: 8px; margin-left: auto; flex-wrap: wrap">
+<sc-if value="{{step3}}" hint-placeholder-val="{{ false }}"><button onClick="{{previewEx}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Preview as student</button></sc-if>
+<button onClick="{{nextEx}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">{{nextLabel}}</button>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25)">{{toastText}}<button onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
+</div>
+</div>
+</div>
+</script>
+<script src="dc-lite.js"></script>
+<script>
+var EXS = [
+  { title: 'Part 1', preview: 'Once upon a time, there was a little girl named Goldilocks. She went for a walk in the forest…', type: 'Reading · 30s', recs: '150', last: '6 days ago', lastFull: 'Nov 18, 2026', time: '18:40', words: '2,310' },
+  { title: 'Part 2', preview: 'She came upon a house. She knocked and, when no one answered, she walked right in…', type: 'Reading · 30s', recs: '140', last: '6 days ago', lastFull: 'Nov 18, 2026', time: '17:05', words: '2,060' },
+  { title: 'Part 3', preview: 'At the table in the kitchen, there were three bowls of porridge…', type: 'Reading w/ Image', recs: '130', last: '8 days ago', lastFull: 'Nov 16, 2026', time: '21:30', words: '2,480' },
+  { title: 'Part 4', preview: 'After she ate the three bears’ breakfasts she decided she was feeling a little tired…', type: 'Reading · 30s', recs: '120', last: '8 days ago', lastFull: 'Nov 16, 2026', time: '14:55', words: '1,790' },
+  { title: 'Part 5', preview: 'What would you do if you found Goldilocks in your house? Tell us in 3 sentences.', type: 'Speaking · 60s', recs: '100', last: '2 weeks ago', lastFull: 'Nov 10, 2026', time: '41:20', words: '3,105' }
+];
+var TYPE = {
+  reading: { name: 'Reading', passage: true, label: 'Passage students read aloud', hint: 'Paste or type the text…', short: 'Reading · 30s' },
+  image: { name: 'Reading w/ Image', passage: true, image: true, label: 'Passage students read aloud', hint: 'Paste or type the text…', short: 'Reading w/ Image' },
+  speaking: { name: 'Speaking', passage: true, label: 'Question or prompt', hint: 'e.g. What would you do if you found Goldilocks in your house?', short: 'Speaking · 60s' },
+  repeat: { name: 'Listen & repeat', passage: true, audio: true, label: 'Sentence to repeat', hint: 'e.g. Someone’s been eating my porridge!', short: 'Listen & repeat' }
+};
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: false, step: 1, type: null, title: '', passage: '', err: '', added: [], toast: '' }; }
+  renderVals() {
+    var self = this, st = this.state, T = st.type ? TYPE[st.type] : null;
+    var all = EXS.concat(st.added);
+    var on = 'background:#E6F7F5;border:2px solid #00A094;', off = 'background:#FFFFFF;border:1px solid #D5DCE1;';
+    var words = (st.passage || '').trim() ? st.passage.trim().split(/\s+/).length : 0;
+    var v = {
+      exercises: all.map(function (e, i) { return Object.assign({ n: i + 1, isNew: !!e.isNew }, e); }),
+      exCount: all.length, nextN: all.length + 1,
+      exOpen: st.open, step1: st.step === 1, step2: st.step === 2, step3: st.step === 3, showBack: st.step > 1,
+      nextLabel: st.step === 3 ? 'Add exercise' : 'Next',
+      exTitleVal: st.title, exPassage: st.passage, wordCount: words, readSecs: Math.max(0, Math.round(words / 2.2)),
+      needsPassage: !!(T && T.passage), needsImage: !!(T && T.image), needsAudio: !!(T && T.audio),
+      passageLabel: T ? T.label : '', passageHint: T ? T.hint : '',
+      summaryType: T ? T.name : '', summaryTitle: st.title || 'Untitled',
+      exErr: !!st.err, exErrText: st.err,
+      openEx: function () { self.setState({ open: true, step: 1, type: null, title: 'Part ' + (EXS.length + self.state.added.length + 1), passage: '', err: '', toast: '' }); },
+      closeEx: function () { self.setState({ open: false, err: '' }); },
+      backEx: function () { self.setState({ step: Math.max(1, self.state.step - 1), err: '' }); },
+      onExTitle: function (e) { self.setState({ title: e.target.value, err: '' }); },
+      onPassage: function (e) { self.setState({ passage: e.target.value, err: '' }); },
+      previewEx: function () { self.setState({ toast: 'Preview opens in a new tab in the real product.' }); },
+      nextEx: function () {
+        var s = self.state;
+        if (s.step === 1) { if (!s.type) { self.setState({ err: 'Choose what students should do.' }); return; } self.setState({ step: 2, err: '' }); return; }
+        if (s.step === 2) {
+          if (!(s.title || '').trim()) { self.setState({ err: 'Give the exercise a title.' }); return; }
+          if (!(s.passage || '').trim()) { self.setState({ err: 'Add the ' + TYPE[s.type].label.toLowerCase() + '.' }); return; }
+          self.setState({ step: 3, err: '' }); return;
+        }
+        var e = { title: s.title.trim(), preview: s.passage.trim(), type: TYPE[s.type].short, recs: '0', last: '–', lastFull: 'No recordings yet', time: '–', words: '–', isNew: true };
+        self.setState({ added: s.added.concat([e]), open: false, toast: '“' + e.title + '” added to the lesson.' });
+      },
+      toast: !!st.toast, toastText: st.toast, dismissToast: function () { self.setState({ toast: '' }); }
+    };
+    ['reading', 'image', 'speaking', 'repeat'].forEach(function (k) {
+      v['on_' + k] = st.type === k; v['st_' + k] = st.type === k ? on : off;
+      v['pick_' + k] = function () { self.setState({ type: k, err: '' }); };
+    });
+    [1, 2, 3].forEach(function (n) {
+      var done = st.step > n, cur = st.step === n;
+      v['s' + n + 'Bg'] = done || cur ? '#00A094' : '#E2E7EB'; v['s' + n + 'DotFg'] = done || cur ? '#FFFFFF' : '#4A555C'; v['s' + n + 'Fg'] = cur ? '#0B6B63' : '#4A555C';
+    });
+    return v;
+  }
+}
+mountDC(Component, 'tpl', 'app');
+</script>
+</body>
+</html>
