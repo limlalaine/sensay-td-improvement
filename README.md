@@ -23,7 +23,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 
 **Screens**
 - **Dashboard** — the teacher's own classes: students who recorded, recordings, needs attention (remind, review, resend), My classes table.
-- **Overview** — the old Overview and Reports merged: a date range (From / To) with quick ranges Last 3 months · This year · All time, four metrics (Recordings also shows the all-time total), Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
+- **Overview** — the old Overview and Reports merged: a date range (From / To) with quick ranges Last 3 months · This year · All time (switchable, sample data for each; the chart shows weeks, months or years to match), four metrics (Recordings also shows the all-time total), Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
 - **Teachers** — grouped Pending invitations / Joined; student-account permission (Can edit / View only) is set in the table, with a default for new teachers. Replaces the old Settings tab.
 - **Students** — student seat count in the toolbar; grouped Pending invitations / Joined · not in a class / Joined · in a class; filters, sort, import, export.
 - **Rosters** — saved lists of students, newest first; empty rosters greyed out.
