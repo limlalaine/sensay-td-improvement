@@ -66,8 +66,8 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
 - **+ Add exercises** opens the exercise builder (`exercise-builder.html`), a Google Forms–style page:
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
-  - 6 types, each with its own icon: **Reading** (30s or 90s), **Reading w/ Image**, **Question**, **Image**, **Video**, **Self Practice**. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
-  - **Question** merges the old Question w/ Answer and Question types. It has an optional picture or video, and "How should answers be checked?":
+  - 3 types, each with its own icon: **Reading** (30s or 90s, optional picture), **Question** (optional picture or video), **Self Practice**. The old Reading w/ Image, Image and Video types are now a picture or video attached to Reading or Question. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
+  - **Question** covers the old Question w/ Answer, Question, Image and Video types. It has an optional picture or video, and "How should answers be checked?":
     - **Open answer**: anything is accepted, scored on speaking only.
     - **Exact answer**: compared with the teacher's answer; small differences (I'm / I am, 11 / eleven) are accepted.
     - **Keywords**: keyword chips (`chair / seat` = either), rule **All of them**, **Any one** or **At least N**, with a plain-language summary. Example: "Name 4 things in the picture" with 6 keywords, at least 4.
