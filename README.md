@@ -26,7 +26,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - **Overview** — the old Overview and Reports merged: a date range (From / To) with quick ranges Last 3 months · This year · All time (switchable, sample data for each; the chart shows weeks, months or years to match), four metrics (Recordings also shows the all-time total), Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
 - **Teachers** — grouped Pending invitations / Joined; student-account permission (Can edit / View only) is set in the table, with a default for new teachers. Replaces the old Settings tab.
 - **Students** — student seat count in the toolbar; grouped Pending invitations / Joined · not in a class / Joined · in a class; filters, sort, import, export.
-- **Rosters** — saved lists of students, newest first; empty rosters greyed out.
+- **Rosters** — saved lists of students, newest first; empty rosters grayed out.
 - **Classes** — empty classes tagged "No students"; Add students per row, other actions in ⋯.
 - **Plan & billing** — subscription & seats (valid until, teacher seats, student seats); credits: balance, this month's usage, next expiration, estimated unused credits, monthly usage, credits by top-up.
 
@@ -85,8 +85,8 @@ While the panel is open the table compacts (smaller cells, sub-lines hidden) so 
 
 | Rule | Current mockup value |
 |---|---|
-| Score colours | Green **70+**, Yellow **60–69**, Red **below 60** (3 colours only) |
-| Overall score text colour | Default 70+, amber 60–69, red below 60 |
+| Score colors | Green **70+**, Yellow **60–69**, Red **below 60** (3 colors only) |
+| Overall score text color | Default 70+, amber 60–69, red below 60 |
 | Teacher overrides | **Exercise level only.** Lesson and overall scores recalculate from exercise scores. Adjusted exercises get a purple outline; the AI score is shown crossed out. |
 | "Check audio" flag | An attempt scores **under 20**, or **40+ points below** that exercise's best. Flag clears once a teacher adjusts the score. |
 | Lesson score | Simple average of started exercises (confirm whether exercises are weighted) |
@@ -105,5 +105,5 @@ While the panel is open the table compacts (smaller cells, sub-lines hidden) so 
 
 - Clicking a score on the Class Overview should open the Lesson Overview **with that student's exercise preselected** in the panel (the mockup can't pass this between pages).
 - Returning via "Back to Class Overview" should restore the teacher's previous view state.
-- Accessibility: score cells have text labels for screen readers; colour is never the only signal (outline, underline/strikethrough, icons, text).
+- Accessibility: score cells have text labels for screen readers; color is never the only signal (outline, underline/strikethrough, icons, text).
 - Brand: Sensay teal `#00A094` for actions, secondary blue `#4357AD` for teacher-adjusted, Lato headings, Noto Sans / Noto Sans TC body.
