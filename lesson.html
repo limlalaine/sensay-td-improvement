@@ -233,14 +233,19 @@ th,td{vertical-align:middle}
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #E2E7EB; padding-top: 16px">
-<label style="font-size: 13px; font-weight: 700; color: #222222">{{selInputLabel}}
-<div style="display: flex; gap: 8px; margin-top: 6px">
-<input type="number" min="0" max="100" value="{{draft}}" onInput="{{onDraft}}" placeholder="0–100" style="width: 104px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 600 16px 'Noto Sans',sans-serif">
-<button type="button" onClick="{{save}}" style="flex: 1; min-height: 44px; border: 0; border-radius: 8px; background: #00A094; color: #FFFFFF; font: 700 15px 'Noto Sans',sans-serif; cursor: pointer">Save teacher score</button>
-</div>
+<div style="font-size: 13px; font-weight: 700; color: #222222">{{selInputLabel}}</div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: #4A555C">Teacher score
+<input id="teacherScore" type="number" min="0" max="100" value="{{draft}}" onInput="{{onDraft}}" placeholder="0–100" style="width: 120px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 600 16px 'Noto Sans',sans-serif">
 </label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: #4A555C"><span>Teacher comment <span style="color: #5F6B73">(optional)</span></span>
+<textarea id="teacherComment" rows="3" maxlength="500" value="{{commentDraft}}" onInput="{{onComment}}" placeholder="Feedback on this exercise, e.g. what to practice next" style="width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; resize: vertical"></textarea>
+<span style="align-self: flex-end; font-size: 12px; color: #5F6B73">{{commentCount}} / 500</span>
+</label>
+<button type="button" onClick="{{save}}" style="min-height: 44px; border: 0; border-radius: 8px; background: #00A094; color: #FFFFFF; font: 700 15px 'Noto Sans',sans-serif; cursor: pointer">Save</button>
+<sc-if value="{{justSaved}}" hint-placeholder-val="{{ false }}"><div role="status" style="font-size: 13px; color: #1E5C3C">Saved.</div></sc-if>
 <div style="font-size: 12px; color: #5F6B73">The lesson score updates automatically from the exercise scores.</div>
 <sc-if value="{{hasErr}}" hint-placeholder-val="{{ false }}"><div role="alert" style="font-size: 13px; color: #B42323">{{err}}</div></sc-if>
+<sc-if value="{{hasSavedComment}}" hint-placeholder-val="{{ false }}"><div style="font-size: 13px; color: #4A555C; background: #F7F9FA; border-radius: 8px; padding: 8px 12px"><span style="font-weight: 700; color: #222222">Your comment:</span> {{savedComment}}</div></sc-if>
 <sc-if value="{{selIsOv}}" hint-placeholder-val="{{ false }}">
 <button type="button" onClick="{{revert}}" style="min-height: 44px; border: 1px solid #C0C0C0; border-radius: 8px; background: #FFFFFF; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Revert to AI score ({{selAi}})</button>
 <div style="font-size: 13px; color: #4A555C"><span style="font-weight: 700; color: #222222">Change history:</span> [Teacher name] changed {{selAi}} → {{selFinal}} · [date]</div>
@@ -348,7 +353,7 @@ function waveFor(statuses, seed, score) {
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { mode: 'score', onlyUnf: false, sel: { ri: 1, k: 2 }, draft: '', err: '', playing: -1, att: 1, word: -1, ov: { '7-0': 78, '8-2': 65 } };
+    this.state = { mode: 'score', onlyUnf: false, sel: { ri: 1, k: 2 }, draft: '', err: '', playing: -1, att: 1, word: -1, ov: { '7-0': 78, '8-2': 65 }, comments: {}, commentDraft: '', justSaved: false };
   }
   finalOf(ri, k) { var o = this.state.ov[ri + '-' + k]; return o != null ? o : aiOf(ROWS[ri].s[k]); }
   flagged(ri, k) {
@@ -401,7 +406,7 @@ class Component extends DCLogic {
           scale: isSel ? 'scale(1.06)' : 'none', weight: isSel ? '800' : '600',
           flag: self.flagged(i, k),
           label: r.name + ', ' + ex + ': ' + fin + (o != null ? ' (teacher-adjusted)' : '') + ', ' + t + ' tries',
-          pick: function () { self.setState({ sel: { ri: i, k: k }, draft: o != null ? String(o) : '', err: '', playing: -1, att: null, word: -1 }); }
+          pick: function () { self.setState({ sel: { ri: i, k: k }, draft: o != null ? String(o) : '', commentDraft: (self.state.comments || {})[i + '-' + k] || '', justSaved: false, err: '', playing: -1, att: null, word: -1 }); }
         };
       });
       return {
@@ -436,14 +441,16 @@ class Component extends DCLogic {
       checkFg: flags.length ? '#A15C00' : '#2F6B45',
       checkBorder: flags.length ? '#F9A000' : 'transparent',
       checkText: flags.length ? 'Very low attempts that may be recording problems. Click to review.' : 'All flagged scores reviewed.',
-      reviewNext: function () { if (flags.length) self.setState({ sel: { ri: flags[0].ri, k: flags[0].k }, draft: '', err: '', playing: -1, att: null, word: -1 }); },
+      reviewNext: function () { if (flags.length) self.setState({ sel: { ri: flags[0].ri, k: flags[0].k }, draft: '', commentDraft: (self.state.comments || {})[flags[0].ri + '-' + flags[0].k] || '', justSaved: false, err: '', playing: -1, att: null, word: -1 }); },
       scoreOn: mode === 'score', triesOn: mode === 'tries',
       scoreBg: mode === 'score' ? '#FFFFFF' : 'transparent', triesBg: mode === 'tries' ? '#FFFFFF' : 'transparent',
       showScore: function () { self.setState({ mode: 'score' }); },
       showTries: function () { self.setState({ mode: 'tries' }); },
       hasSel: !!st.sel, draft: st.draft,
       tableMinW: st.sel ? '560px' : '820px', cellW: st.sel ? '56px' : '84px', cellH: st.sel ? '40px' : '48px', showSubs: !st.sel, err: st.err, hasErr: !!st.err,
-      onDraft: function (e) { self.setState({ draft: e.target.value, err: '' }); },
+      onDraft: function (e) { self.setState({ draft: e.target.value, err: '', justSaved: false }); },
+      onComment: function (e) { self.setState({ commentDraft: e.target.value.slice(0, 500), justSaved: false }); },
+      commentDraft: st.commentDraft || '', commentCount: (st.commentDraft || '').length, justSaved: !!st.justSaved,
       closeSel: function () { self.setState({ sel: null, err: '', playing: -1 }); }
     };
 
@@ -458,7 +465,8 @@ class Component extends DCLogic {
       v.selFlag = self.flagged(ri, k);
       v.selFlagText = lo === 0 ? 'Attempt ' + (loIdx + 1) + ' scored 0, which usually means the recording didn’t capture any speech.' : 'Attempt ' + (loIdx + 1) + ' scored ' + lo + ', far below normal.';
       v.selTriesText = list.length + (list.length === 1 ? ' attempt' : ' attempts') + ' · lowest ' + lo + ' · best ' + ai;
-      v.selInputLabel = o != null ? 'Edit teacher score' : 'Adjust this exercise score';
+      v.selInputLabel = o != null ? 'Edit teacher score and comment' : 'Adjust score or add a comment';
+      v.savedComment = (st.comments || {})[key] || ''; v.hasSavedComment = !!v.savedComment;
       var att = st.att != null && st.att < list.length ? st.att : bestIdx;
       v.attempts = list.map(function (sc, i) {
         var tags = [];
@@ -499,10 +507,17 @@ class Component extends DCLogic {
       v.wordStatus = ws === 'ok' ? 'Correct' : ws === 'mis' ? 'Mispronounced' : ws === 'missed' ? 'Not read' : '';
       v.wordStatusFg = ws === 'ok' ? '#1E5C3C' : '#8A1F1F';
       v.save = function () {
-        var n = parseInt(self.state.draft, 10);
-        if (isNaN(n) || n < 0 || n > 100) { self.setState({ err: 'Enter a score from 0 to 100.' }); return; }
-        var next = Object.assign({}, self.state.ov); next[key] = n;
-        self.setState({ ov: next, err: '' });
+        var raw = String(self.state.draft == null ? '' : self.state.draft).trim();
+        var text = (self.state.commentDraft || '').trim();
+        var comments = Object.assign({}, self.state.comments || {});
+        var next = Object.assign({}, self.state.ov);
+        if (raw !== '') {
+          var n = parseInt(raw, 10);
+          if (isNaN(n) || n < 0 || n > 100) { self.setState({ err: 'Enter a score from 0 to 100.' }); return; }
+          next[key] = n;
+        } else if (!text && !comments[key]) { self.setState({ err: 'Enter a score or a comment.' }); return; }
+        if (text) comments[key] = text; else delete comments[key];
+        self.setState({ ov: next, comments: comments, err: '', justSaved: true });
       };
       v.revert = function () {
         var next = Object.assign({}, self.state.ov); delete next[key];
@@ -514,7 +529,7 @@ class Component extends DCLogic {
       v.selInputLabel = ''; v.attempts = []; v.words = []; v.wave = [];
       v.atN = ''; v.atScore = ''; v.atFg = '#111111'; v.isPlaying = false; v.notPlaying = true; v.togglePlay = function () {};
       v.hasWord = false; v.noWord = true; v.wordText = ''; v.wordStatus = ''; v.wordStatusFg = '#222222';
-      v.save = function () {}; v.revert = function () {};
+      v.save = function () {}; v.revert = function () {}; v.savedComment = ''; v.hasSavedComment = false;
     }
     return v;
   }

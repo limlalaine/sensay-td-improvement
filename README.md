@@ -77,7 +77,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 2. **Check this score** warning when an attempt looks like a recording problem.
 3. **All attempts** list — tagged *Best*, *Lowest*, *Check audio*. Capped at ~5 rows, then scrolls.
 4. **Text Analyzer** for the selected attempt — word results (correct / mispronounced / not read), waveform, Play, click a word for details.
-5. **Adjust this exercise score** → Save teacher score · Revert to AI score · Change history.
+5. **Adjust score or add a comment** → teacher score (0–100), optional teacher comment (up to 500 characters), one Save button · Revert to AI score · Change history. A comment can be saved without changing the score.
 
 While the panel is open the table compacts (smaller cells, sub-lines hidden) so both fit on smaller screens.
 
