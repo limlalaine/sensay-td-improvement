@@ -1,14 +1,43 @@
-# Sensay Teacher Platform — Class & Lesson Overview redesign
+# Sensay Teacher Platform — Admin Portal, Class & Lesson Overview redesign
 
 Clickable mockup of the redesigned teacher reporting screens. Open `index.html` in a browser, or view it on GitHub Pages once Pages is turned on for this repo (Settings → Pages → Deploy from branch: `main`, folder `/root`).
 
 | File | Screen |
 |---|---|
+| `portal.html` | **Admin portal** — one user with every role (owner · admin · teacher). Sidebar switches between Dashboard, Overview, Teachers, Students, Rosters, Classes and Plan & billing |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
 | `dc-lite.js` | Tiny template renderer used by both pages (mockup only, not production code) |
 
 All data is sample data. Nothing is saved; refreshing resets the page.
+
+## Admin portal (`portal.html`)
+
+All three pages share one header and sidebar, styled with the Sensay design system.
+
+**Sidebar**
+- **My Teaching** (every teacher): Dashboard · My Classes · All Recordings · Practice Packs
+- **Organization Management** (admins and owners): Overview · Teachers · Students · Rosters · Classes · Plan & billing (owners only)
+- **Help & Support**: Tutorial Videos · Help Desk · Contact Sensay
+- Avatar menu is personal only: My profile · Sign out
+
+**Screens**
+- **Dashboard** — the teacher's own classes: students who recorded, recordings, needs attention (remind, review, resend), My classes table.
+- **Overview** — the old Overview and Reports merged: *At a glance* (subscription, teacher and student limits, active students this month, inactive/archived, total recordings), one period selector, four metrics, Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
+- **Teachers** — grouped Pending invitations / Joined; student-account permission (Can edit / View only) is set in the table, with a default for new teachers. Replaces the old Settings tab.
+- **Students** — grouped Pending invitations / Joined · not in a class / Joined · in a class; filters, sort, import, export.
+- **Rosters** — saved lists of students, newest first; empty rosters greyed out.
+- **Classes** — empty classes tagged "No students"; Add students per row, other actions in ⋯.
+- **Plan & billing** — credits: balance, this month's usage, next expiration, estimated unused credits, monthly usage, credits by top-up.
+
+**Definitions**
+| Term | Meaning |
+|---|---|
+| Joined | Accepted the invite and has an account |
+| Pending / Invited | Invited, not joined yet |
+| Active student | Submitted at least one recording this month (1 credit). Shown to admins and owners only |
+| Students who recorded | Submitted at least one recording in the selected period |
+| Teachers with recordings | Students in their classes recorded in the selected period |
 
 ## Hierarchy
 
@@ -26,7 +55,7 @@ All data is sample data. Nothing is saved; refreshing resets the page.
 
 ## Lesson Overview (`lesson.html`)
 
-- **Navigation:** breadcrumb `My Classes › [Class] › Lessons › [Lesson]` shows where the page lives. A separate **← Back to Class Overview** button appears only when the teacher came from the Class Overview, and should restore their filters, sort, collapsed lessons and scroll position.
+- **Navigation:** pages sit inside the portal header and sidebar (My Classes highlighted). Breadcrumb `My Classes › [Class] › Lessons › [Lesson]` shows where the page lives. A separate **← Back to Class Overview** button appears only when the teacher came from the Class Overview, and should restore their filters, sort, collapsed lessons and scroll position.
 - **Results by exercise** table: students × exercises. Switches for **All students / Missing exercises** and **Best score / Attempts**.
 - Class average row shows each exercise's average and **"x not done"**.
 - **Hardest** tag on an exercise header only when its class average is **under 70**.

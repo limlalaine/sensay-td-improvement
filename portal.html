@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Portal · Sensay (mockup)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#EEF2F5}
+a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="tpl">
+<div style="font-family:'Noto Sans','Noto Sans TC',sans-serif;color:#222222;min-height:2600px;background:#EEF2F5">
+  <header style="background:#00A094;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:16px 32px">
+    <div style="font-size:36px;font-weight:700;color:#fff;letter-spacing:-0.5px">sensay</div>
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <label style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:10px 16px;width:320px;color:#5F6B73;font-size:16px"><span>Search students, classes, lessons…</span></label>
+      <div style="position:relative">
+        <button onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" style="display:flex;align-items:center;gap:12px;background:none;border:0;color:#fff;font:inherit;font-size:18px;cursor:pointer"><span style="width:40px;height:40px;border-radius:50%;background:#E6F7F5;color:#0B6B63;display:flex;align-items:center;justify-content:center;font-weight:700">L</span>L ▾</button>
+        <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+        <div role="menu" style="position:absolute;right:0;top:52px;width:260px;background:#fff;background:#FFFFFF;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.12);padding:8px;z-index:5;display:flex;flex-direction:column">
+          <div style="padding:10px 12px;border-bottom:1px solid #E2E7EB;margin-bottom:4px">
+            <div style="font-weight:700;font-size:16px">L</div>
+            <div style="color:#5F6B73;font-size:14px">Owner · Admin · Teacher</div>
+            <div style="color:#5F6B73;font-size:14px">Sensay School (L)</div>
+          </div>
+          <button role="menuitem" style="text-align:left;border:0;background:none;color:#4A555C;padding:10px 12px;font:inherit;font-size:16px;cursor:pointer">My profile</button>
+          <button role="menuitem" style="text-align:left;border:0;background:none;color:#4A555C;padding:10px 12px;font:inherit;font-size:16px;border-top:1px solid #E2E7EB;margin-top:4px;cursor:pointer">Sign out</button>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </header>
+  <div style="display:flex;flex-wrap:wrap">
+    <nav aria-label="Main" style="flex:1 1 240px;max-width:280px;padding:32px 24px;border-right:1px solid #E2E7EB;background:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:28px;font-size:17px"><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin-bottom:6px">MY TEACHING</div><button onClick="{{go_dash}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_dash}}">Dashboard</button><a href="index.html" style="color:#4A555C;font-weight:400;padding:8px 12px">My Classes</a><a href="#" style="color:#4A555C;font-weight:400;padding:8px 12px">All Recordings</a><a href="#" style="color:#4A555C;font-weight:400;padding:8px 12px">Practice Packs</a></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin-bottom:6px">ORGANIZATION MANAGEMENT</div><button onClick="{{go_ov}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_ov}}">Overview</button><button onClick="{{go_teach}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_teach}}">Teachers</button><button onClick="{{go_stud}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_stud}}">Students</button><button onClick="{{go_ros}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_ros}}">Rosters</button><button onClick="{{go_cls}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_cls}}">Classes</button><button onClick="{{go_bill}}" style="text-align:left;border:0;border-radius:8px;font:inherit;font-size:17px;padding:8px 12px;cursor:pointer;{{st_bill}}">Plan &amp; billing</button></div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700;margin-bottom:6px">HELP &amp; SUPPORT</div><a href="#" style="color:#4A555C;font-weight:400;padding:8px 12px">Tutorial Videos</a><a href="#" style="color:#4A555C;font-weight:400;padding:8px 12px">Help Desk</a><a href="#" style="color:#4A555C;font-weight:400;padding:8px 12px">Contact Sensay</a></div></nav>
+    <sc-if value="{{isDash}}" hint-placeholder-val="{{ false }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <h1 style="margin:0 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Dashboard</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px">Your classes</p>
+        </div>
+        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Invite students</button>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+        <p style="margin:0;color:#5F6B73;font-size:16px">Nov 1 – Nov 24, 2026 · compared with Oct 8 – Oct 31, 2026</p>
+        <div role="group" aria-label="Period" style="display:flex;gap:8px;flex-wrap:wrap">
+          <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 18px;font:inherit;font-size:16px;color:#4A555C">Last 7 days</button>
+          <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 18px;font:inherit;font-size:16px;color:#0B6B63;font-weight:600">This month</button>
+          <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 18px;font:inherit;font-size:16px;color:#4A555C">Last 3 months</button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Students who recorded</div>
+          <div style="margin:8px 0"><span style="font-size:40px;font-weight:700">1</span> <span style="color:#5F6B73;font-size:18px">of 12 in my classes</span></div>
+          <div style="color:#0B6B63;font-size:15px">▲ 1 vs the period before</div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Recordings</div>
+          <div style="margin:8px 0"><span style="font-size:40px;font-weight:700">1</span></div>
+          <div style="color:#0B6B63;font-size:15px">▲ 1 vs the period before</div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Average practice time</div>
+          <div style="margin:8px 0"><span style="font-size:40px;font-weight:700">[X]</span> <span style="color:#5F6B73;font-size:18px">min / student</span></div>
+          <div style="color:#5F6B73;font-size:15px">Metric to confirm</div>
+        </div>
+      </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+        <h2 style="margin:0 0 8px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px;display:flex;align-items:center;gap:10px">Needs attention <span style="background:#FDEFD3;color:#8A5A00;font-size:15px;border-radius:999px;padding:2px 10px">3</span></h2>
+        <p style="margin:0 0 8px;color:#5F6B73;font-size:16px">Only students in your classes</p>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">8 students haven’t recorded in 14 days</div>
+              <div style="color:#5F6B73;font-size:16px">A quick reminder often gets them practising again.</div>
+            </div>
+            <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:10px 18px;font:inherit;font-size:16px;font-weight:600">Send reminder</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">3 recordings are waiting for your feedback</div>
+              <div style="color:#5F6B73;font-size:16px">Submitted in the last 7 days.</div>
+            </div>
+            <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:10px 18px;font:inherit;font-size:16px;font-weight:600">Review</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#8A959C;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">2 students haven’t accepted their invitation</div>
+              <div style="color:#5F6B73;font-size:16px">They can’t join your class until they accept.</div>
+            </div>
+            <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:10px 18px;font:inherit;font-size:16px;font-weight:600">Resend</button>
+          </div>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px">My classes</h2>
+          <a href="index.html" style="font-size:17px">All classes →</a>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:520px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Class</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Students</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Students who recorded</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="index.html">[Class name A]</a></td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">6</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">1 of 6</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">1</td></tr>
+              <tr><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="index.html">[Class name B]</a></td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">4</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">0 of 4</td><td style="padding:14px 8px;border-bottom:1px solid #E2E7EB">0</td></tr>
+              <tr><td style="padding:14px 8px;font-weight:600"><a href="index.html">[Class name C]</a></td><td style="padding:14px 8px">2</td><td style="padding:14px 8px">0 of 2</td><td style="padding:14px 8px">0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    </sc-if>
+    <sc-if value="{{isOv}}" hint-placeholder-val="{{ true }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Overview</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px">How your organization is doing, and what needs attention</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:14px 20px;font:inherit;font-size:17px;font-weight:600;cursor:pointer">Export CSV</button>
+          <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Invite people</button>
+        </div>
+      </div>
+
+      <section aria-label="Organization at a glance" style="background:#FFFFFF;border-radius:12px;padding:20px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:baseline">
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">At a glance <span style="font-weight:400;color:#5F6B73;font-size:16px">· right now, not affected by the period below</span></h2>
+          <button onClick="{{go_bill}}" style="background:none;border:0;padding:0;font:inherit;font-size:16px;font-weight:600;color:#0B6B63;cursor:pointer">Plan &amp; billing →</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px 24px">
+          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#5F6B73;font-size:15px">Subscription</div>
+            <div style="font-size:22px;font-weight:700">Valid until Dec 31, 2099</div>
+            
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#5F6B73;font-size:15px">Teachers</div>
+            <div style="font-size:22px;font-weight:700">5 <span style="font-weight:400;color:#5F6B73;font-size:17px">/ 25</span></div>
+            <div style="height:8px;background:#E2E7EB;border-radius:4px;display:flex;overflow:hidden;margin-top:6px;max-width:220px"><div style="width:12%;background:#00A094"></div><div style="width:8%;background:#F9A000"></div></div>
+            <div style="color:#5F6B73;font-size:15px">3 joined · 2 invited</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#5F6B73;font-size:15px">Students enrolled</div>
+            <div style="font-size:22px;font-weight:700">31 <span style="font-weight:400;color:#5F6B73;font-size:17px">/ 250</span></div>
+            <div style="height:8px;background:#E2E7EB;border-radius:4px;display:flex;overflow:hidden;margin-top:6px;max-width:220px"><div style="width:10.8%;background:#00A094"></div><div style="width:1.6%;background:#F9A000"></div></div>
+            <div style="color:#5F6B73;font-size:15px">Includes 4 pending invitations</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#5F6B73;font-size:15px">Active students this month</div>
+            <div style="font-size:22px;font-weight:700">1</div>
+            <div style="color:#5F6B73;font-size:15px">Submitted at least one recording</div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#5F6B73;font-size:15px">Inactive / archived</div>
+            <div style="font-size:22px;font-weight:700">39</div>
+            <div style="color:#5F6B73;font-size:15px">Don’t count toward enrollment</div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#5F6B73;font-size:15px">Total recordings</div>
+            <div style="font-size:22px;font-weight:700">9,525</div>
+            <div style="color:#5F6B73;font-size:15px">All time</div>
+          </div>
+
+        </div>
+      </section>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+        <p style="margin:0;color:#5F6B73;font-size:16px">Sep 7 – Nov 24, 2026 · Weeks run Monday to Sunday. The current week counts up to today.</p>
+        <div role="group" aria-label="Period" style="display:flex;gap:8px;flex-wrap:wrap">
+          <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 18px;font:inherit;font-size:16px;color:#4A555C">Last 4 weeks</button>
+          <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 18px;font:inherit;font-size:16px;color:#0B6B63;font-weight:600">Last 12 weeks</button>
+          <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 18px;font:inherit;font-size:16px;color:#4A555C">This year</button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Recordings</div>
+          <div style="margin:8px 0 0"><span style="font-size:40px;font-weight:700">9</span> <span style="color:#5F6B73;font-size:18px"></span></div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Students who recorded</div>
+          <div style="margin:8px 0 0"><span style="font-size:40px;font-weight:700">1</span> <span style="color:#5F6B73;font-size:18px">of 27 in classes</span></div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Recordings per student who recorded</div>
+          <div style="margin:8px 0 0"><span style="font-size:40px;font-weight:700">9</span> <span style="color:#5F6B73;font-size:18px"></span></div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Teachers with recordings</div>
+          <div style="margin:8px 0 0"><span style="font-size:40px;font-weight:700">1</span> <span style="color:#5F6B73;font-size:18px">of 3</span></div>
+        </div>
+      </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+        <h2 style="margin:0 0 8px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px;display:flex;align-items:center;gap:10px">Needs attention <span style="background:#FDEFD3;color:#8A5A00;font-size:15px;border-radius:999px;padding:2px 10px">5</span></h2>
+        <p style="margin:0 0 8px;color:#5F6B73;font-size:16px">Most urgent first</p>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">26 students haven’t recorded in 14 days</div>
+              <div style="color:#5F6B73;font-size:16px">They joined a class but stopped practising. Their teachers may want to remind them.</div>
+            </div>
+            <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">See who →</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">500 credits expire on Jan 15, 2027</div>
+              <div style="color:#5F6B73;font-size:16px">At your recent pace, about 220 of them may go unused. Owners only.</div>
+            </div>
+            <button onClick="{{go_bill}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">View credits →</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">21 students aren’t in a class yet</div>
+              <div style="color:#5F6B73;font-size:16px">They can’t practise until they’re added to a class. They don’t use a seat.</div>
+            </div>
+            <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">Add to a class →</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">4 students haven’t accepted their invitation</div>
+              <div style="color:#5F6B73;font-size:16px">Pending invitations use a seat until they’re accepted or revoked.</div>
+            </div>
+            <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">Review invitations →</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
+            <span style="width:10px;height:10px;border-radius:50%;background:#8A959C;flex:none"></span>
+            <div style="flex:1 1 360px">
+              <div style="font-weight:700;font-size:18px">2 teacher invitations not accepted yet</div>
+              <div style="color:#5F6B73;font-size:16px">teacher01@oksensay.com, lalaine+teacher+260907A@oksensay.com</div>
+            </div>
+            <button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">Review →</button>
+          </div>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px">Recordings per week</h2>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:6px 16px;font:inherit;font-size:16px;color:#0B6B63;font-weight:600">Week</button>
+            <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:6px 16px;font:inherit;font-size:16px;color:#4A555C">Month</button>
+            <a href="#" style="font-size:16px;margin-left:8px">View as table</a>
+          </div>
+        </div>
+        <div role="img" aria-label="Recordings per week: 8 in the week of Sep 21, 1 in the week of Nov 16, 0 so far this week, none in other weeks" style="display:flex;align-items:flex-end;gap:12px;height:220px;border-bottom:1px solid #D5DCE1;padding:0 4px"><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;font-weight:600">8</span><div style="width:100%;height:160px;background:#00A094;border-radius:4px 4px 0 0"></div></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;color:#8A959C">0</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;font-weight:600">1</span><div style="width:100%;height:20px;background:#00A094;border-radius:4px 4px 0 0"></div></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:14px;font-weight:600">0 so far</span><div style="width:100%;height:8px;background:repeating-linear-gradient(45deg,#9ADBD5,#9ADBD5 4px,#D6F0EE 4px,#D6F0EE 8px);border:2px solid #00A094;border-bottom:0;box-sizing:border-box;border-radius:4px 4px 0 0"></div></div></div>
+        <div style="display:flex;gap:12px;padding:0 4px;margin-top:-8px;font-size:14px;color:#5F6B73"><span style="flex:1;text-align:center">Sep 7</span><span style="flex:1;text-align:center">Sep 14</span><span style="flex:1;text-align:center">Sep 21</span><span style="flex:1;text-align:center">Sep 28</span><span style="flex:1;text-align:center">Oct 5</span><span style="flex:1;text-align:center">Oct 12</span><span style="flex:1;text-align:center">Oct 19</span><span style="flex:1;text-align:center">Oct 26</span><span style="flex:1;text-align:center">Nov 2</span><span style="flex:1;text-align:center">Nov 9</span><span style="flex:1;text-align:center">Nov 16</span><span style="flex:1;text-align:center">Nov 23</span></div>
+        <p style="margin:0;color:#5F6B73;font-size:15px">Striped bars are still running.</p>
+      </section>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px">Usage by teacher</h2>
+          <button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">All teachers →</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:600px">
+            <thead><tr style="text-align:left;color:#5F6B73;font-size:15px"><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Teacher</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Classes</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Students who recorded</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">Teacher Lin</button></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">13</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">1 of 27</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">9</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">6 days ago</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">Annie Wang</button></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">0</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">0 of 0</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">0</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">Never</td></tr>
+              <tr><td style="padding:12px 8px"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:17px;font-weight:600;color:#0B6B63;cursor:pointer">Sensay Admin</button></td><td style="padding:12px 8px">1</td><td style="padding:12px 8px">0 of 1</td><td style="padding:12px 8px">0</td><td style="padding:12px 8px">5 months ago</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:12px 0 0;color:#5F6B73;font-size:15px">Students who recorded: students in this teacher’s classes who submitted at least one recording in this period.</p>
+      </section>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:16px">
+        <div>
+          <h2 style="margin:0 0 4px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px">Student activation</h2>
+          <p style="margin:0;color:#5F6B73;font-size:16px">How far invited students got, up to practising in this period.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;font-size:17px"><span>Invited</span><span><b>31</b> · 100%</span></div>
+          <div style="height:14px;background:#E2E7EB;border-radius:7px"><div style="width:100%;height:14px;background:#00A094;border-radius:7px"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;font-size:17px"><span>Joined a class</span><span><b>27</b> · 87%</span></div>
+          <div style="height:14px;background:#E2E7EB;border-radius:7px"><div style="width:87%;height:14px;background:#00A094;border-radius:7px"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;font-size:17px"><span>Made a first recording</span><span><b>27</b> · 87%</span></div>
+          <div style="height:14px;background:#E2E7EB;border-radius:7px"><div style="width:87%;height:14px;background:#00A094;border-radius:7px"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;font-size:17px"><span>Practised this period</span><span><b>1</b> · 3%</span></div>
+          <div style="height:14px;background:#E2E7EB;border-radius:7px"><div style="width:3%;height:14px;background:#00A094;border-radius:7px"></div></div>
+        </div>
+      </section>
+    </main>
+    </sc-if>
+    <sc-if value="{{isTeach}}" hint-placeholder-val="{{ false }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Teachers</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px">Everyone who teaches in your organization, and what they can do</p>
+        </div>
+        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Invite teachers</button>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;background:#F7F9FA;background:#FFFFFF;border-radius:12px;padding:14px 18px;font-size:16px;color:#4A555C">
+        <b style="white-space:nowrap">Student accounts:</b>
+        <span><b>Can edit</b> lets a teacher rename students, reset passwords and remove students from their classes. <b>View only</b> lets them see their students without changing accounts. New teachers get <select aria-label="Default permission for new teachers" style="background:#fff;border:1px solid #D5DCE1;border-radius:6px;padding:2px 6px;font:inherit;font-size:15px"><option>View only</option><option>Can edit</option></select> by default.</span>
+      </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:260px;color:#5F6B73;font-size:16px">Search name or email</label>
+            <div role="group" aria-label="Filter" style="display:flex;gap:8px;flex-wrap:wrap">
+              <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#0B6B63;font-weight:600">All 5</button>
+              <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">Joined 3</button>
+              <button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">Invited 2</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+            <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>Status: pending first</option><option>Name</option><option>Last recording</option></select></label><span style="color:#5F6B73;font-size:16px">Teacher seats <b style="color:#222222">5 / 25</b></span>
+            <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:10px 18px;font:inherit;font-size:16px;font-weight:600">Export CSV</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:880px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:14px 20px;font-weight:600;border-bottom:1px solid #E2E7EB">Teacher</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Status ↓</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Classes</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Students</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Student accounts <span style="font-weight:400">(?)</span></th>
+                <th style="padding:14px 20px;border-bottom:1px solid #E2E7EB"><span style="position:absolute;left:-9999px">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="7" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:15px;font-weight:700;color:#4A555C;letter-spacing:.3px">Pending invitations <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">2</span> <span style="font-weight:400;color:#5F6B73">· Invited but not signed up yet</span></td></tr>
+              <tr>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;font-weight:700">teacher01@oksensay.com</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600">Invited</span><div style="color:#5F6B73;font-size:15px;margin-top:4px">Sent 2 years ago · <a href="#">Resend</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;font-weight:700">lalaine+teacher+260907A@oksensay.com</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600">Invited</span><div style="color:#5F6B73;font-size:15px;margin-top:4px">Sent 3 months ago · <a href="#">Resend</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr><td colspan="7" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:15px;font-weight:700;color:#4A555C;letter-spacing:.3px">Joined <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">3</span></td></tr>
+              <tr>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB"><div style="font-weight:700">Teacher Lin</div><div style="color:#5F6B73;font-size:15px">milenialal@yahoo.com</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600">Joined</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">28</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">27</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">6 days ago</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><select aria-label="Student account permission for Teacher Lin" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 10px;font:inherit;font-size:16px;color:#222222;min-height:44px"><option>Can edit</option><option>View only</option></select></td>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB"><div style="font-weight:700">Annie Wang</div><div style="color:#5F6B73;font-size:15px">speak.with.annie@gmail.com</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600">Joined</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">0</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB">0</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;color:#8A959C">–</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB"><select aria-label="Student account permission for Annie Wang" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 10px;font:inherit;font-size:16px;color:#222222;min-height:44px"><option>View only</option><option>Can edit</option></select></td>
+                <td style="padding:14px 20px;border-bottom:1px solid #E2E7EB;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 20px"><div style="font-weight:700;display:flex;gap:8px;align-items:center">Sensay Admin <span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:1px 8px;font-size:14px;font-weight:600">You</span></div><div style="color:#5F6B73;font-size:15px">lalaine+admin230616@oksensay.com</div></td>
+                <td style="padding:14px 12px"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600">Joined</span></td>
+                <td style="padding:14px 12px">16</td>
+                <td style="padding:14px 12px">1</td>
+                <td style="padding:14px 12px">5 months ago</td>
+                <td style="padding:14px 12px"><select aria-label="Student account permission for Sensay Admin" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 10px;font:inherit;font-size:16px;color:#222222;min-height:44px"><option>Can edit</option><option>View only</option></select></td>
+                <td style="padding:14px 20px;text-align:right"><button aria-label="More actions" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:14px 20px;color:#5F6B73;font-size:16px;border-top:1px solid #E2E7EB">Showing 5 of 5</div>
+      </section>
+    </main>
+    </sc-if>
+    <sc-if value="{{isStud}}" hint-placeholder-val="{{ false }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Students</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px">Every student account in your organization</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:14px 20px;font:inherit;font-size:17px;font-weight:600;cursor:pointer">Import from Excel / CSV</button>
+          <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Invite students</button>
+        </div>
+      </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+              <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:240px;color:#5F6B73;font-size:16px">Search name or email</label>
+              <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Class <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>All classes</option></select></label>
+              <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Teacher <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>All teachers</option></select></label>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>Status: pending first</option><option>Name</option><option>Last recording</option></select></label><button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:10px 18px;font:inherit;font-size:16px;font-weight:600">Export CSV</button></div>
+          </div>
+          <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap">
+            <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#0B6B63;font-weight:600">All 70</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">In a class 27</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">Not in a class 39</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">Invited 4</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">No roster 25</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:10px 20px;background:#FDF5E6;border-bottom:1px solid #F0D3A0;font-size:16px">
+          <span><b>39 students aren’t in a class.</b> They can’t practise until they’re added to one.</span>
+          <a href="#" style="font-size:16px">Select them and add to a class →</a>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:920px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;width:20px"><input type="checkbox" aria-label="Select all" style="width:20px;height:20px"></th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Student</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Status ↓</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Classes</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Rosters</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th>
+                <th style="padding:14px 20px 14px 12px;border-bottom:1px solid #E2E7EB"><span style="position:absolute;left:-9999px">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="8" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:15px;font-weight:700;color:#4A555C;letter-spacing:.3px">Pending invitations <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">4</span> <span style="font-weight:400;color:#5F6B73">· Invited but not signed up yet</span></td></tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ethan Wu" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Ethan Wu</div><div style="color:#5F6B73;font-size:15px">100003@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">Invited</span><div style="margin-top:6px;color:#5F6B73;font-size:15px">Sent 5 days ago · <a href="#">Resend</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Ethan Wu" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr><td colspan="8" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:15px;font-weight:700;color:#4A555C;letter-spacing:.3px">Joined · not in a class <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">39</span> <span style="font-weight:400;color:#5F6B73">· Signed up, but can’t practise yet</span></td></tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Kevin Chen" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Kevin Chen</div><div style="color:#5F6B73;font-size:15px">100001@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">Not in a class</span><div style="margin-top:6px"><a href="#" style="font-size:15px">Add to a class</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Kevin Chen" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Grace Lin" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Grace Lin</div><div style="color:#5F6B73;font-size:15px">100002@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">Not in a class</span><div style="margin-top:6px"><a href="#" style="font-size:15px">Add to a class</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Grace Lin" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Leo Tsai" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Leo Tsai</div><div style="color:#5F6B73;font-size:15px">100005@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E2E7EB;color:#4A555C;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">Not in a class</span><div style="margin-top:6px"><a href="#" style="font-size:15px">Add to a class</a></div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">–</span></td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Leo Tsai" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr><td colspan="8" style="padding:10px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB;font-size:15px;font-weight:700;color:#4A555C;letter-spacing:.3px">Joined · in a class <span style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:0 8px;font-weight:600">27</span></td></tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Mia Huang 黃米亞" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Mia Huang 黃米亞</div><div style="color:#5F6B73;font-size:15px">100004@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">In a class</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:15px">Sharon's Cram School (Friday Class)</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">396</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">2 years ago</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Mia Huang 黃米亞" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Chloe Yang" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Chloe Yang</div><div style="color:#5F6B73;font-size:15px">100006@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">In a class</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:15px">Sharon's Cram School (Friday Class)</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">330</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">2 years ago</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Chloe Yang" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ryan Hsu" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Ryan Hsu</div><div style="color:#5F6B73;font-size:15px">100007@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">In a class</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:15px">Sharon's Cram School (Friday Class)</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Friday)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">427</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">2 years ago</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Ryan Hsu" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><input type="checkbox" aria-label="Select Ivy Chang" style="width:20px;height:20px"></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="font-weight:700">Ivy Chang</div><div style="color:#5F6B73;font-size:15px">100008@school.example</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#E6F7F5;color:#0B6B63;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">In a class</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#F7F9FA;border:1px solid #D5DCE1;border-radius:8px;padding:3px 10px;font-size:15px">G5-B Reading Practice</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">SCS (Wed)</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">22</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">6 days ago</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Ivy Chang" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:14px 20px;color:#5F6B73;font-size:16px">
+          <span>Showing 1–8 of 70</span>
+          <div style="display:flex;gap:8px"><button style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 14px;font:inherit;font-size:16px;color:#8A959C">Previous</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:8px 14px;font:inherit;font-size:16px;color:#4A555C">Next</button></div>
+        </div>
+      </section>
+    </main>
+    </sc-if>
+    <sc-if value="{{isRos}}" hint-placeholder-val="{{ false }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Rosters</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px;max-width:640px">A roster is a saved list of students, such as one school class or one course group. Add a whole roster to a class in one step.</p>
+        </div>
+        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Create roster</button>
+      </div>
+      
+      <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:240px;color:#5F6B73;font-size:16px">Search rosters</label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Owner <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>All teachers</option></select></label>
+            <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>Recently updated</option><option>Name</option><option>Most students</option></select></label>
+          </div>
+          
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:760px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:14px 12px 14px 20px;font-weight:600;border-bottom:1px solid #E2E7EB">Roster</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Owner</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Students</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Updated ↓</th>
+                <th style="padding:14px 20px 14px 12px;border-bottom:1px solid #E2E7EB"><span style="position:absolute;left:-9999px">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">Test</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Annie Wang</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">0 · Empty</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Oct 20, 2026</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Test" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">Roster C***</a><div style="color:#5F6B73;font-size:15px">Class A</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">4</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">May 21, 2026</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Roster C***" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">2026 April 7 QA</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0 <span style="color:#8A5A00;font-size:15px">· 2 pending</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Apr 7, 2026</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for 2026 April 7 QA" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">260128 QA</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0 <span style="color:#8A5A00;font-size:15px">· 4 pending</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Jan 28, 2026</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for 260128 QA" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">November</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">5</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Nov 10, 2025</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for November" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">Apple班</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">10 <span style="color:#8A5A00;font-size:15px">· 2 pending</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Oct 14, 2025</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Apple班" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">Sample Roster</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">9</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Oct 9, 2025</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Sample Roster" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">Hsinchu Seminar 20250926</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="color:#8A959C">0 · Empty</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sep 25, 2025</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Hsinchu Seminar 20250926" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">SCS (Friday)</a><div style="color:#5F6B73;font-size:15px">Sharon's Cram School (Friday)</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">14</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Apr 20, 2025</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for SCS (Friday)" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">SCS (Wed)</a><div style="color:#5F6B73;font-size:15px">Sharon's Cram School (Wednesday 19:00–21:00)</div></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">11</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Apr 20, 2025</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for SCS (Wed)" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="#" style="font-size:17px">Roster B</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">1 <span style="color:#8A5A00;font-size:15px">· 2 pending</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Nov 20, 2024</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;text-align:right;vertical-align:top"><button aria-label="More actions for Roster B" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:14px 20px;color:#5F6B73;font-size:16px">Showing 11 of 11</div>
+      </section>
+    </main>
+    </sc-if>
+    <sc-if value="{{isCls}}" hint-placeholder-val="{{ false }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Classes</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px">Every class in your organization. Students can only practise once they’re in a class.</p>
+        </div>
+        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Create class</button>
+      </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;box-shadow:0 1px 2px rgba(17,17,17,0.06);overflow:hidden">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:#F7F9FA;border-bottom:1px solid #E2E7EB">
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+              <label style="display:flex;align-items:center;background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;width:240px;color:#5F6B73;font-size:16px">Search classes</label>
+              <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Teacher <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>All teachers</option></select></label>
+              <label style="display:flex;gap:8px;align-items:center;font-size:16px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:16px;color:#222222"><option>Name</option><option>Most students</option><option>Most recordings</option><option>Last recording</option></select></label>
+            </div>
+            <button style="background:#fff;border:1px solid #00A094;color:#0B6B63;border-radius:8px;padding:10px 18px;font:inherit;font-size:16px;font-weight:600">Export CSV</button>
+          </div>
+          <div role="group" aria-label="Filter classes" style="display:flex;gap:8px;flex-wrap:wrap">
+            <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#0B6B63;font-weight:600">All 10</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">With students 7</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;color:#4A555C">No students 3</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:960px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:14px 12px 14px 20px;font-weight:600;border-bottom:1px solid #E2E7EB">Class</th>
+                <th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Teacher</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Students</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings (all time)</th><th style="padding:14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th>
+                <th style="padding:14px 20px 14px 12px;font-weight:600;border-bottom:1px solid #E2E7EB;text-align:right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">26.10.20 QA</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for 26.10.20 QA: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">601</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for 601: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">Copy of: 26.10.20 QA</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">No students</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#00A094;color:#fff;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Copy of: 26.10.20 QA: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">G5-B Reading Practice</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">12</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">1,040</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for G5-B Reading Practice: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">MOE (Simple)</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">No students</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">9</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#00A094;color:#fff;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for MOE (Simple): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">Sample Exercises</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600;white-space:nowrap">No students</span></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">0</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#00A094;color:#fff;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sample Exercises: change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">Sensay (Higher-Ed Detailed Report)</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Sensay Admin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">4</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay (Higher-Ed Detailed Report): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">Sensay Class (Detailed Report)</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">118</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay Class (Detailed Report): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">Sensay Class (Lite Report)</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">3</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">268</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay Class (Lite Report): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #E2E7EB;vertical-align:top"><a href="index.html" style="font-size:17px">Sensay DM (Simple)</a></td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">Teacher Lin</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">1</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top">73</td>
+                <td style="padding:14px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top;color:#5F6B73">[Last recording]</td>
+                <td style="padding:10px 20px 10px 12px;border-bottom:1px solid #E2E7EB;vertical-align:top"><div style="display:flex;gap:8px;justify-content:flex-end"><button style="background:#fff;color:#0B6B63;border:1px solid #00A094;border-radius:8px;padding:0 14px;height:44px;font:inherit;font-size:16px;font-weight:600;white-space:nowrap">Add students</button><button aria-label="More actions for Sensay DM (Simple): change teacher, rename, duplicate, archive" style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;width:44px;height:44px;font:inherit;font-size:18px;color:#4A555C">⋯</button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:14px 20px;color:#5F6B73;font-size:16px">Showing 10 of 10</div>
+      </section>
+    </main>
+    </sc-if>
+    <sc-if value="{{isBill}}" hint-placeholder-val="{{ false }}">
+    <main style="flex:999 1 560px;min-width:0;padding:40px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;max-width:1160px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT · SENSAY SCHOOL (L)</div>
+          <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Plan &amp; billing</h1>
+          <p style="margin:0;color:#5F6B73;font-size:17px">1 credit = 1 active student for 1 month. A student counts as active when they submit at least one recording that month.</p>
+        </div>
+        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;padding:14px 24px;font:inherit;font-size:18px;font-weight:600;cursor:pointer">+ Top up credits</button>
+      </div>
+
+      <div role="tablist" style="display:flex;gap:4px;border-bottom:2px solid #E2E7EB;flex-wrap:wrap">
+        <button role="tab" aria-selected="true" style="background:none;border:0;border-bottom:3px solid #00A094;margin-bottom:-2px;padding:10px 16px;font:inherit;font-size:18px;font-weight:700;color:#0B6B63">Credits &amp; usage</button>
+        <button role="tab" style="background:none;border:0;padding:10px 16px;font:inherit;font-size:18px;color:#4A555C">Top-ups &amp; invoices</button>
+        <button role="tab" style="background:none;border:0;padding:10px 16px;font:inherit;font-size:18px;color:#4A555C">Organization settings</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Available credits</div>
+          <div style="margin:8px 0;font-size:40px;font-weight:700">740</div>
+          <div style="color:#5F6B73;font-size:15px">Across 2 top-ups</div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#5F6B73;font-size:17px">Used this month so far</div>
+          <div style="margin:8px 0"><span style="font-size:40px;font-weight:700">65</span> <span style="color:#5F6B73;font-size:18px">credits</span></div>
+          <div style="color:#5F6B73;font-size:15px">65 active students · Nov 1–24</div>
+        </div>
+        <div style="border:1px solid #F0D3A0;background:#FDF5E6;border-radius:12px;padding:24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+          <div style="color:#8A5A00;font-size:17px;font-weight:600">Next expiration</div>
+          <div style="margin:8px 0;font-size:34px;font-weight:700">Jan 15, 2027</div>
+          <div style="color:#8A5A00;font-size:15px">500 credits expire on this date</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;border:1px solid #F0D3A0;background:#FDF5E6;border-radius:12px;padding:16px 24px">
+        <span style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
+        <div style="flex:1 1 360px;font-size:17px"><b>About 220 credits may expire unused.</b> <span style="color:#5F6B73">At your recent pace (about 139 active students a month) you’ll use roughly 280 of the 500 expiring credits before Jan 15. Estimate.</span></div>
+        <a href="#" style="font-size:17px">See how it’s calculated →</a>
+      </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:20px">
+        <div>
+          <h2 style="margin:0 0 4px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px">Monthly usage</h2>
+          <p style="margin:0;color:#5F6B73;font-size:16px">Credits deducted each month, one per active student</p>
+        </div>
+        <div role="img" aria-label="Active students per month: Jun 120, Jul 135, Aug 142, Sep 150, Oct 148, Nov so far 65" style="display:flex;align-items:flex-end;gap:24px;height:240px;border-bottom:1px solid #D5DCE1;padding:0 8px">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:15px;font-weight:600">120</span><div style="width:100%;height:150px;background:#00A094;border-radius:6px 6px 0 0"></div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:15px;font-weight:600">135</span><div style="width:100%;height:169px;background:#00A094;border-radius:6px 6px 0 0"></div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:15px;font-weight:600">142</span><div style="width:100%;height:178px;background:#00A094;border-radius:6px 6px 0 0"></div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:15px;font-weight:600">150</span><div style="width:100%;height:188px;background:#00A094;border-radius:6px 6px 0 0"></div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:15px;font-weight:600">148</span><div style="width:100%;height:185px;background:#00A094;border-radius:6px 6px 0 0"></div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:15px;font-weight:600">65 so far</span><div style="width:100%;height:81px;background:repeating-linear-gradient(45deg,#9ADBD5,#9ADBD5 6px,#D6F0EE 6px,#D6F0EE 12px);border:2px solid #00A094;border-bottom:0;box-sizing:border-box;border-radius:6px 6px 0 0"></div></div>
+        </div>
+        <div style="display:flex;gap:24px;padding:0 8px;margin-top:-12px;font-size:15px;color:#5F6B73;text-align:center">
+          <span style="flex:1">Jun</span><span style="flex:1">Jul</span><span style="flex:1">Aug</span><span style="flex:1">Sep</span><span style="flex:1">Oct</span><span style="flex:1">Nov</span>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:520px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Month</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Active students</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB;text-align:right">Credits deducted</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB;text-align:right">Balance after</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Nov 2026 <span style="font-weight:400;color:#5F6B73">(so far)</span></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">65</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">−65</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">740</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Oct 2026</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">148</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">−148</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">805</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Sep 2026</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">150</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">−150</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">953</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Aug 2026</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">142</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">−142</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">1,103</td></tr>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Jul 2026</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">135</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">−135</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">1,245</td></tr>
+              <tr><td style="padding:12px 8px;font-weight:600">Jun 2026</td><td style="padding:12px 8px">120</td><td style="padding:12px 8px;text-align:right">−120</td><td style="padding:12px 8px;text-align:right">1,380</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:24px 28px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:4px">
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:24px">Credits by top-up</h2>
+          <a href="#" style="font-size:17px">Top-up &amp; expiration history →</a>
+        </div>
+        <p style="margin:0 0 8px;color:#5F6B73;font-size:16px">Credits that expire soonest are used first.</p>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:17px;min-width:520px">
+            <thead>
+              <tr style="text-align:left;color:#5F6B73;font-size:15px">
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Top-up</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB;text-align:right">Purchased</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB;text-align:right">Remaining</th>
+                <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Expires</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">[Top-up date]</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right">[Credits]</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB;text-align:right;font-weight:700">500</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="background:#FDEFD3;color:#8A5A00;border-radius:999px;padding:2px 10px;font-size:15px;font-weight:600">Jan 15, 2027</span></td></tr>
+              <tr><td style="padding:12px 8px">[Top-up date]</td><td style="padding:12px 8px;text-align:right">[Credits]</td><td style="padding:12px 8px;text-align:right;font-weight:700">240</td><td style="padding:12px 8px">[Expiry date]</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    </sc-if>
+  </div>
+</div>
+</script>
+<script src="dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    const s = (this.state && this.state.screen) || 'ov';
+    const open = !!(this.state && this.state.menuOpen);
+    const on = 'color:#0B6B63;font-weight:700;background:#E6F7F5;';
+    const off = 'color:#4A555C;font-weight:400;background:none;';
+    const ros = !!(this.state && this.state.studTab === 'ros');
+    const tOn = 'border-bottom:3px solid #00A094;font-weight:700;color:#0B6B63;';
+    const tOff = 'border-bottom:3px solid transparent;font-weight:400;color:#4A555C;';
+    const go = (k) => () => this.setState({ screen: k, menuOpen: false });
+    return {
+      isDash: s === 'dash', isOv: s === 'ov', isBill: s === 'bill', isTeach: s === 'teach', isStud: s === 'stud', isRos: s === 'ros', isCls: s === 'cls', studAll: !ros, studRos: ros, st_tabAll: ros ? tOff : tOn, st_tabRos: ros ? tOn : tOff, tab_all: () => this.setState({ studTab: 'all' }), tab_ros: () => this.setState({ studTab: 'ros' }), menuOpen: open,
+      st_dash: s === 'dash' ? on : off, st_ov: s === 'ov' ? on : off, st_bill: s === 'bill' ? on : off, st_teach: s === 'teach' ? on : off, st_stud: s === 'stud' ? on : off, st_ros: s === 'ros' ? on : off, st_cls: s === 'cls' ? on : off,
+      go_dash: go('dash'), go_ov: go('ov'), go_bill: go('bill'), go_teach: go('teach'), go_stud: go('stud'), go_ros: go('ros'), go_cls: go('cls'),
+      toggleMenu: () => this.setState({ menuOpen: !open })
+    };
+  }
+}
+mountDC(Component, 'tpl', 'app');
+</script>
+</body>
+</html>
