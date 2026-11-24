@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class Overview · Sensay Teacher Platform (mockup)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0B6B63}a:hover{color:#1A4A47}
+table{border-collapse:separate;border-spacing:0}
+th,td{vertical-align:middle}
+.sk{position:sticky;z-index:2}
+thead th,thead td{position:sticky;z-index:3}
+thead .sk{z-index:5}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="tpl">
+<div style="min-height: 100vh; background: #EEF2F5; font-family: 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; box-sizing: border-box; padding: 32px 24px 56px">
+<div style="max-width: 1360px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 14px; color: #5F6B73"><a href="#" style="text-decoration: none">My Classes</a> / [Class name]</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+<h1 style="margin: 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.1; color: #111111">[Class name]</h1>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #C0C0C0; background: #FFFFFF; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Export report</button>
+</div>
+</div>
+</div>
+
+<nav aria-label="Class sections" style="display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #D5DCE1">
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans',sans-serif">Lessons <span style="background: #E2E7EB; border-radius: 999px; padding: 2px 8px; font-size: 13px">4</span></a>
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans',sans-serif">Students <span style="background: #E2E7EB; border-radius: 999px; padding: 2px 8px; font-size: 13px">12</span></a>
+<a href="#" aria-current="page" style="padding: 12px 16px; text-decoration: none; color: #0B6B63; font: 700 16px 'Noto Sans',sans-serif; border-bottom: 3px solid #00A094; margin-bottom: -1px">Class Overview</a>
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans',sans-serif">Analytics <span style="font-weight: 400; font-size: 13px; color: #5F6B73">· trends</span></a>
+<a href="#" style="padding: 12px 16px; text-decoration: none; color: #4A555C; font: 600 16px 'Noto Sans',sans-serif">Co-Teachers</a>
+</nav>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border-radius: 12px; padding: 16px 24px; box-shadow: 0 1px 2px rgba(17,17,17,0.06)">
+<div style="font-size: 13px; color: #5F6B73; font-weight: 600">Class average</div>
+<div style="font-family: Lato, sans-serif; font-size: 31px; font-weight: 900; color: #111111">{{classOverall}}</div>
+<div style="font-size: 13px; color: #5F6B73">Average of each student's overall score</div>
+</div>
+<button type="button" onClick="{{showAttention}}" aria-pressed="{{attnOn}}" style="text-align: left; background: #FFFFFF; border-radius: 12px; padding: 16px 24px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); border: {{attnCardBorder}}; cursor: pointer; font-family: 'Noto Sans',sans-serif">
+<div style="font-size: 13px; color: #5F6B73; font-weight: 600">Needs attention</div>
+<div style="font-family: Lato, sans-serif; font-size: 31px; font-weight: 900; color: #A15C00">{{attnCount}} <span style="font-size: 18px; font-weight: 700; color: #5F6B73">students</span></div>
+<div style="font-size: 13px; color: #5F6B73">Under 50% complete, overall under 70, or an exercise under 60 →</div>
+</button>
+<div style="background: #FFFFFF; border-radius: 12px; padding: 16px 24px; box-shadow: 0 1px 2px rgba(17,17,17,0.06)">
+<div style="font-size: 13px; color: #5F6B73; font-weight: 600">Teacher-adjusted scores</div>
+<div style="font-family: Lato, sans-serif; font-size: 31px; font-weight: 900; color: #4357AD">{{overrideCount}}</div>
+<div style="font-size: 13px; color: #5F6B73">Exercise scores where your score replaces the AI score</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<div style="flex: 999 1 640px; min-width: 0; background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); overflow: hidden">
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; padding: 16px 24px; background: #F7F9FA; border-bottom: 1px solid #E2E7EB">
+<div role="group" aria-label="Students shown" style="display: flex; gap: 4px; background: #E2E7EB; padding: 4px; border-radius: 10px">
+<button type="button" onClick="{{showAll}}" aria-pressed="{{allOn}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: {{allBg}}; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">All students ({{studentCount}})</button>
+<button type="button" onClick="{{showAttention}}" aria-pressed="{{attnOn}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: {{attnBg}}; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Needs attention ({{attnCount}})</button>
+</div>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: #4A555C; flex: 1 1 200px">Student name
+<input id="q" type="search" value="{{q}}" onInput="{{onSearch}}" placeholder="Search students" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 15px 'Noto Sans','Noto Sans TC',sans-serif; background: #FFFFFF">
+</label>
+</div>
+
+<sc-if value="{{attnOn}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 12px 24px; background: #FDF5E6; border-bottom: 1px solid #F3DDB0">
+<div style="font-size: 14px; color: #5C3D00"><span style="font-weight: 700">{{attnCount}} students need attention.</span> Each row lists why.</div>
+<button type="button" onClick="{{remindAll}}" style="min-height: 44px; padding: 0 16px; border: 0; border-radius: 8px; background: #00A094; color: #FFFFFF; font: 700 14px 'Noto Sans',sans-serif; cursor: pointer">Send reminder to {{attnCount}} students</button>
+</div>
+</sc-if>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: #E7F3EB; color: #24543A; font-size: 14px; font-weight: 600; border-bottom: 1px solid #CFE6D7">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#24543A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>{{toast}}
+</div>
+</sc-if>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 12px 24px; font-size: 12px; color: #4A555C; border-bottom: 1px solid #E2E7EB">
+<span style="font-weight: 700">Best score:</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #D3EEDD"></span>70+</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #FDEFD3"></span>60–69</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #FBE1E1"></span>Below 60</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; border: 1.5px dashed #A9B3BA; box-sizing: border-box"></span>Not started</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #D3EEDD; box-shadow: inset 0 0 0 2px #4357AD"></span>Teacher-adjusted</span>
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A15C00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg>An attempt may have a recording problem</span>
+</div>
+
+<div data-keep-scroll="table" style="overflow-x: auto">
+<table style="min-width: 100%; font-size: 14px">
+<thead>
+<tr>
+<th rowspan="2" scope="col" class="sk" style="top: 0; left: 0; width: 56px; min-width: 56px; box-sizing: border-box; background: #FFFFFF; text-align: left; padding: 0 8px 12px 24px; border-bottom: 1px solid #E2E7EB; vertical-align: bottom">
+<button type="button" onClick="{{sortNo}}" style="border: 0; background: none; padding: 0; font: 600 13px 'Noto Sans',sans-serif; color: #5F6B73; cursor: pointer; min-height: 32px">No. {{icoNo}}</button>
+</th>
+<th rowspan="2" scope="col" class="sk" style="top: 0; left: 56px; width: 200px; min-width: 200px; box-sizing: border-box; background: #FFFFFF; text-align: left; padding: 0 8px 12px; border-bottom: 1px solid #E2E7EB; vertical-align: bottom">
+<button type="button" onClick="{{sortName}}" style="border: 0; background: none; padding: 0; font: 700 14px 'Noto Sans',sans-serif; color: #111111; cursor: pointer; min-height: 32px">Student {{icoName}}</button>
+</th>
+<th rowspan="2" scope="col" class="sk" style="top: 0; left: 256px; width: 112px; min-width: 112px; box-sizing: border-box; background: #FFFFFF; text-align: left; padding: 0 8px 12px; border-bottom: 1px solid #E2E7EB; vertical-align: bottom">
+<button type="button" onClick="{{sortComp}}" style="border: 0; background: none; padding: 0; font: 700 14px 'Noto Sans',sans-serif; color: #111111; cursor: pointer; min-height: 32px">Completion {{icoComp}}</button>
+</th>
+<th rowspan="2" scope="col" class="sk" style="top: 0; left: 368px; width: 104px; min-width: 104px; box-sizing: border-box; background: #FFFFFF; text-align: center; padding: 0 8px 12px; border-bottom: 1px solid #E2E7EB; border-right: 1px solid #E2E7EB; vertical-align: bottom">
+<div style="display: inline-flex; align-items: center; gap: 4px">
+<button type="button" onClick="{{sortOverall}}" style="border: 0; background: none; padding: 0; font: 700 14px 'Noto Sans',sans-serif; color: #111111; cursor: pointer; min-height: 32px">Overall score {{icoOverall}}</button>
+<button type="button" onClick="{{toggleInfo}}" aria-label="How Overall is calculated" aria-expanded="{{infoOn}}" style="width: 28px; height: 28px; border: 0; border-radius: 50%; background: #EEF2F5; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#4A555C" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.2v4M8 4.8v.1"/></svg></button>
+</div>
+</th>
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="2">
+<th colspan="{{g.span}}" scope="colgroup" style="top: 0; height: 44px; box-sizing: border-box; background: #F7F9FA; padding: 4px 8px; border-bottom: 1px solid #E2E7EB; border-right: 1px solid #E2E7EB; text-align: left; white-space: nowrap">
+<div style="display: flex; align-items: center; gap: 8px; justify-content: space-between">
+<a href="{{g.href}}" title="Open lesson overview" style="font: 700 14px 'Noto Sans',sans-serif; color: #0B6B63; text-decoration: underline; text-underline-offset: 3px; min-height: 32px; display: inline-flex; align-items: center">{{g.name}}</a>
+<sc-if value="{{g.canToggle}}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{g.toggle}}" aria-expanded="{{g.open}}" style="min-height: 32px; padding: 0 10px; border: 1px solid #C0C0C0; border-radius: 8px; background: #FFFFFF; font: 600 12px 'Noto Sans',sans-serif; color: #222222; cursor: pointer">{{g.toggleLabel}}</button>
+</sc-if>
+</div>
+</th>
+</sc-for>
+</tr>
+<tr>
+<sc-for list="{{cols}}" as="col" hint-placeholder-count="6">
+<th scope="col" style="top: 44px; height: 56px; box-sizing: border-box; background: #FFFFFF; text-align: center; padding: 4px; border-bottom: 1px solid #E2E7EB; border-right: {{col.edge}}">
+<div style="display: inline-flex; flex-direction: column; align-items: center; gap: 2px; font-weight: 700; font-size: 13px; line-height: 1.3; color: #222222; min-width: 76px">
+<span>{{col.label}}</span>
+<span style="font-size: 11px; font-weight: 600; color: #5F6B73">{{col.sub}}</span>
+</div>
+</th>
+</sc-for>
+</tr>
+<tr>
+<td class="sk" style="top: 100px; left: 0; background: #F7F9FA; border-bottom: 2px solid #E2E7EB"></td>
+<th scope="row" class="sk" style="top: 100px; left: 56px; background: #F7F9FA; text-align: left; padding: 8px; font-weight: 700; color: #111111; border-bottom: 2px solid #E2E7EB">Class average <span style="display: block; font-size: 11px; font-weight: 400; color: #5F6B73">of students who started</span></th>
+<td class="sk" style="top: 100px; left: 256px; background: #F7F9FA; padding: 8px; font-size: 13px; font-weight: 700; color: #4A555C; border-bottom: 2px solid #E2E7EB">{{classComp}}</td>
+<td class="sk" style="top: 100px; left: 368px; background: #F7F9FA; padding: 8px; text-align: center; font-family: Lato, sans-serif; font-size: 18px; font-weight: 900; color: #111111; border-bottom: 2px solid #E2E7EB; border-right: 1px solid #E2E7EB">{{classOverall}}</td>
+<sc-for list="{{avgCells}}" as="a" hint-placeholder-count="6">
+<td style="top: 100px; background: #F7F9FA; text-align: center; padding: 6px 4px; border-bottom: 2px solid #E2E7EB; border-right: {{a.edge}}">
+<div style="display: inline-flex; flex-direction: column; align-items: center">
+<span style="font-family: Lato, sans-serif; font-size: 17px; font-weight: 900; color: #111111">{{a.avg}}</span></div>
+</td>
+</sc-for>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+<tr>
+<td class="sk" style="left: 0; background: {{r.rowBg}}; padding: 4px 8px 4px 24px; color: #5F6B73; border-bottom: 1px solid #EEF2F5">{{r.num}}</td>
+<td class="sk" style="left: 56px; background: {{r.rowBg}}; padding: 6px 8px; border-bottom: 1px solid #EEF2F5">
+<a href="#" title="Open student profile" style="font-weight: 700; text-decoration: none; color: #0B6B63; white-space: nowrap">{{r.name}}</a>
+<sc-if value="{{r.showReasons}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px">
+<sc-for list="{{r.reasons}}" as="why" hint-placeholder-count="1">
+<span style="font-size: 11px; font-weight: 600; color: #5C3D00; background: #FDEFD3; border-radius: 999px; padding: 1px 8px; white-space: nowrap">{{why}}</span>
+</sc-for>
+</div>
+</sc-if>
+</td>
+<td class="sk" style="left: 256px; background: {{r.rowBg}}; padding: 4px 8px; border-bottom: 1px solid #EEF2F5">
+<sc-if value="{{r.compDone}}" hint-placeholder-val="{{ false }}">
+<span role="img" aria-label="Complete" title="Complete — all lessons finished" style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #E7F3EB"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#2F6B45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></span>
+</sc-if>
+<sc-if value="{{r.compPartial}}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 14px; font-weight: {{r.compWeight}}; color: {{r.compFg}}">{{r.comp}}</span>
+</sc-if>
+</td>
+<td class="sk" style="left: 368px; background: {{r.rowBg}}; padding: 4px 8px; text-align: center; border-bottom: 1px solid #EEF2F5; border-right: 1px solid #E2E7EB">
+<span style="font-family: Lato, sans-serif; font-weight: 900; font-size: 17px; color: {{r.overallFg}}">{{r.overall}}</span>
+</td>
+<sc-for list="{{r.cells}}" as="c" hint-placeholder-count="6">
+<td style="background: {{r.rowBg}}; padding: 4px; border-bottom: 1px solid #EEF2F5; border-right: {{c.edge}}">
+<sc-if value="{{c.isUnit}}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{c.pick}}" aria-label="{{c.label}}" style="position: relative; width: 100%; min-width: 76px; min-height: 48px; box-sizing: border-box; border: {{c.border}}; border-radius: 8px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; font: 600 15px 'Noto Sans',sans-serif; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4px; text-decoration: none">
+<span>{{c.text}}</span>
+<sc-if value="{{c.showSub}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 500; line-height: 1.2; text-decoration: {{c.subDeco}}">{{c.sub}}</span></sc-if>
+<sc-if value="{{c.flag}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFF4DC" stroke="#A15C00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; top: 3px; right: 3px"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg></sc-if>
+</button>
+</sc-if>
+<sc-if value="{{c.isEx}}" hint-placeholder-val="{{ true }}">
+<a href="lesson.html" aria-label="{{c.label}}" title="Open in lesson overview" style="position: relative; width: 100%; min-width: 76px; min-height: 48px; box-sizing: border-box; border: {{c.border}}; border-radius: 8px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; font: 600 15px 'Noto Sans',sans-serif; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4px; text-decoration: none">
+<span>{{c.text}}</span>
+<sc-if value="{{c.showSub}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 500; line-height: 1.2; text-decoration: {{c.subDeco}}">{{c.sub}}</span></sc-if>
+<sc-if value="{{c.flag}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFF4DC" stroke="#A15C00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; top: 3px; right: 3px"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg></sc-if>
+</a>
+</sc-if>
+</td>
+</sc-for>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<sc-if value="{{infoOn}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 12px 24px; font-size: 13px; color: #1A1F3A; background: #E8EAFF; border-top: 1px solid #D3D8F5"><span style="font-weight: 700">How Overall is calculated: </span>the average of the student's best score in each exercise they've started. Where you've entered a teacher score, it's used instead of the AI score. Exercises not started aren't counted, and are shown in Completion instead.</div>
+</sc-if>
+<div style="padding: 12px 24px; font-size: 12px; color: #5F6B73; border-top: 1px solid #E2E7EB">Click a lesson name or any score to open the lesson overview, where you can listen and adjust exercise scores · Click a student for their profile · Student and score columns stay in place when you scroll</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</script>
+<script src="dc-lite.js"></script>
+<script>
+var LESSONS = [
+  { name: 'How to Use Sensay', short: 'How to Use Sensay', unit: 0 },
+  { name: 'Goldilocks & the Three Bears · Part 1', short: 'Part 1', unit: 1 },
+  { name: 'Goldilocks & the Three Bears · Part 2', short: 'Part 2', unit: 1 },
+  { name: 'Goldilocks & the Three Bears · Part 3', short: 'Part 3', unit: 1 },
+  { name: 'Goldilocks & the Three Bears · Part 4', short: 'Part 4', unit: 1 },
+  { name: 'Goldilocks & the Three Bears · Part 5', short: 'Part 5', unit: 1 },
+  { name: 'The Three Little Pigs · Part 1', short: 'Part 1', unit: 2 },
+  { name: 'The Three Little Pigs · Part 2', short: 'Part 2', unit: 2 },
+  { name: 'The Three Little Pigs · Part 3', short: 'Part 3', unit: 2 },
+  { name: 'The Three Little Pigs · Part 4', short: 'Part 4', unit: 2 },
+  { name: 'Jack and the Beanstalk · Part 1', short: 'Part 1', unit: 3 },
+  { name: 'Jack and the Beanstalk · Part 2', short: 'Part 2', unit: 3 },
+  { name: 'Jack and the Beanstalk · Part 3', short: 'Part 3', unit: 3 }
+];
+var UNITS = [
+  { name: 'Getting started', lessons: [0] },
+  { name: 'Goldilocks & the Three Bears', lessons: [1, 2, 3, 4, 5] },
+  { name: 'The Three Little Pigs', lessons: [6, 7, 8, 9] },
+  { name: 'Jack and the Beanstalk', lessons: [10, 11, 12] }
+];
+var UNIT_TAGS = ['Intro', 'Goldilocks', 'Pigs', 'Jack'];
+LESSONS.forEach(function (l, i) { l.tag = i === 0 ? 'Intro' : UNIT_TAGS[l.unit] + ' ' + l.short.replace('Part ', 'P'); });
+var N = null;
+var STUDENTS = [
+  { name: '6126 黃婕軒', s: [93, 87, 85, 82, 81, 84, 88, 85, 83, 86, 84, 82, N] },
+  { name: 'Betty 盛洛喬', s: [86, 76, 73, 62, 82, N, 78, 74, N, N, N, N, N] },
+  { name: 'Clark X', s: [94, N, 87, 82, 87, 87, 85, 88, 84, 82, 86, N, N] },
+  { name: 'Jimmy Su', s: [82, 89, 87, 86, 92, 91, 90, 88, 91, 89, 87, 90, 88] },
+  { name: 'Kiki X', s: [92, N, N, N, N, 84, N, N, N, N, N, N, N] },
+  { name: 'Lois X', s: [91, N, 86, 88, 88, 87, 86, 84, 85, N, N, N, N] },
+  { name: 'Olivia X', s: [95, 92, 88, 87, 87, 88, 91, 89, 90, 88, 89, 87, { v: 84, p: 50 }] },
+  { name: 'Paul X', s: [86, 10, { v: 86, p: 33 }, 86, 85, 86, 84, 83, N, N, N, N, N] },
+  { name: 'Stan X', s: [82, 47, 76, 53, N, 67, 64, 58, N, N, N, N, N] },
+  { name: 'Stella Liu', s: [89, 70, 81, 80, 82, 84, 80, 78, 82, 79, 81, N, N] },
+  { name: 'Stella T.', s: [86, 87, 84, 81, 82, 82, 83, 85, 82, 84, 80, 82, N] },
+  { name: 'Winnie X', s: [93, 87, 85, 84, 82, 84, 86, 84, 85, 83, 85, 84, 86] }
+];
+STUDENTS.forEach(function (stu) {
+  var t = 0;
+  stu.s.forEach(function (raw) { t += raw == null ? 0 : (typeof raw === 'object' ? raw.p : 100); });
+  stu.comp = Math.round(t / stu.s.length);
+});
+var RANGES = ['All time', 'This week', 'This month', 'This term', 'Custom…'];
+var WAVE = [30, 55, 40, 70, 85, 60, 45, 75, 90, 65, 50, 35, 60, 80, 95, 70, 55, 40, 65, 85, 75, 50, 30, 45, 70, 60, 80, 55, 40, 65, 50, 35, 55, 45, 30, 20];
+var PASS = 60;
+function band(s) {
+  if (s >= 70) return { bg: '#D3EEDD', fg: '#1E5C3C' };
+  if (s >= 60) return { bg: '#FDEFD3', fg: '#5C3D00' };
+  return { bg: '#FBE1E1', fg: '#8A1F1F' };
+}
+function aiOf(raw) { return raw == null ? null : (typeof raw === 'object' ? raw.v : raw); }
+function partOf(raw) { return raw != null && typeof raw === 'object' ? raw.p : (raw == null ? 0 : 100); }
+function avg(xs) { return xs.length ? Math.round(xs.reduce(function (a, b) { return a + b; }, 0) / xs.length) : null; }
+var OV_RING = 'inset 0 0 0 2px #4357AD';
+var SPECIAL = { '1-3-1': 0, '9-1-0': 5 };
+function triesFor(si, li, best) {
+  var n = 1 + ((si * 3 + li * 5) % 3);
+  if (best < 70) n += 3;
+  if (best < 55) n += 3;
+  return n;
+}
+function attemptsOf(si, li) {
+  var best = aiOf(STUDENTS[si].s[li]); if (best == null) return [];
+  var n = triesFor(si, li, best), out = [], spread = Math.min(28, Math.round(best * 0.4));
+  for (var i = 0; i < n; i++) {
+    var v = n === 1 ? best : best - Math.round((n - 1 - i) * spread / (n - 1)) + ((i * 7) % 5) - 2;
+    if (i === n - 1) v = best;
+    if (v > best) v = best - 1;
+    if (v < 0) v = 0;
+    var sp = SPECIAL[si + '-' + li + '-' + i]; if (sp != null) v = sp;
+    out.push(v);
+  }
+  return out;
+}
+function suspicious(score, best) { return score < 20 || best - score >= 40; }
+function flaggedAI(si, li) {
+  var best = aiOf(STUDENTS[si].s[li]);
+  return attemptsOf(si, li).some(function (v) { return suspicious(v, best); });
+}
+function textFg(s) { return s < 60 ? '#B42323' : (s < 70 ? '#8A5A00' : '#111111'); }
+var SEL_SHADOW = '0 6px 16px rgba(17,17,17,0.28)';
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sel: null, draft: '', err: '', details: true, q: '',
+      view: 'all', sortKey: 'no', sortDir: 1, range: 0, info: false,
+      open: { 1: true, 2: true, 3: true }, playing: -1, toast: '',
+      ov: {
+        '7-1': { score: 78, by: '[Teacher name]', note: 'Audio didn’t record on the first attempts — re-scored in class.' },
+        '8-3': { score: 65, by: '[Teacher name]', note: '' }
+      }
+    };
+  }
+  finalOf(si, li) {
+    var o = this.state.ov[si + '-' + li];
+    return o ? o.score : aiOf(STUDENTS[si].s[li]);
+  }
+  overallOf(si) {
+    var xs = [];
+    for (var li = 0; li < LESSONS.length; li++) { var f = this.finalOf(si, li); if (f != null) xs.push(f); }
+    return avg(xs);
+  }
+  reasonsOf(si) {
+    var r = [], stu = STUDENTS[si], ov = this.overallOf(si);
+    if (stu.comp < 50) r.push(stu.comp + '% complete');
+    if (ov != null && ov < 70) r.push('Overall ' + ov);
+    for (var li = 0; li < LESSONS.length; li++) {
+      var f = this.finalOf(si, li);
+      if (f != null && f < PASS) { r.push(LESSONS[li].tag + ': ' + f); break; }
+    }
+    return r;
+  }
+  sorter(key) {
+    var self = this;
+    return function () {
+      var same = self.state.sortKey === key;
+      self.setState({ sortKey: key, sortDir: same ? -self.state.sortDir : (key === 'no' || key === 'name' ? 1 : -1) });
+    };
+  }
+  ico(key) {
+    if (this.state.sortKey !== key) return '↕';
+    return this.state.sortDir > 0 ? '↑' : '↓';
+  }
+  renderVals() {
+    var self = this, st = this.state, q = (st.q || '').trim().toLowerCase();
+
+    var cols = [], groups = [];
+    UNITS.forEach(function (u, ui) {
+      var open = u.lessons.length === 1 || !!st.open[ui];
+      var span = open ? u.lessons.length : 1;
+      groups.push({
+        name: u.name, href: 'lesson.html', span: span, canToggle: u.lessons.length > 1, open: open,
+        toggleLabel: open ? 'Show less' : 'Show all ' + u.lessons.length + ' exercises',
+        toggle: function () { var o = Object.assign({}, self.state.open); o[ui] = !open; self.setState({ open: o }); }
+      });
+      if (open) {
+        u.lessons.forEach(function (li, k) {
+          cols.push({ kind: 'lesson', li: li, label: LESSONS[li].short, sub: u.lessons.length > 1 ? '' : '', edge: k === u.lessons.length - 1 ? '1px solid #E2E7EB' : '0' });
+        });
+      } else {
+        cols.push({ kind: 'unit', ui: ui, href: '#', label: 'Lesson score', sub: 'avg. of ' + u.lessons.length + ' exercises', edge: '1px solid #E2E7EB' });
+      }
+    });
+
+    var attnList = [];
+    STUDENTS.forEach(function (s, si) { if (self.reasonsOf(si).length) attnList.push(si); });
+
+    var idx = [];
+    STUDENTS.forEach(function (stu, si) {
+      if (q && stu.name.toLowerCase().indexOf(q) === -1) return;
+      if (st.view === 'attention' && attnList.indexOf(si) === -1) return;
+      idx.push(si);
+    });
+    idx.sort(function (a, b) {
+      var k = st.sortKey, d = st.sortDir, va, vb;
+      if (k === 'name') { va = STUDENTS[a].name; vb = STUDENTS[b].name; return d * va.localeCompare(vb); }
+      if (k === 'comp') { va = STUDENTS[a].comp; vb = STUDENTS[b].comp; }
+      else if (k === 'overall') { va = self.overallOf(a) || 0; vb = self.overallOf(b) || 0; }
+      else { va = a; vb = b; }
+      return d * (va - vb) || a - b;
+    });
+
+    var rows = idx.map(function (si) {
+      var stu = STUDENTS[si], ov = self.overallOf(si), ob = band(ov);
+      var rowSel = st.sel && st.sel.si === si;
+      var cells = cols.map(function (col) {
+        if (col.kind === 'unit') {
+          var u = UNITS[col.ui], xs = [], anyOv = false;
+          u.lessons.forEach(function (li) { var f = self.finalOf(si, li); if (f != null) xs.push(f); if (st.ov[si + '-' + li]) anyOv = true; });
+          var a = avg(xs), b = band(a);
+          return {
+            text: a == null ? '—' : String(a), bg: b.bg, fg: b.fg,
+            border: a == null ? '1.5px dashed #A9B3BA' : '0',
+            shadow: 'none', flag: false, isUnit: true, isEx: false, scale: 'none', weight: '600',
+            sub: u.lessons.filter(function (li) { return partOf(stu.s[li]) === 100; }).length + '/' + u.lessons.length + ' completed', subDeco: 'none', showSub: st.details,
+            edge: col.edge,
+            label: stu.name + ', ' + u.name + ' average: ' + (a == null ? 'not started' : a) + '. Show all exercises.',
+            pick: function () { var o = Object.assign({}, self.state.open); o[col.ui] = true; self.setState({ open: o }); }
+          };
+        }
+        var li = col.li, raw = stu.s[li], ai = aiOf(raw), p = partOf(raw), o = st.ov[si + '-' + li];
+        var fin = o ? o.score : ai, bb = band(fin), none = fin == null;
+        var sub = '', deco = 'none';
+        if (o) { sub = ai == null ? 'AI —' : 'AI ' + ai; deco = 'line-through'; }
+        else if (p > 0 && p < 100) { sub = p + '% done'; }
+        var isSel = st.sel && st.sel.si === si && st.sel.li === li;
+        var shadows = [];
+        if (o) shadows.push(OV_RING);
+        if (isSel) shadows.push(SEL_SHADOW);
+        return {
+          text: none ? '—' : String(fin), bg: bb.bg, fg: bb.fg,
+          border: none ? '1.5px dashed #A9B3BA' : '0',
+          shadow: shadows.length ? shadows.join(', ') : 'none', isUnit: false, isEx: true, flag: !o && ai != null && flaggedAI(si, li),
+          scale: isSel ? 'scale(1.08)' : 'none', weight: isSel ? '800' : '600',
+          sub: sub, subDeco: deco, showSub: !!sub && st.details, edge: col.edge,
+          label: stu.name + ', ' + LESSONS[li].name + ': ' + (none ? 'not started' : fin) + (o ? ' (teacher-adjusted)' : '') + '. Open in lesson overview.',
+          pick: function () { self.setState({ sel: { si: si, li: li }, draft: o ? String(o.score) : '', err: '', playing: -1 }); }
+        };
+      });
+      var reasons = self.reasonsOf(si);
+      return {
+        num: si + 1, name: stu.name,
+        rowBg: rowSel ? '#F2FBFA' : '#FFFFFF',
+        compDone: stu.comp === 100, compPartial: stu.comp !== 100,
+        comp: stu.comp + '%',
+        compFg: stu.comp < 50 ? '#A15C00' : '#4A555C', compWeight: stu.comp < 50 ? '700' : '400',
+        overall: ov == null ? '—' : ov,
+        overallFg: ov == null ? '#5F6B73' : (ov < 60 ? '#B42323' : (ov < 70 ? '#8A5A00' : '#111111')),
+        reasons: reasons, showReasons: st.view === 'attention' && reasons.length > 0,
+        cells: cells
+      };
+    });
+
+    var avgCells = cols.map(function (col) {
+      var lis = col.kind === 'unit' ? UNITS[col.ui].lessons : [col.li];
+      var xs = [], n = 0;
+      STUDENTS.forEach(function (s, si) {
+        var started = false;
+        lis.forEach(function (li) { var f = self.finalOf(si, li); if (f != null) { xs.push(f); started = true; } });
+        if (started) n++;
+      });
+      var a = avg(xs);
+      return { avg: a == null ? '—' : a, started: n + '/' + STUDENTS.length, edge: col.edge };
+    });
+    var ovs = STUDENTS.map(function (s, si) { return self.overallOf(si); }).filter(function (x) { return x != null; });
+
+    var v = {
+      groups: groups, cols: cols, rows: rows, avgCells: avgCells,
+      classOverall: avg(ovs) == null ? '—' : avg(ovs),
+      classComp: avg(STUDENTS.map(function (s) { return s.comp; })) + '%',
+      studentCount: STUDENTS.length,
+      attnCount: attnList.length,
+      overrideCount: Object.keys(st.ov).length,
+      attnOn: st.view === 'attention', allOn: st.view === 'all',
+      allBg: st.view === 'all' ? '#FFFFFF' : 'transparent',
+      attnBg: st.view === 'attention' ? '#FFFFFF' : 'transparent',
+      attnCardBorder: st.view === 'attention' ? '2px solid #F9A000' : '2px solid transparent',
+      showAll: function () { self.setState({ view: 'all' }); },
+      showAttention: function () { self.setState({ view: 'attention' }); },
+      remindAll: function () { self.setState({ toast: 'Reminder sent to ' + attnList.length + ' students.' }); },
+      hasToast: !!st.toast, toast: st.toast,
+      ranges: RANGES.map(function (label, i) {
+        var on = st.range === i;
+        return { label: label, on: on, bg: on ? '#00A094' : '#FFFFFF', fg: on ? '#FFFFFF' : '#222222', border: on ? '1px solid #00A094' : '1px solid #C0C0C0', pick: function () { self.setState({ range: i }); } };
+      }),
+      q: st.q, details: st.details,
+      onSearch: function (e) { self.setState({ q: e.target.value }); },
+      toggleDetails: function () { self.setState({ details: !self.state.details }); },
+      sortNo: this.sorter('no'), sortName: this.sorter('name'), sortComp: this.sorter('comp'), sortOverall: this.sorter('overall'),
+      icoNo: this.ico('no'), icoName: this.ico('name'), icoComp: this.ico('comp'), icoOverall: this.ico('overall'),
+      infoOn: st.info, toggleInfo: function () { self.setState({ info: !self.state.info }); },
+      hasSel: !!st.sel, draft: st.draft, err: st.err, hasErr: !!st.err,
+      onDraft: function (e) { self.setState({ draft: e.target.value, err: '' }); },
+      closeSel: function () { self.setState({ sel: null, err: '', playing: -1 }); },
+      playing: st.playing, notPlaying: !st.playing,
+      playLabel: st.playing ? 'Pause recording' : 'Play recording',
+      togglePlay: function () { self.setState({ playing: !self.state.playing }); },
+      wave: WAVE.map(function (h, i) { return { h: h + '%', c: st.playing && i < 14 ? '#00A094' : '#C7D0D6' }; }),
+      rubric: ['Pronunciation', 'Fluency', 'Accuracy', 'Completeness'],
+      exercises: []
+    };
+    if (st.sel) {
+      var si = st.sel.si, li = st.sel.li, stu = STUDENTS[si], raw = stu.s[li];
+      var ai = aiOf(raw), p = partOf(raw), key = si + '-' + li, o = st.ov[key];
+      var fin = o ? o.score : ai, b = band(fin), list = attemptsOf(si, li);
+      var unit = UNITS[LESSONS[li].unit];
+      v.lessonHref = 'lesson.html';
+      v.selName = stu.name; v.selFirstName = stu.name.split(' ')[0];
+      v.selLesson = unit.lessons.length > 1 ? unit.name + ' \u00b7 ' + LESSONS[li].short : LESSONS[li].name;
+      v.selFinal = fin == null ? '\u2014' : fin;
+      v.selBg = fin == null ? '#F2F2F2' : b.bg; v.selFg = fin == null ? '#4A555C' : b.fg;
+      v.selRing = o ? OV_RING : 'none';
+      v.selSource = o ? 'Teacher score (AI best was ' + (ai == null ? '\u2014' : ai) + ')' : (fin == null ? 'Not started yet' : 'AI best of ' + list.length + (list.length === 1 ? ' attempt' : ' attempts') + (p < 100 ? ' \u00b7 ' + p + '% done' : ''));
+      v.selAi = ai == null ? '\u2014' : String(ai);
+      v.selStarted = ai != null; v.selNotStarted = ai == null;
+      v.selIsOv = !!o; v.selHasNote = !!(o && o.note); v.selNote = o ? o.note : '';
+      v.selFlag = !o && ai != null && flaggedAI(si, li);
+      var lo = list.length ? Math.min.apply(null, list) : null, loIdx = list.indexOf(lo), bestIdx = list.lastIndexOf(ai);
+      v.selFlagText = lo === 0 ? 'Attempt ' + (loIdx + 1) + ' scored 0, which usually means the recording didn\u2019t capture any speech.' : 'Attempt ' + (loIdx + 1) + ' scored ' + lo + ', far below normal.';
+      v.selTriesText = list.length ? list.length + (list.length === 1 ? ' attempt' : ' attempts') + ' \u00b7 lowest ' + lo + ' \u00b7 best ' + ai : '';
+      v.selInputLabel = o ? 'Edit teacher score' : 'Adjust this exercise score';
+      v.attempts = list.map(function (sc, i) {
+        var tags = [];
+        if (i === bestIdx) tags.push({ text: 'Best', bg: '#D6F0EE', fg: '#123F3B' });
+        if (i === loIdx && list.length > 1) tags.push({ text: 'Lowest', bg: '#EEF2F5', fg: '#4A555C' });
+        if (suspicious(sc, ai)) tags.push({ text: 'Check audio', bg: '#FDEFD3', fg: '#5C3D00' });
+        var playing = st.playing === i;
+        return {
+          n: i + 1, score: sc, fg: textFg(sc), tags: tags,
+          top: i === 0 ? '0' : '1px solid #EEF2F5', bg: playing ? '#F2FBFA' : '#FFFFFF',
+          playing: playing, paused: !playing, btnBg: playing ? '#0B6B63' : '#00A094',
+          playLabel: (playing ? 'Pause' : 'Play') + ' attempt ' + (i + 1),
+          play: function () { self.setState({ playing: playing ? -1 : i }); }
+        };
+      });
+      v.remindOne = function () { self.setState({ toast: 'Reminder sent to ' + stu.name + '.' }); };
+      v.save = function () {
+        var n = parseInt(self.state.draft, 10);
+        if (isNaN(n) || n < 0 || n > 100) { self.setState({ err: 'Enter a score from 0 to 100.' }); return; }
+        var next = Object.assign({}, self.state.ov);
+        next[key] = { score: n, by: '[Teacher name]', note: o ? o.note : '' };
+        self.setState({ ov: next, err: '' });
+      };
+      v.revert = function () {
+        var next = Object.assign({}, self.state.ov); delete next[key];
+        self.setState({ ov: next, draft: '', err: '' });
+      };
+    } else {
+      v.lessonHref = '#'; v.attempts = [];
+      v.selName = ''; v.selFirstName = ''; v.selLesson = ''; v.selFinal = ''; v.selBg = '#F2F2F2'; v.selFg = '#222222'; v.selRing = 'none';
+      v.selSource = ''; v.selAi = ''; v.selStarted = false; v.selNotStarted = false; v.selIsOv = false; v.selHasNote = false; v.selNote = '';
+      v.selFlag = false; v.selFlagText = ''; v.selTriesText = ''; v.selInputLabel = '';
+      v.remindOne = function () {}; v.save = function () {}; v.revert = function () {};
+    }
+    return v;
+  }
+}
+mountDC(Component, 'tpl', 'app');
+</script>
+</body>
+</html>

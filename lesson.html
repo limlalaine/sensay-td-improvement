@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson Overview · Sensay Teacher Platform (mockup)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0B6B63}a:hover{color:#1A4A47}
+table{border-collapse:separate;border-spacing:0}
+th,td{vertical-align:middle}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="tpl">
+<div style="min-height: 100vh; background: #EEF2F5; font-family: 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; box-sizing: border-box; padding: 0 0 56px">
+
+<div style="background: #FFFFFF; border-bottom: 1px solid #D5DCE1">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between">
+<nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; color: #5F6B73">
+<a href="#" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">My Classes</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<a href="index.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">[Class name]</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<a href="#" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">Lessons</a>
+<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+<span aria-current="page" style="color: #222222">Goldilocks &amp; the Three Bears</span>
+</nav>
+<a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px 0 10px; border-radius: 8px; background: #FFFFFF; border: 1px solid #D5DCE1; font-size: 14px; font-weight: 700; text-decoration: none">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>Back to Class Overview</a>
+</div>
+</div>
+
+<div style="max-width: 1360px; margin: 0 auto; padding: 40px 24px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+
+<div>
+<div style="font-size: 13px; font-weight: 700; color: #4A555C; text-transform: uppercase; letter-spacing: 0.04em">Lesson Overview</div>
+<h1 style="margin: 4px 0 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.15; color: #111111">Goldilocks &amp; the Three Bears <span style="color: #5F6B73; font-weight: 400; font-size: 20px">· 5 exercises</span></h1>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<div style="flex: 999 1 640px; min-width: 0; background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid #E2E7EB">
+<h2 style="margin: 0; font-family: Lato, sans-serif; font-size: 20px; font-weight: 700; color: #111111">Results by exercise</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+<div role="group" aria-label="Students shown" style="display: flex; gap: 4px; background: #E2E7EB; padding: 4px; border-radius: 10px">
+<button type="button" onClick="{{showAllStu}}" aria-pressed="{{allStuOn}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: {{allStuBg}}; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">All students ({{studentCount}})</button>
+<button type="button" onClick="{{showMissing}}" aria-pressed="{{unfOn}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: {{missBg}}; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Missing exercises ({{missCount}})</button>
+</div>
+<div role="group" aria-label="Show in cells" style="display: flex; gap: 4px; background: #E2E7EB; padding: 4px; border-radius: 10px">
+<button type="button" onClick="{{showScore}}" aria-pressed="{{scoreOn}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: {{scoreBg}}; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Best score</button>
+<button type="button" onClick="{{showTries}}" aria-pressed="{{triesOn}}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: {{triesBg}}; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Attempts</button>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 12px 24px; font-size: 12px; color: #4A555C; border-bottom: 1px solid #E2E7EB">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #E6F4F2; box-shadow: inset 0 0 0 2px #4357AD"></span>Teacher-adjusted exercise</span>
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A15C00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg>An attempt may have a recording problem</span>
+<span style="margin-left: auto; color: #5F6B73">Click an exercise score to listen and adjust it</span>
+</div>
+
+<div data-keep-scroll="table" style="overflow-x: auto">
+<table style="width: 100%; min-width: {{tableMinW}}; font-size: 14px">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; padding: 16px 8px 12px 24px; color: #5F6B73; font-weight: 600; font-size: 13px; border-bottom: 1px solid #E2E7EB; width: 48px">No.</th>
+<th scope="col" style="text-align: left; padding: 16px 8px 12px; color: #111111; font-weight: 700; border-bottom: 1px solid #E2E7EB">Student</th>
+<th scope="col" style="text-align: center; padding: 16px 8px 12px; color: #111111; font-weight: 700; border-bottom: 1px solid #E2E7EB; border-right: 1px solid #E2E7EB">Lesson score</th>
+<sc-for list="{{exHeads}}" as="h" hint-placeholder-count="4">
+<th scope="col" style="text-align: center; padding: 12px 4px; border-bottom: 1px solid #E2E7EB; vertical-align: bottom">
+<div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px">
+<sc-if value="{{h.hard}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 700; color: #5C3D00; background: #FDEFD3; border-radius: 999px; padding: 1px 8px">Hardest</span></sc-if>
+<span style="font-weight: 700; font-size: 13px; color: #111111">{{h.name}}</span>
+<span style="font-size: 11px; color: #5F6B73">[exercise type]</span>
+</div>
+</th>
+</sc-for>
+</tr>
+<tr style="background: #F7F9FA">
+<td style="padding: 8px 8px 8px 24px; border-bottom: 2px solid #E2E7EB"></td>
+<th scope="row" style="text-align: left; padding: 8px; font-weight: 700; color: #111111; border-bottom: 2px solid #E2E7EB">Class average <span style="display: block; font-size: 11px; font-weight: 400; color: #5F6B73">of students who started</span></th>
+<td style="text-align: center; padding: 8px; font-family: Lato, sans-serif; font-size: 18px; font-weight: 900; color: #111111; border-bottom: 2px solid #E2E7EB; border-right: 1px solid #E2E7EB">{{lessonAvg}}</td>
+<sc-for list="{{exAvgs}}" as="a" hint-placeholder-count="4">
+<td style="text-align: center; padding: 8px 4px; border-bottom: 2px solid #E2E7EB">
+<div style="display: inline-flex; flex-direction: column; align-items: center; gap: 2px">
+<span style="font-family: Lato, sans-serif; font-size: 17px; font-weight: 900; color: {{a.fg}}">{{a.main}}</span>
+<span style="font-size: 11px; font-weight: {{a.ndWeight}}; color: {{a.ndFg}}">{{a.notDone}}</span>
+</div>
+</td>
+</sc-for>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+<tr>
+<td style="padding: 4px 8px 4px 24px; color: #5F6B73; border-bottom: 1px solid #EEF2F5; background: {{r.rowBg}}">{{r.num}}</td>
+<td style="padding: 4px 8px; border-bottom: 1px solid #EEF2F5; white-space: nowrap; background: {{r.rowBg}}"><a href="#" style="font-weight: 700; text-decoration: none; color: #0B6B63">{{r.name}}</a></td>
+<td title="{{r.scoreTitle}}" style="padding: 4px 8px; text-align: center; border-bottom: 1px solid #EEF2F5; border-right: 1px solid #E2E7EB; background: {{r.rowBg}}">
+<span style="position: relative; display: inline-block; padding: 0 12px; font-family: Lato, sans-serif; font-weight: 900; font-size: 17px; color: {{r.scoreFg}}">{{r.score}}</span>
+</td>
+<sc-for list="{{r.cells}}" as="c" hint-placeholder-count="4">
+<td style="padding: 4px; border-bottom: 1px solid #EEF2F5; background: {{r.rowBg}}">
+<sc-if value="{{c.none}}" hint-placeholder-val="{{ false }}">
+<div style="min-width: {{cellW}}; min-height: {{cellH}}; box-sizing: border-box; border-radius: 8px; border: 1.5px dashed #A9B3BA; color: #5F6B73; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 13px">—<sc-if value="{{showSubs}}" hint-placeholder-val="{{ true }}"><span style="font-size: 11px">Not started</span></sc-if></div>
+</sc-if>
+<sc-if value="{{c.has}}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{c.pick}}" aria-label="{{c.label}}" style="position: relative; width: 100%; min-width: {{cellW}}; min-height: {{cellH}}; box-sizing: border-box; border: 0; border-radius: 8px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; transform: {{c.scale}}; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4px; cursor: pointer; font-family: 'Noto Sans',sans-serif; transition: transform 120ms ease, box-shadow 120ms ease">
+<span style="font-weight: {{c.weight}}; font-size: 15px">{{c.main}}</span>
+<sc-if value="{{showSubs}}" hint-placeholder-val="{{ true }}"><span style="font-size: 11px; font-weight: 500; text-decoration: {{c.subDeco}}">{{c.sub}}</span></sc-if>
+<sc-if value="{{c.flag}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFF4DC" stroke="#A15C00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; top: 3px; right: 3px"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg></sc-if>
+</button>
+</sc-if>
+</td>
+</sc-for>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<sc-if value="{{hasSel}}" hint-placeholder-val="{{ true }}">
+<aside aria-label="Exercise details" style="flex: 1 1 480px; max-width: 580px; background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); padding: 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: Lato, sans-serif; font-size: 22px; font-weight: 900; color: #111111">{{selName}}</div>
+<div style="font-size: 14px; color: #4A555C">{{selEx}} · [exercise type]</div>
+</div>
+<button type="button" aria-label="Close details" onClick="{{closeSel}}" style="width: 44px; height: 44px; border: 0; background: #F2F2F2; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+</div>
+
+<div style="display: flex; align-items: center; gap: 16px; padding: 16px; border-radius: 12px; background: {{selBg}}; box-shadow: {{selRing}}">
+<div style="font-family: Lato, sans-serif; font-size: 45px; font-weight: 900; line-height: 1; color: {{selFg}}">{{selFinal}}</div>
+<div style="display: flex; flex-direction: column; gap: 2px; color: {{selFg}}">
+<div style="font-size: 13px; font-weight: 700">Exercise score</div>
+<div style="font-size: 13px">{{selSource}}</div>
+</div>
+</div>
+
+<sc-if value="{{selFlag}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 8px; background: #FDF5E6; color: #5C3D00; font-size: 13px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A15C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 1px"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg>
+<div><span style="font-weight: 700">Check this score.</span> {{selFlagText}} Listen before deciding whether to adjust it.</div>
+</div>
+</sc-if>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<div style="font-size: 13px; font-weight: 700; color: #222222">All attempts</div>
+<div style="font-size: 12px; color: #5F6B73">{{selTriesText}}</div>
+</div>
+<div style="border: 1px solid #E2E7EB; border-radius: 12px; max-height: 266px; overflow-y: auto" data-keep-scroll="attempts">
+<sc-for list="{{attempts}}" as="at" hint-placeholder-count="4">
+<button type="button" onClick="{{at.pick}}" aria-pressed="{{at.on}}" style="width: 100%; display: flex; align-items: center; gap: 12px; padding: 8px 12px; border: 0; border-top: {{at.top}}; background: {{at.bg}}; box-shadow: {{at.ring}}; cursor: pointer; text-align: left; font-family: 'Noto Sans',sans-serif">
+<div style="flex: 1; display: flex; flex-direction: column">
+<span style="font-size: 13px; font-weight: 600; color: #222222">Attempt {{at.n}}</span>
+<span style="font-size: 11px; color: #5F6B73">[date]</span>
+</div>
+<div style="display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end">
+<sc-for list="{{at.tags}}" as="tg" hint-placeholder-count="1">
+<span style="font-size: 11px; font-weight: 700; border-radius: 999px; padding: 1px 8px; background: {{tg.bg}}; color: {{tg.fg}}; white-space: nowrap">{{tg.text}}</span>
+</sc-for>
+</div>
+<span style="width: 32px; text-align: right; font-family: Lato, sans-serif; font-weight: 900; font-size: 16px; color: {{at.fg}}">{{at.score}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px; border: 1px solid #E2E7EB; border-radius: 12px; padding: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
+<div style="font-size: 15px; font-weight: 700; color: #111111">Text Analyzer <span style="font-weight: 400; color: #5F6B73">· Attempt {{atN}}</span></div>
+<div style="font-family: Lato, sans-serif; font-weight: 900; font-size: 18px; color: {{atFg}}">{{atScore}}</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{words}}" as="w" hint-placeholder-count="13">
+<button type="button" onClick="{{w.pick}}" aria-label="{{w.label}}" aria-pressed="{{w.on}}" style="min-height: 32px; padding: 2px 10px; border-radius: 6px; border: {{w.border}}; background: {{w.bg}}; color: {{w.fg}}; font: 600 14px 'Noto Sans',sans-serif; text-decoration: {{w.deco}}; text-underline-offset: 3px; cursor: pointer">{{w.text}}</button>
+</sc-for>
+</div>
+<div aria-hidden="true" style="position: relative; display: flex; align-items: center; gap: 2px; height: 64px; padding: 0 2px; border-left: 1px solid #C0C0C0; border-bottom: 1px solid #EEF2F5">
+<sc-for list="{{wave}}" as="b" hint-placeholder-count="48">
+<span style="flex: 1; height: {{b.h}}; border-radius: 1px; background: {{b.c}}"></span>
+</sc-for>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" onClick="{{togglePlay}}" style="min-height: 44px; padding: 0 16px; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 8px; background: #2F7A6E; color: #FFFFFF; font: 700 15px 'Noto Sans',sans-serif; cursor: pointer">
+<sc-if value="{{isPlaying}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 16 16" fill="#FFFFFF" aria-hidden="true"><rect x="3" y="2.5" width="3.5" height="11" rx="1"/><rect x="9.5" y="2.5" width="3.5" height="11" rx="1"/></svg>Pause</sc-if>
+<sc-if value="{{notPlaying}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 16 16" fill="#FFFFFF" aria-hidden="true"><path d="M4.5 2.5v11l9-5.5z"/></svg>Play</sc-if>
+</button>
+<button type="button" aria-label="Volume" style="width: 44px; height: 44px; border: 0; border-radius: 8px; background: #2F7A6E; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="#FFFFFF"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+<span style="margin-left: auto; font-size: 12px; color: #5F6B73">[0:00]</span>
+</div>
+<sc-if value="{{hasWord}}" hint-placeholder-val="{{ false }}">
+<div style="background: #F7F9FA; border-radius: 8px; padding: 12px; font-size: 13px; color: #222222; display: flex; flex-direction: column; gap: 4px">
+<div><span style="font-weight: 700">“{{wordText}}”</span> <span style="color: {{wordStatusFg}}; font-weight: 600">· {{wordStatus}}</span></div>
+<div style="color: #5F6B73">[Pronunciation details for this word]</div>
+</div>
+</sc-if>
+<sc-if value="{{noWord}}" hint-placeholder-val="{{ true }}">
+<div style="font-size: 12px; color: #5F6B73">Click a word to see more details.</div>
+</sc-if>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: #4A555C">
+<span style="display: flex; align-items: center; gap: 4px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #DDF1E6"></span>Correct</span>
+<span style="display: flex; align-items: center; gap: 4px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #FBE1E1"></span><span style="text-decoration: underline">Mispronounced</span></span>
+<span style="display: flex; align-items: center; gap: 4px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #FBE1E1"></span><span style="text-decoration: line-through">Not read</span></span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #E2E7EB; padding-top: 16px">
+<label style="font-size: 13px; font-weight: 700; color: #222222">{{selInputLabel}}
+<div style="display: flex; gap: 8px; margin-top: 6px">
+<input id="draft" type="number" min="0" max="100" value="{{draft}}" onInput="{{onDraft}}" placeholder="0–100" style="width: 104px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 600 16px 'Noto Sans',sans-serif">
+<button type="button" onClick="{{save}}" style="flex: 1; min-height: 44px; border: 0; border-radius: 8px; background: #00A094; color: #FFFFFF; font: 700 15px 'Noto Sans',sans-serif; cursor: pointer">Save teacher score</button>
+</div>
+</label>
+<div style="font-size: 12px; color: #5F6B73">The lesson score updates automatically from the exercise scores.</div>
+<sc-if value="{{hasErr}}" hint-placeholder-val="{{ false }}"><div role="alert" style="font-size: 13px; color: #B42323">{{err}}</div></sc-if>
+<sc-if value="{{selIsOv}}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{revert}}" style="min-height: 44px; border: 1px solid #C0C0C0; border-radius: 8px; background: #FFFFFF; color: #222222; font: 600 14px 'Noto Sans',sans-serif; cursor: pointer">Revert to AI score ({{selAi}})</button>
+<div style="font-size: 13px; color: #4A555C"><span style="font-weight: 700; color: #222222">Change history:</span> [Teacher name] changed {{selAi}} → {{selFinal}} · [date]</div>
+</sc-if>
+</div>
+</aside>
+</sc-if>
+
+</div>
+
+<div style="font-size: 12px; color: #5F6B73">Lesson score = average of the exercises the student has started, using the teacher's score wherever one is set. Sample data; exercise types and dates are placeholders.</div>
+</div>
+</div>
+</script>
+<script src="dc-lite.js"></script>
+<script>
+var EX = ['Part 1', 'Part 2', 'Part 3', 'Part 4', 'Part 5'];
+var LI0 = 1;
+var N = null;
+var ROWS = [
+  { name: '6126 黃婕軒', s: [87, 85, 82, 81, 84] },
+  { name: 'Betty 盛洛喬', s: [76, 73, 62, 82, N] },
+  { name: 'Clark X', s: [N, 87, 82, 87, 87] },
+  { name: 'Jimmy Su', s: [89, 87, 86, 92, 91] },
+  { name: 'Kiki X', s: [N, N, N, N, 84] },
+  { name: 'Lois X', s: [N, 86, 88, 88, 87] },
+  { name: 'Olivia X', s: [92, 88, 87, 87, 88] },
+  { name: 'Paul X', s: [10, { v: 86, p: 33 }, 86, 85, 86] },
+  { name: 'Stan X', s: [47, 76, 53, N, 67] },
+  { name: 'Stella Liu', s: [70, 81, 80, 82, 84] },
+  { name: 'Stella T.', s: [87, 84, 81, 82, 82] },
+  { name: 'Winnie X', s: [87, 85, 84, 82, 84] }
+];
+var SPECIAL = { '1-3-1': 0, '9-1-0': 5 };
+function aiOf(raw) { return raw == null ? null : (typeof raw === 'object' ? raw.v : raw); }
+function partOf(raw) { return raw != null && typeof raw === 'object' ? raw.p : (raw == null ? 0 : 100); }
+function triesFor(si, li, best) {
+  var n = 1 + ((si * 3 + li * 5) % 3);
+  if (best < 70) n += 3;
+  if (best < 55) n += 3;
+  return n;
+}
+function attemptsOf(ri, k) {
+  var best = aiOf(ROWS[ri].s[k]); if (best == null) return [];
+  var li = k + LI0, n = triesFor(ri, li, best), out = [], spread = Math.min(28, Math.round(best * 0.4));
+  for (var i = 0; i < n; i++) {
+    var v = n === 1 ? best : best - Math.round((n - 1 - i) * spread / (n - 1)) + ((i * 7) % 5) - 2;
+    if (i === n - 1) v = best;
+    if (v > best) v = best - 1;
+    if (v < 0) v = 0;
+    var sp = SPECIAL[ri + '-' + li + '-' + i]; if (sp != null) v = sp;
+    out.push(v);
+  }
+  return out;
+}
+function suspicious(score, best) { return score < 20 || best - score >= 40; }
+function band(s) {
+  if (s >= 70) return { bg: '#D3EEDD', fg: '#1E5C3C' };
+  if (s >= 60) return { bg: '#FDEFD3', fg: '#5C3D00' };
+  return { bg: '#FBE1E1', fg: '#8A1F1F' };
+}
+function triesBand(t) {
+  if (t >= 7) return { bg: '#FBE1E1', fg: '#8A1F1F' };
+  if (t >= 4) return { bg: '#FDEFD3', fg: '#5C3D00' };
+  return { bg: '#F2F4F6', fg: '#222222' };
+}
+function textFg(s) { return s < 60 ? '#B42323' : (s < 70 ? '#8A5A00' : '#111111'); }
+function avg(xs) { return xs.length ? xs.reduce(function (a, b) { return a + b; }, 0) / xs.length : null; }
+var OV_RING = 'inset 0 0 0 2px #4357AD';
+var TEXT = ['Goldilocks', 'went', 'for', 'a', 'walk', 'in', 'the', 'forest', 'and', 'found', 'a', 'little', 'house'];
+var WAVE = [8, 20, 45, 30, 12, 50, 70, 40, 10, 35, 60, 85, 95, 70, 40, 20, 55, 75, 50, 15, 30, 65, 45, 10, 40, 80, 60, 25, 12, 45, 70, 55, 20, 8, 35, 60, 40, 15, 50, 30, 12, 25, 45, 20, 10, 30, 15, 6];
+function rng(seed) {
+  var x = (seed * 9301 + 49297) % 233280;
+  return function () { x = (x * 9301 + 49297) % 233280; return x / 233280; };
+}
+function wordStatuses(score, seed) {
+  var n = TEXT.length;
+  if (score === 0) return TEXT.map(function () { return 'missed'; });
+  var r = rng(seed), st = TEXT.map(function () { return 'ok'; });
+  var wrong = n - Math.round(n * score / 100), guard = 0;
+  while (wrong > 0 && guard < 200) {
+    guard++;
+    var w = Math.floor(r() * n);
+    if (st[w] !== 'ok') continue;
+    st[w] = r() < (score < 50 ? 0.55 : 0.3) ? 'missed' : 'mis';
+    wrong--;
+  }
+  return st;
+}
+function waveFor(statuses, seed, score) {
+  var r = rng(seed + 11), bars = 48, n = statuses.length, out = [];
+  for (var b = 0; b < bars; b++) {
+    var w = Math.min(n - 1, Math.floor(b * n / bars));
+    var edge = (b * n / bars) - w;
+    var h;
+    if (score === 0 || statuses[w] === 'missed') h = 2 + Math.round(r() * 3);
+    else if (edge < 0.15) h = 4 + Math.round(r() * 8);
+    else h = Math.round((25 + r() * 70) * (statuses[w] === 'mis' ? 0.7 : 1));
+    out.push(h);
+  }
+  return out;
+}
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: 'score', onlyUnf: false, sel: { ri: 1, k: 2 }, draft: '', err: '', playing: -1, att: 1, word: -1, ov: { '7-0': 78, '8-2': 65 } };
+  }
+  finalOf(ri, k) { var o = this.state.ov[ri + '-' + k]; return o != null ? o : aiOf(ROWS[ri].s[k]); }
+  flagged(ri, k) {
+    if (this.state.ov[ri + '-' + k] != null) return false;
+    var best = aiOf(ROWS[ri].s[k]); if (best == null) return false;
+    return attemptsOf(ri, k).some(function (v) { return suspicious(v, best); });
+  }
+  renderVals() {
+    var self = this, st = this.state, mode = st.mode;
+    var exStats = EX.map(function (name, k) {
+      var sc = [], tr = [];
+      ROWS.forEach(function (r, i) { var f = self.finalOf(i, k); if (f != null) { sc.push(f); tr.push(attemptsOf(i, k).length); } });
+      return { name: name, avg: Math.round(avg(sc)), tries: Math.round(avg(tr) * 10) / 10 };
+    });
+    var hard = exStats.reduce(function (a, b) { return b.avg < a.avg ? b : a; });
+    var lessonOf = function (i) {
+      var xs = []; EX.forEach(function (e, k) { var f = self.finalOf(i, k); if (f != null) xs.push(f); });
+      return xs.length ? Math.round(avg(xs)) : null;
+    };
+    var flags = [];
+    ROWS.forEach(function (r, i) { EX.forEach(function (e, k) { if (self.flagged(i, k)) flags.push({ ri: i, k: k }); }); });
+    var missing = [], done = 0;
+    ROWS.forEach(function (r) {
+      var gaps = [];
+      r.s.forEach(function (raw, k) { if (partOf(raw) < 100) gaps.push(EX[k].replace('Part ', 'P')); });
+      if (gaps.length) missing.push({ name: r.name, gaps: gaps }); else done++;
+    });
+
+    var rows = ROWS.map(function (r, i) {
+      var ls = lessonOf(i), rowSel = st.sel && st.sel.ri === i;
+      var cells = EX.map(function (ex, k) {
+        var raw = r.s[k], ai = aiOf(raw);
+        if (ai == null) return { none: true, has: false };
+        var p = partOf(raw), t = attemptsOf(i, k).length, o = st.ov[i + '-' + k], fin = o != null ? o : ai;
+        var isSel = st.sel && st.sel.ri === i && st.sel.k === k;
+        var shadows = [];
+        if (o != null) shadows.push(OV_RING);
+        if (isSel) shadows.push('0 6px 16px rgba(17,17,17,0.28)');
+        var b = mode === 'score' ? band(fin) : triesBand(t);
+        var main = mode === 'score' ? String(fin) : t + (t === 1 ? ' try' : ' tries');
+        var sub, deco = 'none';
+        if (mode === 'score') {
+          if (o != null) { sub = 'AI ' + ai; deco = 'line-through'; }
+          else if (p < 100) sub = p + '% done';
+          else sub = t + (t === 1 ? ' try' : ' tries');
+        } else sub = 'best ' + fin;
+        return {
+          none: false, has: true, main: main, sub: sub, subDeco: deco, bg: b.bg, fg: b.fg,
+          shadow: shadows.length ? shadows.join(', ') : 'none',
+          scale: isSel ? 'scale(1.06)' : 'none', weight: isSel ? '800' : '600',
+          flag: self.flagged(i, k),
+          label: r.name + ', ' + ex + ': ' + fin + (o != null ? ' (teacher-adjusted)' : '') + ', ' + t + ' tries',
+          pick: function () { self.setState({ sel: { ri: i, k: k }, draft: o != null ? String(o) : '', err: '', playing: -1, att: null, word: -1 }); }
+        };
+      });
+      return {
+        num: i + 1, name: r.name, rowBg: rowSel ? '#F2FBFA' : '#FFFFFF',
+        score: ls == null ? '—' : ls, scoreFg: ls == null ? '#5F6B73' : textFg(ls),
+        scoreTitle: 'Average of exercise scores', cells: cells
+      };
+    });
+    var lessonScores = ROWS.map(function (r, i) { return lessonOf(i); }).filter(function (x) { return x != null; });
+
+    var v = {
+      rows: st.onlyUnf ? rows.filter(function (r, i) { return ROWS[i].s.some(function (raw) { return partOf(raw) < 100; }); }) : rows,
+      exHeads: exStats.map(function (e) { return { name: e.name, hard: e === hard && e.avg < 70 }; }),
+      exAvgs: exStats.map(function (e, k) {
+        var nd = ROWS.filter(function (r) { return partOf(r.s[k]) < 100; }).length;
+        var base = mode === 'score' ? { main: e.avg, fg: textFg(e.avg) } : { main: e.tries + ' tries', fg: e.tries >= 4 ? '#8A5A00' : '#111111' };
+        base.notDone = nd ? nd + ' not done' : 'All done';
+        base.ndFg = nd ? '#8A1F1F' : '#1E5C3C'; base.ndWeight = nd ? '700' : '500';
+        return base;
+      }),
+      unfOn: !!st.onlyUnf,
+      unfBg: st.onlyUnf ? '#E6F4F2' : '#FFFFFF',
+      unfBorder: st.onlyUnf ? '2px solid #00A094' : '1px solid #C0C0C0',
+      allStuOn: !st.onlyUnf, allStuBg: st.onlyUnf ? 'transparent' : '#FFFFFF', missBg: st.onlyUnf ? '#FFFFFF' : 'transparent',
+      showAllStu: function () { self.setState({ onlyUnf: false }); },
+      showMissing: function () { self.setState({ onlyUnf: true }); },
+      lessonAvg: Math.round(avg(lessonScores)),
+      doneCount: done, studentCount: ROWS.length,
+      missCount: missing.length,
+      hardName: hard.name, hardAvg: hard.avg, hardTries: hard.tries,
+      checkCount: flags.length,
+      checkFg: flags.length ? '#A15C00' : '#2F6B45',
+      checkBorder: flags.length ? '#F9A000' : 'transparent',
+      checkText: flags.length ? 'Very low attempts that may be recording problems. Click to review.' : 'All flagged scores reviewed.',
+      reviewNext: function () { if (flags.length) self.setState({ sel: { ri: flags[0].ri, k: flags[0].k }, draft: '', err: '', playing: -1, att: null, word: -1 }); },
+      scoreOn: mode === 'score', triesOn: mode === 'tries',
+      scoreBg: mode === 'score' ? '#FFFFFF' : 'transparent', triesBg: mode === 'tries' ? '#FFFFFF' : 'transparent',
+      showScore: function () { self.setState({ mode: 'score' }); },
+      showTries: function () { self.setState({ mode: 'tries' }); },
+      hasSel: !!st.sel, draft: st.draft,
+      tableMinW: st.sel ? '560px' : '820px', cellW: st.sel ? '56px' : '84px', cellH: st.sel ? '40px' : '48px', showSubs: !st.sel, err: st.err, hasErr: !!st.err,
+      onDraft: function (e) { self.setState({ draft: e.target.value, err: '' }); },
+      closeSel: function () { self.setState({ sel: null, err: '', playing: -1 }); }
+    };
+
+    if (st.sel) {
+      var ri = st.sel.ri, k = st.sel.k, r = ROWS[ri], ai = aiOf(r.s[k]), key = ri + '-' + k, o = st.ov[key];
+      var fin = o != null ? o : ai, b = band(fin), list = attemptsOf(ri, k);
+      var lo = Math.min.apply(null, list), loIdx = list.indexOf(lo), bestIdx = list.lastIndexOf(ai);
+      v.selName = r.name; v.selEx = EX[k];
+      v.selFinal = fin; v.selBg = b.bg; v.selFg = b.fg; v.selRing = o != null ? OV_RING : 'none';
+      v.selSource = o != null ? 'Teacher score (AI best was ' + ai + ')' : 'AI best of ' + list.length + (list.length === 1 ? ' attempt' : ' attempts');
+      v.selAi = String(ai); v.selIsOv = o != null;
+      v.selFlag = self.flagged(ri, k);
+      v.selFlagText = lo === 0 ? 'Attempt ' + (loIdx + 1) + ' scored 0, which usually means the recording didn’t capture any speech.' : 'Attempt ' + (loIdx + 1) + ' scored ' + lo + ', far below normal.';
+      v.selTriesText = list.length + (list.length === 1 ? ' attempt' : ' attempts') + ' · lowest ' + lo + ' · best ' + ai;
+      v.selInputLabel = o != null ? 'Edit teacher score' : 'Adjust this exercise score';
+      var att = st.att != null && st.att < list.length ? st.att : bestIdx;
+      v.attempts = list.map(function (sc, i) {
+        var tags = [];
+        if (i === bestIdx) tags.push({ text: 'Best', bg: '#D6F0EE', fg: '#123F3B' });
+        if (i === loIdx && list.length > 1) tags.push({ text: 'Lowest', bg: '#EEF2F5', fg: '#4A555C' });
+        if (suspicious(sc, ai)) tags.push({ text: 'Check audio', bg: '#FDEFD3', fg: '#5C3D00' });
+        var on = i === att;
+        return {
+          n: i + 1, score: sc, fg: textFg(sc), tags: tags, on: on,
+          top: i === 0 ? '0' : '1px solid #EEF2F5', bg: on ? '#F2FBFA' : '#FFFFFF',
+          ring: on ? 'inset 3px 0 0 #00A094' : 'none',
+          pick: function () { self.setState({ att: i, word: -1, playing: -1 }); }
+        };
+      });
+      var seed = ri * 101 + k * 17 + att * 7 + 3;
+      var asc = list[att], statuses = wordStatuses(asc, seed), waveHs = waveFor(statuses, seed, asc), playW = 2 + (seed % 5);
+      v.atN = att + 1; v.atScore = asc; v.atFg = textFg(asc);
+      v.isPlaying = st.playing === 1; v.notPlaying = st.playing !== 1;
+      v.togglePlay = function () { self.setState({ playing: self.state.playing === 1 ? -1 : 1 }); };
+      v.words = TEXT.map(function (t, wi) {
+        var stt = statuses[wi], on = st.word === wi, cur = st.playing === 1 && wi === playW && stt !== 'missed';
+        var bg = stt === 'ok' ? '#DDF1E6' : '#FBE1E1', fg = stt === 'ok' ? '#1E5C3C' : '#8A1F1F';
+        if (cur) { bg = '#2F6B45'; fg = '#FFFFFF'; }
+        return {
+          text: t, on: on, bg: bg, fg: fg,
+          border: on ? '2px solid #111111' : '2px solid transparent',
+          deco: stt === 'mis' ? 'underline' : (stt === 'missed' ? 'line-through' : 'none'),
+          label: t + ': ' + (stt === 'ok' ? 'correct' : stt === 'mis' ? 'mispronounced' : 'not read'),
+          pick: function () { self.setState({ word: on ? -1 : wi }); }
+        };
+      });
+      v.wave = waveHs.map(function (h, bi) {
+        return { h: h + '%', c: st.playing === 1 && bi < Math.round((playW + 0.5) * 48 / TEXT.length) ? '#B455C8' : '#E3A5EC' };
+      });
+      var ws = st.word >= 0 && st.word < TEXT.length ? statuses[st.word] : null;
+      v.hasWord = ws != null; v.noWord = ws == null;
+      v.wordText = ws != null ? TEXT[st.word] : '';
+      v.wordStatus = ws === 'ok' ? 'Correct' : ws === 'mis' ? 'Mispronounced' : ws === 'missed' ? 'Not read' : '';
+      v.wordStatusFg = ws === 'ok' ? '#1E5C3C' : '#8A1F1F';
+      v.save = function () {
+        var n = parseInt(self.state.draft, 10);
+        if (isNaN(n) || n < 0 || n > 100) { self.setState({ err: 'Enter a score from 0 to 100.' }); return; }
+        var next = Object.assign({}, self.state.ov); next[key] = n;
+        self.setState({ ov: next, err: '' });
+      };
+      v.revert = function () {
+        var next = Object.assign({}, self.state.ov); delete next[key];
+        self.setState({ ov: next, draft: '', err: '' });
+      };
+    } else {
+      v.selName = ''; v.selEx = ''; v.selFinal = ''; v.selBg = '#F2F2F2'; v.selFg = '#222222'; v.selRing = 'none';
+      v.selSource = ''; v.selAi = ''; v.selIsOv = false; v.selFlag = false; v.selFlagText = ''; v.selTriesText = '';
+      v.selInputLabel = ''; v.attempts = []; v.words = []; v.wave = [];
+      v.atN = ''; v.atScore = ''; v.atFg = '#111111'; v.isPlaying = false; v.notPlaying = true; v.togglePlay = function () {};
+      v.hasWord = false; v.noWord = true; v.wordText = ''; v.wordStatus = ''; v.wordStatusFg = '#222222';
+      v.save = function () {}; v.revert = function () {};
+    }
+    return v;
+  }
+}
+mountDC(Component, 'tpl', 'app');
+</script>
+</body>
+</html>
