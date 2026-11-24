@@ -5,6 +5,7 @@ Clickable mockup of the redesigned teacher reporting screens. Open `index.html` 
 | File | Screen |
 |---|---|
 | `portal.html` | **Admin portal** — one user with every role (owner · admin · teacher). Sidebar switches between Dashboard, Overview, Teachers, Students, Rosters, Classes and Plan & billing |
+| `classes.html` | **My Classes** — list of the teacher's classes; opens the Class Overview |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
 | `student.html` | **Student profile** — reached from any student name |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
@@ -48,6 +49,12 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 **Seats and subscription alerts**
 - Seat counts sit where invites happen (Teachers and Students toolbars) and in Plan & billing.
 - Overview's Needs attention shows them only when action is needed, e.g. subscription ending within 60 days or seats about 80% full.
+
+**My Classes (`classes.html`)**
+- Reached from My Classes in the sidebar and "All classes →" on the Dashboard; the Class Overview breadcrumb returns here.
+- Filters: All · Mine · Shared with me · Archived. Search, Sort, Export CSV.
+- Pinned classes (star) are grouped at the top; pinning moves a class into "Pinned by you".
+- Each row: class name (opens the Class Overview), Shared tag, owner and created date, students, recordings, last recording (relative, full date on hover).
 
 **Shared patterns**
 - Page header: uppercase section label + title on portal pages; class, lesson and student pages add a white breadcrumb bar.
