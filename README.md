@@ -23,6 +23,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 
 **Screens**
 - **Dashboard** — the teacher's own classes: students who recorded, recordings, needs attention (remind, review, resend), My classes table.
+- **All Recordings** (My Teaching) — saved views as tabs (All recordings · To review · Below 60) with Save view / View options; a "Modified" tag and Save-as-new-view / Reset banner appear once a filter changes; search plus Class, Lesson (enabled after a class is chosen), Date, Score, Type and More filters; summary (recordings, students, average score, below 60, reviewed by teacher, speaking time) with a score distribution using the same bands as the class pages (below 60 · 60–69 · 70+); Recordings / By student switch; table with colored score chips, a "Teacher review" column (Scored N / To review), play and open-in-lesson buttons.
 - **Overview** — the old Overview and Reports merged: a date range (From / To) with quick ranges Last 3 months · This year · All time (switchable, sample data for each; the chart shows weeks, months or years to match), four metrics (Recordings also shows the all-time total), Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
 - **Teachers** — grouped Pending invitations / Joined; student-account permission (Can edit / View only) is set in the table, with a default for new teachers. Replaces the old Settings tab.
 - **Students** — student seat count in the toolbar; grouped Pending invitations / Joined · not in a class / Joined · in a class; filters, sort, import, export.
@@ -77,7 +78,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 2. **Check this score** warning when an attempt looks like a recording problem.
 3. **All attempts** list — tagged *Best*, *Lowest*, *Check audio*. Capped at ~5 rows, then scrolls.
 4. **Text Analyzer** for the selected attempt — word results (correct / mispronounced / not read), waveform, Play, click a word for details.
-5. **Adjust score or add a comment** → teacher score (0–100), optional teacher comment (up to 500 characters), one Save button · Revert to AI score · Change history. A comment can be saved without changing the score.
+5. **Adjust score or add a comment** → teacher score (0–100), optional teacher comment (up to 500 characters, shown to the student with their score), one Save button · Revert to AI score · Change history. A comment can be saved without changing the score.
 
 While the panel is open the table compacts (smaller cells, sub-lines hidden) so both fit on smaller screens.
 
