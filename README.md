@@ -66,8 +66,9 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
 - **+ Add exercises** opens the exercise builder (`exercise-builder.html`), a Google Forms–style page:
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
-  - 7 types: **Reading** (30s or 90s), **Reading w/ Image**, **Question w/ Answer** (question + expected answer), **Question**, **Image**, **Video**, **Self Practice**. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
+  - 8 types, each with its own icon: **Reading** (30s or 90s), **Reading w/ Image**, **Question w/ Answer** (question + expected answer), **Question w/ Keywords** (new, see below), **Question**, **Image**, **Video**, **Self Practice**. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
   - Add a card by picking its type in the bottom bar; the new card shows only the fields that type needs.
+  - **Question w/ Keywords** (proposed new type): a question plus keyword chips (Enter to add; `chair / seat` means either word counts). The teacher picks the rule (**All of them**, **Any one** or **At least N**) and a plain-language line shows what passes. Keywords can optionally be shown to students as hints.
   - Live **Preview as student** beside the cards (phone frame, Prev/Next); below 1200px it opens as an overlay.
   - **Save N exercises** checks every card and highlights missing fields before saving.
 
