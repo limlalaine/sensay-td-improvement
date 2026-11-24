@@ -94,20 +94,11 @@ tbody tr:hover>td{background-color:#F7F9FA}
 </sc-for>
 
 <section aria-label="Add exercises" style="background: #FFFFFF; border-radius: 12px; border: 1.5px dashed #A9B3BA; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between">
-<span style="font-weight: 700; font-size: 15px">Add another exercise</span>
-<button type="button" onClick="{{togglePaste}}" aria-expanded="{{pasteOpen}}" style="background: none; border: 0; padding: 0; color: #0B6B63; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; min-height: 36px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6"/></svg> Paste many at once</button>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 700; font-size: 15px">Add another exercise</span><span style="font-size: 13px; color: #5F6B73">Choose a type. The card shows the fields that type needs.</span>
+
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{add_reading}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Reading</button><button type="button" onClick="{{add_readimg}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Reading w/ Image</button><button type="button" onClick="{{add_qa}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Question w/ Answer</button><button type="button" onClick="{{add_q}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Question</button><button type="button" onClick="{{add_image}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Image</button><button type="button" onClick="{{add_video}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Video</button><button type="button" onClick="{{add_self}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px; font-weight: 600">+ Self Practice</button></div>
-<sc-if value="{{pasteOpen}}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #E2E7EB; padding-top: 12px">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222"><span>Paste text</span><span style="font-size: 13px; font-weight: 400; color: #5F6B73">Leave a blank line between parts. Each part becomes one exercise.</span><textarea id="bulkText" rows="6" value="{{bulkText}}" onInput="{{onBulk}}" placeholder="Paste a story, a word list or several questions…" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; padding: 10px 12px; resize: vertical"></textarea></label>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
-<label style="display: flex; gap: 8px; align-items: center; font-size: 14px">Create as<select id="bulkType" value="{{bulkType}}" onChange="{{onBulkType}}" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto"><sc-for list="{{bulkOpts}}" as="o" hint-placeholder-count="7"><option value="{{o.k}}" selected="{{o.sel}}">{{o.name}}</option></sc-for></select></label>
-<button type="button" onClick="{{createBulk}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Create {{bulkCount}} exercises</button>
-</div>
-</div>
-</sc-if>
 </section>
 </div>
 
@@ -190,7 +181,7 @@ class Component extends DCLogic {
       { id: 'x1', type: 'reading', title: 'Part 6', text: 'Just then, the three bears came home. "Someone’s been eating my porridge," growled Papa Bear.', answer: '', len: 30 },
       { id: 'x2', type: 'qa', title: 'Part 7', text: 'Whose porridge did Goldilocks eat?', answer: 'She ate Baby Bear’s porridge.', len: 30 },
       { id: 'x3', type: 'image', title: 'Part 8', text: 'Describe what Goldilocks is doing in the picture.', answer: '', len: 30 }
-    ], sel: 0, showErr: false, paste: false, bulk: '', bulkType: 'reading', pv: false, toast: '', saved: false };
+    ], sel: 0, showErr: false, pv: false, toast: '', saved: false };
   }
   renderVals() {
     var self = this, st = this.state, cards = st.cards;
@@ -229,8 +220,7 @@ class Component extends DCLogic {
       };
     });
     var sel = cards[Math.min(st.sel, cards.length - 1)], ts = sel ? T[sel.type] : null;
-    var parts = (st.bulk || '').split(/\n\s*\n/).map(function (s) { return s.trim(); }).filter(Boolean);
-    var bad = cards.filter(function (c) { return errOf(c); }).length;
+        var bad = cards.filter(function (c) { return errOf(c); }).length;
     var v = {
       cards: list,
       saveLabel: 'Save ' + cards.length + (cards.length === 1 ? ' exercise' : ' exercises'),
@@ -241,15 +231,6 @@ class Component extends DCLogic {
       pvPrev: function () { self.setState({ sel: Math.max(0, self.state.sel - 1) }); },
       pvNext: function () { self.setState({ sel: Math.min(self.state.cards.length - 1, self.state.sel + 1) }); },
       pvOpen: st.pv, openPv: function () { self.setState({ pv: true }); }, closePv: function () { self.setState({ pv: false }); },
-      pasteOpen: st.paste, togglePaste: function () { self.setState({ paste: !self.state.paste }); },
-      bulkText: st.bulk, onBulk: function (e) { self.setState({ bulk: e.target.value }); },
-      bulkType: st.bulkType, onBulkType: function (e) { self.setState({ bulkType: e.target.value }); },
-      bulkCount: parts.length, bulkOpts: KEYS.map(function (k) { return { k: k, name: T[k].name, sel: k === st.bulkType ? true : null }; }),
-      createBulk: function () {
-        if (!parts.length) { self.setState({ toast: 'Paste some text first.', saved: false }); return; }
-        var start = self.state.cards.length; var nx = self.state.cards.concat(parts.map(function (p, k) { return blank(self.state.bulkType, 5 + start + k + 1, p); }));
-        self.setState({ cards: nx, bulk: '', paste: false, sel: start, toast: parts.length + ' exercises added below.', saved: false });
-      },
       saveAll: function () {
         if (!self.state.cards.length) { self.setState({ toast: 'Add at least one exercise.', saved: false }); return; }
         if (bad) { self.setState({ showErr: true, toast: bad + (bad === 1 ? ' exercise needs' : ' exercises need') + ' attention before saving.', saved: false }); return; }

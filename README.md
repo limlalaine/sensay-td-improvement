@@ -67,7 +67,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - **+ Add exercises** opens the exercise builder (`exercise-builder.html`), a Google Forms–style page:
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
   - 7 types: **Reading** (30s or 90s), **Reading w/ Image**, **Question w/ Answer** (question + expected answer), **Question**, **Image**, **Video**, **Self Practice**. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
-  - Add a card of any type from the bottom bar, or **Paste many at once**: blank lines split the text into one exercise each, created as the chosen type.
+  - Add a card by picking its type in the bottom bar; the new card shows only the fields that type needs.
   - Live **Preview as student** beside the cards (phone frame, Prev/Next); below 1200px it opens as an overlay.
   - **Save N exercises** checks every card and highlights missing fields before saving.
 
