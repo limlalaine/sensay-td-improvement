@@ -32,6 +32,13 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - **Classes** — empty classes tagged "No students"; Add students per row, other actions in ⋯.
 - **Plan & billing** — subscription & seats (valid until, teacher seats, student seats); credits: balance, this month's usage, next expiration, estimated unused credits, monthly usage, credits by top-up.
 
+**Overview and Dashboard layout**
+- Title row carries the date range and Export CSV; metrics below.
+- Two columns from 1200px wide: Needs attention beside the chart (Dashboard: beside My classes), then Usage by teacher beside Student activation. Below 1200px they stack.
+- Needs attention rows are compact, with the link under the description.
+- Usage by teacher shows the top 5 by recordings.
+- On phones, metric cards sit two across.
+
 **Responsive layout**
 - 1024px and wider: sidebar always visible (240px).
 - Under 1024px: sidebar hides behind a ☰ menu button in the header and slides in as a drawer. Close it with "Close", by tapping outside, or by choosing a page.

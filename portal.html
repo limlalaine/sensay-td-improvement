@@ -9,13 +9,14 @@
 body{margin:0;background:#EEF2F5}
 a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
 .burger,.nav-close{display:none}
+@media (max-width:1199px){.two-col{grid-template-columns:minmax(0,1fr)!important}}
 .nav-toggle{position:absolute;opacity:0;width:1px;height:1px}
 .nav-toggle:focus-visible~header .burger{outline:2px solid #FFFFFF;outline-offset:2px}
 .scrim{display:none;position:fixed;inset:0;background:rgba(17,17,17,.4);z-index:50}
 @media (max-width:1023px){.burger{display:inline-flex!important}.side-nav{display:none!important}
 .nav-toggle:checked~* .side-nav{display:flex!important;position:fixed;top:0;left:0;bottom:0;z-index:60;width:280px!important;overflow-y:auto;box-shadow:0 8px 24px rgba(17,17,17,.2)}
 .nav-toggle:checked~* .scrim{display:block}.nav-toggle:checked~* .nav-close{display:flex}}
-@media (max-width:720px){.hdr-search{display:none!important}.app-header{padding:12px 16px!important}.logo{font-size:28px!important}.pg-num{display:none!important}main,.page-main{padding:20px 16px 40px!important}}
+@media (max-width:720px){.hdr-search{display:none!important}.app-header{padding:12px 16px!important}.logo{font-size:28px!important}.pg-num{display:none!important}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}main,.page-main{padding:20px 16px 40px!important}}
 tbody tr:hover>td{background-color:#F7F9FA}
 </style>
 </head>
@@ -50,43 +51,40 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <label for="navtoggle" class="scrim" aria-hidden="true"></label>
     <sc-if value="{{isDash}}" hint-placeholder-val="{{ false }}">
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
-      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
-        <div>
+<div style="display:flex;flex-wrap:wrap;gap:16px 24px;justify-content:space-between;align-items:flex-end"><div>
           <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">My Teaching</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Dashboard</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">Your classes</p>
-        </div>
-        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">+ Invite students</button>
-      </div>
-
-      <div style="display:flex;flex-wrap:wrap;gap:12px 16px;justify-content:space-between;align-items:flex-end">
-          <fieldset style="border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end">
-            <legend style="font-size:13px;font-weight:600;color:#4A555C;padding:0;margin-bottom:6px">Date range</legend>
+        </div><div style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end;justify-content:flex-end">      <div style="display:flex;flex-wrap:wrap;gap:8px 12px;justify-content:flex-end;align-items:center">
+          <fieldset style="border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <legend style="position:absolute;left:-9999px">Date range</legend>
             <sc-if value="{{dbOn_month}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-11-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2026-11-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
             <sc-if value="{{dbOn_3m}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
             <sc-if value="{{dbOn_year}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
             <sc-if value="{{dbOn_all}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
             </sc-if>
             </fieldset>
           <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{dbSet_month}}" aria-pressed="{{dbOn_month}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_month}}">This month</button><button onClick="{{dbSet_3m}}" aria-pressed="{{dbOn_3m}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_3m}}">Last 3 months</button><button onClick="{{dbSet_year}}" aria-pressed="{{dbOn_year}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_year}}">This year</button><button onClick="{{dbSet_all}}" aria-pressed="{{dbOn_all}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_all}}">All time</button></div>
         </div>
+        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">+ Invite students</button>
+      </div></div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+            <div class="metric-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Students who recorded</div>
           <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbStu}}</span> <span style="color:#5F6B73;font-size:16px">of 12 in my classes</span></div>
@@ -102,50 +100,44 @@ tbody tr:hover>td{background-color:#F7F9FA}
         </div>
       </div>
 
+      <div class="two-col" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start">
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
         <h2 style="margin:0 0 8px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px;display:flex;align-items:center;gap:10px">Needs attention <span style="background:#FDEFD3;color:#8A5A00;font-size:13px;border-radius:999px;padding:2px 10px">3</span></h2>
         <p style="margin:0 0 8px;color:#5F6B73;font-size:14px">Only students in your classes</p>
         <div style="display:flex;flex-direction:column;gap:8px">
           <div role="group" aria-label="Urgent">
             <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#B42323">Urgent <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">1</span></div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">8 students haven’t recorded in 14 days</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">8 students haven’t recorded in 14 days</div>
               <div style="color:#5F6B73;font-size:14px">A quick reminder often gets them practicing again.</div>
-            </div>
-            <button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Send reminder →</button>
-          </div>
+            <div style="margin-top:6px"><button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Send reminder →</button></div></div></div>
           </div>
           <div role="group" aria-label="To do">
             <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#8A5A00">To do <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">2</span></div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">3 recordings are waiting for your feedback</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">3 recordings are waiting for your feedback</div>
               <div style="color:#5F6B73;font-size:14px">Submitted in the last 7 days.</div>
-            </div>
-            <button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Review →</button>
-          </div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">2 students haven’t accepted their invitation</div>
+            <div style="margin-top:6px"><button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Review →</button></div></div></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">2 students haven’t accepted their invitation</div>
               <div style="color:#5F6B73;font-size:14px">They can’t join your class until they accept.</div>
-            </div>
-            <button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Resend →</button>
-          </div>
+            <div style="margin-top:6px"><button style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer;white-space:nowrap">Resend →</button></div></div></div>
           </div>
         </div>
       </section>
-
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
         <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px">
           <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">My classes</h2>
           <a href="index.html" style="font-size:14px">All classes →</a>
         </div>
         <div style="overflow-x:auto">
-          <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px">
+          <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:0">
             <thead>
               <tr style="text-align:left;color:#5F6B73;font-size:13px">
                 <th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Class</th>
@@ -162,50 +154,48 @@ tbody tr:hover>td{background-color:#F7F9FA}
           </table>
         </div>
       </section>
+      </div>
     </main>
     </sc-if>
     <sc-if value="{{isOv}}" hint-placeholder-val="{{ true }}">
     <main style="flex:999 1 560px;min-width:0;padding:32px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;max-width:1360px;margin:0 auto">
-      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start">
-        <div>
+<div style="display:flex;flex-wrap:wrap;gap:16px 24px;justify-content:space-between;align-items:flex-end"><div>
           <div style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#4A555C;font-weight:700">ORGANIZATION MANAGEMENT</div>
           <h1 style="margin:4px 0 4px;font-family:Lato,sans-serif;font-weight:700;font-size:31px;line-height:1.15;color:#111111">Overview</h1>
           <p style="margin:0;color:#5F6B73;font-size:14px">How your organization is doing, and what needs attention</p>
+        </div><div style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end;justify-content:flex-end">      <div style="display:flex;flex-wrap:wrap;gap:8px 12px;justify-content:flex-end;align-items:center">
+          <fieldset style="border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <legend style="position:absolute;left:-9999px">Date range</legend>
+            <sc-if value="{{ovOn_month}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2026-11-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            <sc-if value="{{ovOn_3m}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            <sc-if value="{{ovOn_year}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            <sc-if value="{{ovOn_all}}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">From</span><input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            <span aria-hidden="true" style="color:#5F6B73">–</span>
+            <label style="display:flex;align-items:center"><span style="position:absolute;left:-9999px">To</span><input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
+            </sc-if>
+            </fieldset>
+          <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ovSet_month}}" aria-pressed="{{ovOn_month}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_month}}">This month</button><button onClick="{{ovSet_3m}}" aria-pressed="{{ovOn_3m}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_3m}}">Last 3 months</button><button onClick="{{ovSet_year}}" aria-pressed="{{ovOn_year}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_year}}">This year</button><button onClick="{{ovSet_all}}" aria-pressed="{{ovOn_all}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_all}}">All time</button></div>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Export CSV</button>
           
         </div>
-      </div>
+      </div></div>
 
-      <div style="display:flex;flex-wrap:wrap;gap:12px 16px;justify-content:space-between;align-items:flex-end">
-          <fieldset style="border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end">
-            <legend style="font-size:13px;font-weight:600;color:#4A555C;padding:0;margin-bottom:6px">Date range</legend>
-            <sc-if value="{{ovOn_month}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-11-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            </sc-if>
-            <sc-if value="{{ovOn_3m}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-08-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            </sc-if>
-            <sc-if value="{{ovOn_year}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2026-01-01" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            </sc-if>
-            <sc-if value="{{ovOn_all}}" hint-placeholder-val="{{ false }}">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">From <input type="date" value="2023-02-06" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            <span aria-hidden="true" style="color:#5F6B73;padding-bottom:12px">–</span>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#5F6B73">To <input type="date" value="2026-11-24" style="background:#FFFFFF;border:1px solid #C0C0C0;border-radius:8px;min-height:44px;padding:0 10px;font:inherit;font-size:14px;color:#222222"></label>
-            </sc-if>
-            </fieldset>
-          <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ovSet_month}}" aria-pressed="{{ovOn_month}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_month}}">This month</button><button onClick="{{ovSet_3m}}" aria-pressed="{{ovOn_3m}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_3m}}">Last 3 months</button><button onClick="{{ovSet_year}}" aria-pressed="{{ovOn_year}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_year}}">This year</button><button onClick="{{ovSet_all}}" aria-pressed="{{ovOn_all}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{ovPill_all}}">All time</button></div>
-        </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+            <div class="metric-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Recordings</div>
           <div style="margin:8px 0 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{mRec}}</span> <span style="color:#5F6B73;font-size:16px"></span></div>
@@ -225,75 +215,67 @@ tbody tr:hover>td{background-color:#F7F9FA}
         </div>
       </div>
 
+      <div class="two-col" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start">
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
         <h2 style="margin:0 0 8px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px;display:flex;align-items:center;gap:10px">Needs attention <span style="background:#FDEFD3;color:#8A5A00;font-size:13px;border-radius:999px;padding:2px 10px">5</span></h2>
         <div style="display:flex;flex-direction:column;gap:8px">
           <div role="group" aria-label="Urgent">
             <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#B42323">Urgent <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">2</span></div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">26 students haven’t recorded in 14 days</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">26 students haven’t recorded in 14 days</div>
               <div style="color:#5F6B73;font-size:14px">They joined a class but stopped practicing. Their teachers may want to remind them.</div>
-            </div>
-            <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">See who →</button>
-          </div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">500 credits expire on Jan 15, 2027</div>
+            <div style="margin-top:6px"><button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">See who →</button></div></div></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B42323;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">500 credits expire on Jan 15, 2027</div>
               <div style="color:#5F6B73;font-size:14px">At your recent pace, about 220 of them may go unused. Owners only.</div>
-            </div>
-            <button onClick="{{go_bill}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">View credits →</button>
-          </div>
+            <div style="margin-top:6px"><button onClick="{{go_bill}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">View credits →</button></div></div></div>
           </div>
           <div role="group" aria-label="To do">
             <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#8A5A00">To do <span style="background:#EEF2F5;color:#4A555C;border-radius:999px;padding:0 8px;font-size:12px;letter-spacing:0">3</span></div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">21 students aren’t in a class yet</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">21 students aren’t in a class yet</div>
               <div style="color:#5F6B73;font-size:14px">They can’t practice until they’re added to a class. They don’t use a seat.</div>
-            </div>
-            <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Add to a class →</button>
-          </div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">4 students haven’t accepted their invitation</div>
+            <div style="margin-top:6px"><button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Add to a class →</button></div></div></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">4 students haven’t accepted their invitation</div>
               <div style="color:#5F6B73;font-size:14px">Pending invitations use a seat until they’re accepted or revoked.</div>
-            </div>
-            <button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Review invitations →</button>
-          </div>
-            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E2E7EB">
-            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none"></span>
-            <div style="flex:1 1 360px">
-              <div style="font-weight:700;font-size:16px">2 teacher invitations not accepted yet</div>
+            <div style="margin-top:6px"><button onClick="{{go_stud}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Review invitations →</button></div></div></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E2E7EB">
+            <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#F9A000;flex:none;margin-top:6px"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:15px">2 teacher invitations not accepted yet</div>
               <div style="color:#5F6B73;font-size:14px">teacher01@oksensay.com, lalaine+teacher+260907A@oksensay.com</div>
-            </div>
-            <button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Review →</button>
-          </div>
+            <div style="margin-top:6px"><button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Review →</button></div></div></div>
           </div>
         </div>
       </section>
-
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:16px">
         <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
           <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">{{chartTitle}}</h2>
           <a href="#" style="font-size:14px">View as table</a>
         </div>
-        <div style="overflow-x:auto"><div style="min-width:720px;display:flex;flex-direction:column;gap:16px"><div role="img" aria-label="{{chartLabel}}" style="display:flex;align-items:flex-end;gap:12px;height:220px;border-bottom:1px solid #D5DCE1;padding:0 4px"><sc-for list="{{bars}}" as="bar" hint-placeholder-count="12"><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:13px;font-weight:{{bar.fw}};color:{{bar.fg}}">{{bar.label}}</span><div style="width:100%;height:{{bar.h}}px;background:{{bar.bg}};border:{{bar.border}};border-bottom:0;box-sizing:border-box;border-radius:4px 4px 0 0"></div></div></sc-for></div>
-        <div style="display:flex;gap:12px;padding:0 4px;margin-top:-8px;font-size:13px;color:#5F6B73"><sc-for list="{{bars}}" as="bar" hint-placeholder-count="12"><span style="flex:1;text-align:center">{{bar.x}}</span></sc-for></div></div></div>
-        <sc-if value="{{hasRunning}}" hint-placeholder-val="{{ true }}"><p style="margin:0;color:#5F6B73;font-size:13px">Striped bars are still running.</p></sc-if>
+        <div style="overflow-x:auto"><div style="min-width:380px;display:flex;flex-direction:column;gap:16px"><div role="img" aria-label="{{chartLabel}}" style="display:flex;align-items:flex-end;gap:6px;height:190px;border-bottom:1px solid #D5DCE1;padding:0 4px"><sc-for list="{{bars}}" as="bar" hint-placeholder-count="12"><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><span style="font-size:13px;font-weight:{{bar.fw}};color:{{bar.fg}};white-space:nowrap">{{bar.label}}</span><div style="width:100%;height:{{bar.h}}px;background:{{bar.bg}};border:{{bar.border}};border-bottom:0;box-sizing:border-box;border-radius:4px 4px 0 0"></div></div></sc-for></div>
+        <div style="display:flex;gap:6px;padding:0 4px;margin-top:-8px;font-size:12px;color:#5F6B73"><sc-for list="{{bars}}" as="bar" hint-placeholder-count="12"><span style="flex:1;text-align:center;white-space:nowrap">{{bar.x}}</span></sc-for></div></div></div>
+        <sc-if value="{{hasRunning}}" hint-placeholder-val="{{ true }}"><p style="margin:0;color:#5F6B73;font-size:13px">Striped bar (*) is still running.</p></sc-if>
       </section>
+      </div>
 
+      <div class="two-col" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start">
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
         <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px">
-          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">Usage by teacher</h2>
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">Usage by teacher <span style="font-family:'Noto Sans',sans-serif;font-weight:400;font-size:13px;color:#5F6B73">· top 5 by recordings</span></h2>
           <button onClick="{{go_teach}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">All teachers →</button>
         </div>
         <div style="overflow-x:auto">
-          <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:600px">
+          <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:390px">
             <thead><tr style="text-align:left;color:#5F6B73;font-size:13px"><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Teacher</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Classes</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Students who recorded</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Recordings</th><th style="padding:12px 8px;font-weight:600;border-bottom:1px solid #E2E7EB">Last recording</th></tr></thead>
             <tbody>
               <tr><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="font-weight:600">Teacher Lin</span></td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">13</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uLinStu}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{uLinRec}}</td><td style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span title="Nov 18, 2026">6 days ago</span></td></tr>
@@ -304,7 +286,6 @@ tbody tr:hover>td{background-color:#F7F9FA}
         </div>
         <p style="margin:12px 0 0;color:#5F6B73;font-size:13px">Students who recorded: students in this teacher’s classes who submitted at least one recording in the selected date range.</p>
       </section>
-
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:16px">
         <div>
           <h2 style="margin:0 0 4px;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">Student activation</h2>
@@ -327,6 +308,7 @@ tbody tr:hover>td{background-color:#F7F9FA}
           <div style="height:14px;background:#E2E7EB;border-radius:7px"><div style="width:{{actPct}};height:14px;background:#00A094;border-radius:7px"></div></div>
         </div>
       </section>
+      </div>
     </main>
     </sc-if>
     <sc-if value="{{isTeach}}" hint-placeholder-val="{{ false }}">
@@ -1278,7 +1260,7 @@ class Component extends DCLogic {
     const fmt = (n) => n.toLocaleString('en-US');
     const bars = P.v.map((v, i) => {
       const last = i === P.v.length - 1;
-      return { x: P.x[i], label: last ? fmt(v) + ' so far' : fmt(v), fw: v || last ? '600' : '400', fg: v || last ? '#222222' : '#8A959C',
+      return { x: (P.v.length > 10 && i % 2 === 1) ? '' : P.x[i], label: last && P.v.length > 6 ? fmt(v) + '*' : (last ? fmt(v) + ' so far' : fmt(v)), fw: v || last ? '600' : '400', fg: v || last ? '#222222' : '#8A959C',
         h: last ? Math.max(8, Math.round(v / mx * 180)) : Math.round(v / mx * 180),
         bg: last ? 'repeating-linear-gradient(45deg,#9ADBD5,#9ADBD5 4px,#D6F0EE 4px,#D6F0EE 8px)' : '#00A094',
         border: last ? '2px solid #00A094' : '0' };
