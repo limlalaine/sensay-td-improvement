@@ -68,7 +68,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
   - 8 types, each with its own icon: **Reading** (30s or 90s), **Reading w/ Image**, **Question w/ Answer** (question + expected answer), **Question w/ Keywords** (new, see below), **Question**, **Image**, **Video**, **Self Practice**. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
   - Add a card by picking its type in the bottom bar; the new card shows only the fields that type needs.
-  - **Question w/ Keywords** (proposed new type): a question plus keyword chips (Enter to add; `chair / seat` means either word counts). The teacher picks the rule (**All of them**, **Any one** or **At least N**) and a plain-language line shows what passes. Keywords can optionally be shown to students as hints.
+  - **Question w/ Keywords** (proposed new type): a question plus keyword chips (Enter to add; `chair / seat` means either word counts). The teacher picks the rule (**All of them**, **Any one** or **At least N**) and a plain-language line shows what passes. Students never see the keywords.
   - Live **Preview as student** beside the cards (phone frame, Prev/Next); below 1200px it opens as an overlay.
   - **Save N exercises** checks every card and highlights missing fields before saving.
 
