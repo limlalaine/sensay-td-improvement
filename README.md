@@ -30,6 +30,12 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - **Classes** — empty classes tagged "No students"; Add students per row, other actions in ⋯.
 - **Plan & billing** — credits: balance, this month's usage, next expiration, estimated unused credits, monthly usage, credits by top-up.
 
+**Responsive layout**
+- 1024px and wider: sidebar always visible (240px).
+- Under 1024px: sidebar hides behind a ☰ menu button in the header and slides in as a drawer. Close it with "Close", by tapping outside, or by choosing a page.
+- Under 720px: header search hides, page padding tightens, summary cards stack, and wide tables and charts scroll sideways inside their card.
+- For developers: the mockup toggles the drawer with a hidden checkbox. In production use a real `<button aria-expanded>` that moves focus into the drawer and closes on Esc.
+
 **Definitions**
 | Term | Meaning |
 |---|---|
