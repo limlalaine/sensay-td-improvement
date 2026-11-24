@@ -8,6 +8,7 @@ Clickable mockup of the redesigned teacher reporting screens. Open `index.html` 
 | `classes.html` | **My Classes** — list of the teacher's classes; opens the Class Overview |
 | `class-lessons.html` | **Class › Lessons** — the class's default tab; Create lesson, Add from Practice Packs |
 | `lesson-exercises.html` | **Lesson › Exercises** — exercises in a lesson; Create exercise |
+| `exercise-builder.html` | **Add exercises** — build many exercises for one lesson at once, with a student preview |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
 | `student.html` | **Student profile** — reached from any student name |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
@@ -63,7 +64,12 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Lessons list: drag handle, #, lesson name and description or source link, availability (Always available / Open until… / Scheduled / Ended), exercises, recordings, last recording. Filters: All · Open · Scheduled · Ended.
 - **+ Create lesson** dialog: name, optional description or source link, availability (always or between dates). The new lesson appears at the end of the list, marked New.
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
-- **+ Create exercise** side panel in three steps: **Type** (Reading, Reading w/ Image, Speaking, Listen & repeat) → **Content** (title; passage or prompt with live word count and reading time; picture upload or model audio depending on type) → **Settings** (time limit, attempts, preparation time, summary). Preview as student, then Add exercise.
+- **+ Add exercises** opens the exercise builder (`exercise-builder.html`), a Google Forms–style page:
+  - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
+  - 7 types: **Reading** (30s or 90s), **Reading w/ Image**, **Question w/ Answer** (question + expected answer), **Question**, **Image**, **Video**, **Self Practice**. Every attempt is 30 seconds except Reading, which can be 90; no preparation time.
+  - Add a card of any type from the bottom bar, or **Paste many at once**: blank lines split the text into one exercise each, created as the chosen type.
+  - Live **Preview as student** beside the cards (phone frame, Prev/Next); below 1200px it opens as an overlay.
+  - **Save N exercises** checks every card and highlights missing fields before saving.
 
 **Shared patterns**
 - Page header: uppercase section label + title on portal pages; class, lesson and student pages add a white breadcrumb bar.
