@@ -23,18 +23,22 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 
 **Screens**
 - **Dashboard** — the teacher's own classes: students who recorded, recordings, needs attention (remind, review, resend), My classes table.
-- **Overview** — the old Overview and Reports merged: a summary card (subscription, teacher and student limits, active students this month, total recordings), one period selector, four metrics, Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
+- **Overview** — the old Overview and Reports merged: one period selector, four metrics (Recordings also shows the all-time total), Needs attention, recordings per week, usage by teacher, student activation. Export CSV.
 - **Teachers** — grouped Pending invitations / Joined; student-account permission (Can edit / View only) is set in the table, with a default for new teachers. Replaces the old Settings tab.
-- **Students** — grouped Pending invitations / Joined · not in a class / Joined · in a class; filters, sort, import, export.
+- **Students** — student seat count in the toolbar; grouped Pending invitations / Joined · not in a class / Joined · in a class; filters, sort, import, export.
 - **Rosters** — saved lists of students, newest first; empty rosters greyed out.
 - **Classes** — empty classes tagged "No students"; Add students per row, other actions in ⋯.
-- **Plan & billing** — credits: balance, this month's usage, next expiration, estimated unused credits, monthly usage, credits by top-up.
+- **Plan & billing** — subscription & seats (valid until, teacher seats, student seats); credits: balance, this month's usage, next expiration, estimated unused credits, monthly usage, credits by top-up.
 
 **Responsive layout**
 - 1024px and wider: sidebar always visible (240px).
 - Under 1024px: sidebar hides behind a ☰ menu button in the header and slides in as a drawer. Close it with "Close", by tapping outside, or by choosing a page.
 - Under 720px: header search hides, page padding tightens, summary cards stack, and wide tables and charts scroll sideways inside their card.
 - For developers: the mockup toggles the drawer with a hidden checkbox. In production use a real `<button aria-expanded>` that moves focus into the drawer and closes on Esc.
+
+**Seats and subscription alerts**
+- Seat counts sit where invites happen (Teachers and Students toolbars) and in Plan & billing.
+- Overview's Needs attention shows them only when action is needed, e.g. subscription ending within 60 days or seats about 80% full.
 
 **Definitions**
 | Term | Meaning |

@@ -154,44 +154,6 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
         </div>
       </div>
 
-      <section aria-label="Organization at a glance" style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;align-items:baseline">
-          <button onClick="{{go_bill}}" style="background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:600;color:#0B6B63;cursor:pointer">Plan &amp; billing →</button>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px 24px">
-          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
-            <div style="color:#4A555C;font-size:13px;font-weight:600">Subscription</div>
-            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">Valid until Dec 31, 2099</div>
-            
-          </div>
-
-          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
-            <div style="color:#4A555C;font-size:13px;font-weight:600">Teachers</div>
-            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">5 <span style="font-weight:400;color:#5F6B73;font-size:14px">/ 25</span></div>
-            <div style="height:8px;background:#E2E7EB;border-radius:4px;display:flex;overflow:hidden;margin-top:6px;max-width:220px"><div style="width:12%;background:#00A094"></div><div style="width:8%;background:#F9A000"></div></div>
-            <div style="color:#5F6B73;font-size:13px">3 joined · 2 invited</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
-            <div style="color:#4A555C;font-size:13px;font-weight:600">Students enrolled</div>
-            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">31 <span style="font-weight:400;color:#5F6B73;font-size:14px">/ 250</span></div>
-            <div style="height:8px;background:#E2E7EB;border-radius:4px;display:flex;overflow:hidden;margin-top:6px;max-width:220px"><div style="width:10.8%;background:#00A094"></div><div style="width:1.6%;background:#F9A000"></div></div>
-            <div style="color:#5F6B73;font-size:13px">Includes 4 pending invitations</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
-            <div style="color:#4A555C;font-size:13px;font-weight:600">Active students this month</div>
-            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">1</div>
-            <div style="color:#5F6B73;font-size:13px">Submitted at least one recording</div>
-          </div>
-
-          <div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
-            <div style="color:#4A555C;font-size:13px;font-weight:600">Total recordings</div>
-            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">9,525</div>
-            <div style="color:#5F6B73;font-size:13px">All time</div>
-          </div>
-
-        </div>
-      </section>
-
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
         <p style="margin:0;color:#5F6B73;font-size:14px">Sep 7 – Nov 24, 2026 · Weeks run Monday to Sunday. The current week counts up to today.</p>
         <div role="group" aria-label="Period" style="display:flex;gap:8px;flex-wrap:wrap">
@@ -205,6 +167,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Recordings</div>
           <div style="margin:8px 0 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">9</span> <span style="color:#5F6B73;font-size:16px"></span></div>
+          <div style="color:#5F6B73;font-size:13px;margin-top:4px">9,525 all time</div>
         </div>
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Students who recorded</div>
@@ -444,7 +407,7 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
               <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Class <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>All classes</option></select></label>
               <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Teacher <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>All teachers</option></select></label>
             </div>
-            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>Status: pending first</option><option>Name</option><option>Last recording</option></select></label><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Export CSV</button></div>
+            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><label style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4A555C">Sort <select style="background:#fff;border:1px solid #D5DCE1;border-radius:8px;padding:10px 14px;font:inherit;font-size:14px;color:#222222"><option>Status: pending first</option><option>Name</option><option>Last recording</option></select></label><span style="color:#5F6B73;font-size:14px">Student seats <b style="color:#222222">31 / 250</b></span><button style="background:#FFFFFF;border:1px solid #C0C0C0;color:#222222;border-radius:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:600">Export CSV</button></div>
           </div>
           <div role="group" aria-label="Filter by status" style="display:flex;gap:8px;flex-wrap:wrap">
             <button aria-pressed="true" style="background:#E6F7F5;border:1px solid #00A094;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#0B6B63;font-weight:600">All 70</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">In a class 27</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">Not in a class 39</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">Invited 4</button><button style="background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;color:#4A555C">No roster 25</button>
@@ -833,6 +796,30 @@ a{color:#0B6B63;text-decoration:none;font-weight:600}a:hover{color:#0B6B63}
         <div style="flex:1 1 360px;font-size:14px"><b>About 220 credits may expire unused.</b> <span style="color:#5F6B73">At your recent pace (about 139 active students a month) you’ll use roughly 280 of the 500 expiring credits before Jan 15. Estimate.</span></div>
         <a href="#" style="font-size:14px">See how it’s calculated →</a>
       </div>
+
+      <section aria-label="Subscription and seats" style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:12px">
+        <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">Subscription &amp; seats</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px 24px">
+<div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#4A555C;font-size:13px;font-weight:600">Subscription</div>
+            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">Valid until Dec 31, 2099</div>
+            
+          </div>
+<div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#4A555C;font-size:13px;font-weight:600">Teacher seats</div>
+            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">5 <span style="font-weight:400;color:#5F6B73;font-size:14px">/ 25</span></div>
+            <div style="height:8px;background:#E2E7EB;border-radius:4px;display:flex;overflow:hidden;margin-top:6px;max-width:220px"><div style="width:12%;background:#00A094"></div><div style="width:8%;background:#F9A000"></div></div>
+            <div style="color:#5F6B73;font-size:13px">3 joined · 2 invited</div>
+          </div>
+<div style="display:flex;flex-direction:column;gap:2px;padding:4px 0">
+            <div style="color:#4A555C;font-size:13px;font-weight:600">Student seats</div>
+            <div style="font-family:Lato,sans-serif;font-size:20px;font-weight:900">31 <span style="font-weight:400;color:#5F6B73;font-size:14px">/ 250</span></div>
+            <div style="height:8px;background:#E2E7EB;border-radius:4px;display:flex;overflow:hidden;margin-top:6px;max-width:220px"><div style="width:10.8%;background:#00A094"></div><div style="width:1.6%;background:#F9A000"></div></div>
+            <div style="color:#5F6B73;font-size:13px">27 joined · 4 invited</div>
+          </div>
+        </div>
+        <p style="margin:0;color:#5F6B73;font-size:13px">Invited people hold a seat until they join or the invitation is cancelled. Credits are only used when a student records.</p>
+      </section>
 
       <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06);display:flex;flex-direction:column;gap:20px">
         <div>
