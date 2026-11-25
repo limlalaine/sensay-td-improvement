@@ -70,7 +70,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - The lesson header button reads **Edit exercises** when the lesson has exercises and **Create exercises** when it has none; an empty lesson shows a "No exercises yet" panel with the same button (`lesson-empty.html` → `exercise-create.html`).
 - **Edit exercises** (lesson header) opens the exercise editor (`exercise-builder.html`) for the whole lesson. The pencil on a row opens it at that exercise (`?ex=3`); **+ Add an exercise** opens it at the add bar (`?add=1`).
   - One card is open at a time: click its header or chevron. **Expand all / Collapse all** sits above the list.
-  - Each card header has a drag handle (hidden on phones), number, icon, name, type and snippet, badges (**New**, **Edited**, recording count), a **⋯** menu (Duplicate, Insert exercise below, Move up, Move down, Delete) and the chevron.
+  - Each card header has a drag handle (hidden on phones), number, icon, name, type and snippet, badges (**New**, **Edited**, recording count), **Duplicate** and **Delete** buttons, a **⋯** menu (Insert exercise below, Move up, Move down) and the chevron.
   - A **+** between cards inserts an exercise there; **Add exercise** at the bottom adds one at the end. A new card starts as type tiles.
   - Exercise names are written by teachers and never change when exercises move; the number badge shows position. New cards start with an empty name.
   - Uploaded pictures and videos show as a thumbnail with Replace and Remove. Type descriptions and field hints show on new cards only.
