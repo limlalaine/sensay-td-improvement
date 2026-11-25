@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Add exercises · Sensay (mockup)</title>
+<title>Edit exercises · Sensay (mockup)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
 <style>
 body{margin:0}
@@ -46,7 +46,7 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div style="background: #FFFFFF; border-bottom: 1px solid #D5DCE1">
 <div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; min-height: 72px">
 <nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; color: #5F6B73">
-<a href="classes.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">My Classes</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg><a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">G5-B Reading Practice</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg><a href="lesson-exercises.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">Goldilocks &amp; the Three Bears</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg><span aria-current="page" style="color: #222222">Add exercises</span>
+<a href="classes.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">My Classes</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg><a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">G5-B Reading Practice</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg><a href="lesson-exercises.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">Goldilocks &amp; the Three Bears</a><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg><span aria-current="page" style="color: #222222">Edit exercises</span>
 </nav>
 </div>
 </div>
@@ -54,12 +54,12 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-end">
 <div>
 <div style="font-size: 13px; font-weight: 700; color: #4A555C; text-transform: uppercase; letter-spacing: 0.04em">Goldilocks &amp; the Three Bears</div>
-<h1 style="margin: 4px 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.15; color: #111111">Add exercises</h1>
-<p style="margin: 0; color: #5F6B73; font-size: 14px">Build as many as you need, then save them together. They're added after Part 5.</p>
+<h1 style="margin: 4px 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.15; color: #111111">Edit exercises</h1>
+<p style="margin: 0; color: #5F6B73; font-size: 14px">Change, reorder, add or remove exercises, then save everything together. <b style="color: #222222">{{changeSummary}}</b></p>
 </div>
 <div style="display: flex; gap: 8px; flex-wrap: wrap">
 <button type="button" onClick="{{openPv}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Preview as student</button>
-<a href="lesson-exercises.html" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Cancel</a>
+<sc-if value="{{noChanges}}" hint-placeholder-val="{{ false }}"><a href="lesson-exercises.html" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Cancel</a></sc-if><sc-if value="{{hasChanges}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{askLeave}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Cancel</button></sc-if>
 <button type="button" onClick="{{saveAll}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">{{saveLabel}}</button>
 </div>
 </div>
@@ -67,18 +67,21 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div class="builder">
 <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
 <sc-for list="{{cards}}" as="c" hint-placeholder-count="2">
-<section onClick="{{c.select}}" aria-label="Exercise {{c.n}}" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; border-left: 4px solid {{c.edge}}">
+<section id="card-{{c.id}}" onClick="{{c.select}}" aria-label="Exercise {{c.n}}" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,17,0.06); padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; border-left: 4px solid {{c.edge}}">
 <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
 <span style="width: 32px; height: 32px; border-radius: 50%; background: #E6F7F5; color: #0B6B63; display: inline-flex; align-items: center; justify-content: center; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; flex: none">{{c.n}}</span>
 <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 8px; background: #E6F7F5; color: #0B6B63; display: inline-flex; align-items: center; justify-content: center; flex: none"><sc-if value="{{c.t_reading}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3z"/><path d="M21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/></svg></sc-if><sc-if value="{{c.t_long}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 9h16M4 13h16M4 17h16M4 21h10"/></svg></sc-if><sc-if value="{{c.t_q}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.5.3-.8.7-.8 1.2V13"/><path d="M12 16h.01"/></svg></sc-if><sc-if value="{{c.t_media}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></sc-if><sc-if value="{{c.t_self}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg></sc-if></span>
-<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4A555C"><span style="position: absolute; left: -9999px">Exercise type</span><select id="type-{{c.id}}" value="{{c.type}}" onChange="{{c.setType}}" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto; min-width: 200px; font-weight: 600"><sc-for list="{{c.opts}}" as="o" hint-placeholder-count="7"><option value="{{o.k}}" selected="{{o.sel}}">{{o.name}}</option></sc-for></select></label>
+<sc-if value="{{c.canType}}" hint-placeholder-val="{{ false }}"><label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4A555C"><span style="position: absolute; left: -9999px">Exercise type</span><select id="type-{{c.id}}" value="{{c.type}}" onChange="{{c.setType}}" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto; min-width: 200px; font-weight: 600"><sc-for list="{{c.opts}}" as="o" hint-placeholder-count="7"><option value="{{o.k}}" selected="{{o.sel}}">{{o.name}}</option></sc-for></select></label></sc-if><sc-if value="{{c.lockedOpen}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 15px">{{c.typeName}}</span><span style="font-size: 12px; color: #5F6B73">Type can't change once students have recorded</span></span></sc-if><sc-if value="{{c.closed}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 200px"><span style="font-weight: 700; font-size: 15px">{{c.titleShow}}</span><span style="font-size: 13px; color: #5F6B73; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 520px">{{c.typeName}} · {{c.snippet}}</span></span></sc-if><sc-if value="{{c.isNew}}" hint-placeholder-val="{{ false }}"><span style="display: inline-flex; gap: 6px; align-items: center; border-radius: 6px; padding: 3px 8px; font-size: 12px; font-weight: 700; white-space: nowrap; background: #D6F0EE; color: #0B6B63">New</span></sc-if><sc-if value="{{c.isEdited}}" hint-placeholder-val="{{ false }}"><span style="display: inline-flex; gap: 6px; align-items: center; border-radius: 6px; padding: 3px 8px; font-size: 12px; font-weight: 700; white-space: nowrap; background: #FDEFD3; color: #8A5A00">Edited</span></sc-if><sc-if value="{{c.hasRecs}}" hint-placeholder-val="{{ false }}"><span style="display: inline-flex; gap: 6px; align-items: center; border-radius: 6px; padding: 3px 8px; font-size: 12px; font-weight: 700; white-space: nowrap; background: #EEF2F5; color: #4A555C">{{c.recsLabel}}</span></sc-if>
 <div style="display: flex; gap: 6px; margin-left: auto">
+<button type="button" onClick="{{c.toggle}}" aria-expanded="{{c.openAttr}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 40px; padding: 0 12px">{{c.toggleLabel}}</button>
 <button type="button" onClick="{{c.up}}" aria-label="Move exercise {{c.n}} up" title="Move up" style="width: 40px; height: 40px; border: 1px solid #D5DCE1; background: #FFFFFF; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #4A555C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 <button type="button" onClick="{{c.down}}" aria-label="Move exercise {{c.n}} down" title="Move down" style="width: 40px; height: 40px; border: 1px solid #D5DCE1; background: #FFFFFF; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #4A555C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
 <button type="button" onClick="{{c.dup}}" aria-label="Duplicate exercise {{c.n}}" title="Duplicate" style="width: 40px; height: 40px; border: 1px solid #D5DCE1; background: #FFFFFF; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #4A555C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></button>
 <button type="button" onClick="{{c.del}}" aria-label="Delete exercise {{c.n}}" title="Delete" style="width: 40px; height: 40px; border: 1px solid #D5DCE1; background: #FFFFFF; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #4A555C; color: #B42323"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
 </div>
 </div>
+<sc-if value="{{c.open}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{c.hasRecs}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; background: #E8EAFF; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #1A1F3A"><span style="flex: 1 1 260px"><b>{{c.recsLabel}}.</b> Changes apply to new attempts only; past scores stay as they are. For a big change, save it as a new exercise.</span><button type="button" onClick="{{c.saveAsNew}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; min-height: 36px">Save as a new exercise</button></div></sc-if>
 <p style="margin: -6px 0 0; font-size: 13px; color: #5F6B73">{{c.blurb}}</p>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Exercise name<input id="title-{{c.id}}" type="text" value="{{c.title}}" onInput="{{c.onTitle}}" placeholder="e.g. Part 6" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; border-color: {{c.titleBorder}}"></label>
 <sc-if value="{{c.hasMedia}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-size: 14px; font-weight: 600">{{c.mediaLabel}} <sc-if value="{{c.canNone}}" hint-placeholder-val="{{ true }}"><span style="font-size: 13px; font-weight: 400; color: #5F6B73">(optional)</span></sc-if><span role="group" aria-label="Picture or video" style="display: inline-flex; flex-wrap: wrap; background: #E2E7EB; border-radius: 8px; padding: 3px; gap: 3px"><sc-if value="{{c.canNone}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{c.mNone}}" aria-pressed="{{c.isMNone}}" style="border: 0; border-radius: 6px; min-height: 32px; padding: 0 12px; font: 600 13px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; {{c.stMNone}}">None</button></sc-if><button type="button" onClick="{{c.mImg}}" aria-pressed="{{c.isMImg}}" style="border: 0; border-radius: 6px; min-height: 32px; padding: 0 12px; font: 600 13px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; {{c.stMImg}}">Picture</button><sc-if value="{{c.canVid}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{c.mVid}}" aria-pressed="{{c.isMVid}}" style="border: 0; border-radius: 6px; min-height: 32px; padding: 0 12px; font: 600 13px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; {{c.stMVid}}">Video</button></sc-if></span></div></sc-if>
@@ -132,10 +135,11 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <span>{{c.counts}}</span>
 <sc-if value="{{c.hasErr}}" hint-placeholder-val="{{ false }}"><span role="alert" style="color: #B42323; font-weight: 600">{{c.err}}</span></sc-if>
 </div>
+</sc-if>
 </section>
 </sc-for>
 
-<section aria-label="Add exercises" style="background: #FFFFFF; border-radius: 12px; border: 1.5px dashed #A9B3BA; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px">
+<section id="add-bar" aria-label="Add exercises" style="background: #FFFFFF; border-radius: 12px; border: 1.5px dashed #A9B3BA; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-weight: 700; font-size: 15px">Add another exercise</span><span style="font-size: 13px; color: #5F6B73">Choose a type. The card shows the fields that type needs.</span>
 </div>
@@ -198,7 +202,9 @@ tbody tr:hover>td{background-color:#F7F9FA}
 </div>
 </sc-if>
 
-<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25); max-width: calc(100% - 32px); box-sizing: border-box">{{toastText}}<sc-if value="{{saved}}" hint-placeholder-val="{{ false }}"><a href="lesson-exercises.html" style="color: #9ADBD5; font-weight: 700; white-space: nowrap">Back to lesson</a></sc-if><button type="button" onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
+<sc-if value="{{delOpen}}" hint-placeholder-val="{{ false }}"><div style="position: fixed; inset: 0; z-index: 85; background: rgba(17,17,17,.55); display: flex; align-items: center; justify-content: center; padding: 16px"><div role="alertdialog" aria-modal="true" aria-label="Remove {{delTitle}}?" style="background: #FFFFFF; border-radius: 12px; padding: 24px; max-width: 440px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font: 700 20px Lato, sans-serif; color: #111111">Remove {{delTitle}}?</h2><p style="margin: 0; font-size: 14px; color: #4A555C; line-height: 1.5">It has {{delRecs}}. It will be archived: students won’t see it, and its results stay in reports.</p><div style="display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap"><button type="button" onClick="{{delCancel}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Cancel</button><button type="button" onClick="{{delConfirm}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #B42323">Remove exercise</button></div></div></div></sc-if>
+<sc-if value="{{leaveOpen}}" hint-placeholder-val="{{ false }}"><div style="position: fixed; inset: 0; z-index: 85; background: rgba(17,17,17,.55); display: flex; align-items: center; justify-content: center; padding: 16px"><div role="alertdialog" aria-modal="true" aria-label="Discard your changes?" style="background: #FFFFFF; border-radius: 12px; padding: 24px; max-width: 440px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font: 700 20px Lato, sans-serif; color: #111111">Discard your changes?</h2><p style="margin: 0; font-size: 14px; color: #4A555C; line-height: 1.5">You have unsaved changes: {{changeSummary}}.</p><div style="display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap"><button type="button" onClick="{{keepEditing}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none">Keep editing</button><a href="lesson-exercises.html" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #B42323">Discard changes</a></div></div></div></sc-if>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25); max-width: calc(100% - 32px); box-sizing: border-box">{{toastText}}<sc-if value="{{canUndo}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{undo}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Undo</button></sc-if><sc-if value="{{saved}}" hint-placeholder-val="{{ false }}"><a href="lesson-exercises.html" style="color: #9ADBD5; font-weight: 700; white-space: nowrap">Back to lesson</a></sc-if><button type="button" onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
 </div>
 </div>
 </div>
@@ -278,20 +284,42 @@ function summary(c) {
   if (c.rule === 'any') return 'Passes if the student says at least one of: ' + list.join(', ') + '.';
   return 'Passes if the student says at least ' + Math.min(c.min, k.length) + ' of: ' + list.join(', ') + '.';
 }
-function blank(type, n, text) { uid++; return { id: 'x' + uid, type: type, media: type === 'media' ? 'img' : 'none', title: 'Part ' + n, text: text || '', answer: '', len: 30, kws: [], kwDraft: '', rule: 'all', min: 2, check: 'open', pattern: '', extra: true, test: '' }; }
+var FIELDS = ['type', 'title', 'text', 'answer', 'media', 'check', 'kws', 'rule', 'min', 'pattern', 'extra'];
+function full(c) { return Object.assign({ media: 'none', answer: '', len: 30, kws: [], kwDraft: '', rule: 'all', min: 2, check: 'open', pattern: '', extra: true, test: '', existing: false, recs: 0, open: true }, c); }
+function snap(c) { var o = {}; FIELDS.forEach(function (k) { o[k] = c[k]; }); return JSON.stringify(o); }
+function saved(c) { c = full(c); c.existing = true; c.open = false; c.orig = snap(c); return c; }
+function blank(type, n, text) { uid++; return full({ id: 'x' + uid, type: type, media: type === 'media' ? 'img' : 'none', title: 'Part ' + n, text: text || '' }); }
+function edited(c) { return !!(c.existing && c.orig && snap(c) !== c.orig); }
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { cards: [
+    var cards = [
+      saved({ id: 'e1', type: 'reading', title: 'Part 1', text: 'Once upon a time, there was a little girl named Goldilocks. She went for a walk in the forest.', recs: 150 }),
+      saved({ id: 'e2', type: 'reading', title: 'Part 2', text: 'She came upon a house. She knocked and, when no one answered, she walked right in.', recs: 140 }),
+      saved({ id: 'e3', type: 'reading', media: 'img', title: 'Part 3', text: 'At the table in the kitchen, there were three bowls of porridge. Goldilocks was hungry.', recs: 130 }),
+      saved({ id: 'e4', type: 'long', title: 'Part 4', text: 'After she ate the three bears’ breakfasts she decided she was feeling a little tired. So, she walked into the living room where she saw three chairs. Goldilocks sat in the first chair to rest her feet. “This chair is too big!” she exclaimed. So she sat in the second chair. “This chair is too big, too!” she whined. So she tried the last and smallest chair. “Ahhh, this chair is just right,” she sighed.', recs: 120 }),
+      saved({ id: 'e5', type: 'q', title: 'Part 5', text: 'What would you do if you found Goldilocks in your house? Tell us in 3 sentences.', recs: 100 })
+    ].concat([
       { id: 'x1', type: 'reading', media: 'img', title: 'Part 6', text: 'Just then, the three bears came home. "Someone’s been eating my porridge," growled Papa Bear.', answer: '', len: 30 },
       { id: 'x2', type: 'q', title: 'Part 7', text: 'Whose porridge did Goldilocks eat?', answer: 'She ate Baby Bear\u2019s porridge.', len: 30, check: 'exact', media: 'none', kws: [], kwDraft: '', rule: 'all', min: 2, pattern: '', extra: true, test: 'She ate baby bears porridge' },
       { id: 'x3', type: 'media', title: 'Part 8', text: 'Name 4 things you can see in the bears\u2019 kitchen.', answer: '', len: 30, check: 'kw', media: 'img', kws: ['bowl', 'spoon', 'chair / seat', 'table', 'porridge', 'window'], kwDraft: '', rule: 'min', min: 4, pattern: '', extra: true, test: 'I can see three bowls, a spoon, a table and some chairs' },
       { id: 'x4', type: 'q', title: 'Part 9', text: 'How old are you?', answer: '', len: 30, check: 'pat', media: 'none', kws: [], kwDraft: '', rule: 'all', min: 2, pattern: 'I\u2019m [number] years old.', extra: true, test: 'I am eleven years old' }
-    ], sel: 0, showErr: false, pv: false, toast: '', saved: false };
+    ].map(full));
+    var sel = 5, q = '';
+    try { q = (window.location.search || '') + (window.location.hash || ''); } catch (e) {}
+    var m = /[?&#]ex=(\d+)/.exec(q), toAdd = /[?&#]add=1/.test(q);
+    if (m) { sel = Math.max(0, Math.min(cards.length - 1, +m[1] - 1)); cards[sel] = Object.assign({}, cards[sel], { open: true }); }
+    if (m || toAdd) { var target = m ? 'card-' + cards[sel].id : 'add-bar'; setTimeout(function () { var el = document.getElementById(target); if (el && el.scrollIntoView) el.scrollIntoView({ block: 'start' }); }, 300); }
+    this.state = { cards: cards, removed: [], sel: sel, showErr: false, pv: false, toast: '', saved: false, del: -1, leave: false, undo: null };
   }
   renderVals() {
     var self = this, st = this.state, cards = st.cards;
     var upd = function (i, patch) { var nx = self.state.cards.slice(); nx[i] = Object.assign({}, nx[i], patch); self.setState({ cards: nx, saved: false }); };
+    var remove = function (i) {
+      var nx = self.state.cards.slice(), gone = nx.splice(i, 1)[0];
+      var rem = gone.existing ? self.state.removed.concat([gone]) : self.state.removed;
+      self.setState({ cards: nx, removed: rem, del: -1, sel: Math.max(0, Math.min(self.state.sel, nx.length - 1)), toast: (gone.title || 'Exercise') + ' removed.' + (gone.existing && gone.recs ? ' Its results stay in reports.' : ''), undo: { card: gone, at: i }, saved: false });
+    };
     var errOf = function (c) {
       var t = T[c.type];
       if (!c.title.trim()) return 'Add a name.';
@@ -313,7 +341,20 @@ class Component extends DCLogic {
       var t = T[c.type], res = t.q ? tryAnswer(c) : { text: '', pass: false }, err = st.showErr ? errOf(c) : '', words = c.text.trim() ? c.text.trim().split(/\s+/).length : 0;
       return {
         t_reading: c.type === 'reading', t_long: c.type === 'long', t_q: c.type === 'q', t_media: c.type === 'media', t_self: c.type === 'self',
-        id: c.id, n: 5 + i + 1, type: c.type, opts: KEYS.map(function (k) { return { k: k, name: T[k].name, sel: k === c.type ? true : null }; }), title: c.title, text: c.text, answer: c.answer, blurb: t.blurb,
+        open: !!c.open, closed: !c.open, openAttr: c.open ? 'true' : 'false', toggleLabel: c.open ? 'Collapse' : 'Edit',
+        canType: !!c.open && !(c.existing && c.recs), lockedOpen: !!c.open && !!(c.existing && c.recs), typeName: t.name,
+        titleShow: c.title || 'Untitled', snippet: (c.text || '').slice(0, 90) + ((c.text || '').length > 90 ? '\u2026' : ''),
+        isNew: !c.existing, isEdited: edited(c), hasRecs: !!(c.existing && c.recs), recsLabel: c.recs + ' recordings',
+        toggle: function (ev) { if (ev) ev.stopPropagation(); upd(i, { open: !self.state.cards[i].open }); if (!self.state.cards[i].open) self.setState({ sel: i }); },
+        saveAsNew: function (ev) {
+          if (ev) ev.stopPropagation(); uid++;
+          var nx = self.state.cards.slice(), cur = nx[i], orig = JSON.parse(cur.orig);
+          var copy = Object.assign({}, cur, { id: 'x' + uid, existing: false, recs: 0, orig: null, open: true, title: cur.title + ' (new version)' });
+          nx[i] = Object.assign({}, cur, orig, { open: false });
+          nx.splice(i + 1, 0, copy);
+          self.setState({ cards: nx, sel: i + 1, toast: 'Your changes are now a new exercise. ' + cur.title + ' keeps its recordings.', undo: null });
+        },
+        id: c.id, n: i + 1, type: c.type, opts: KEYS.map(function (k) { return { k: k, name: T[k].name, sel: k === c.type ? true : null }; }), title: c.title, text: c.text, answer: c.answer, blurb: t.blurb,
         textLabel: t.label, textHint: t.hint, placeholder: t.ph, textOptional: !!t.optional, rows: t.rows,
         isQ: !!t.q, hasPat: !!t.q && c.check === 'pat', hasTest: !!t.q && c.check !== 'open',
         isMNone: c.media === 'none', isMImg: c.media === 'img', isMVid: c.media === 'vid', stMNone: c.media === 'none' ? on : off, stMImg: c.media === 'img' ? on : off, stMVid: c.media === 'vid' ? on : off,
@@ -347,7 +388,7 @@ class Component extends DCLogic {
         titleBorder: err && !c.title.trim() ? '#B42323' : '#C0C0C0',
         textBorder: err && !t.optional && !c.text.trim() ? '#B42323' : '#C0C0C0',
         ansBorder: err && t.answer && !c.answer.trim() ? '#B42323' : '#C0C0C0',
-        select: function () { if (self.state.sel !== i) self.setState({ sel: i }); },
+        select: function () { if (!self.state.cards[i].open) { var nx = self.state.cards.slice(); nx[i] = Object.assign({}, nx[i], { open: true }); self.setState({ cards: nx, sel: i }); } else if (self.state.sel !== i) self.setState({ sel: i }); },
         setType: function (e) { upd(i, Object.assign({ check: 'open', media: 'none', kws: [], kwDraft: '', rule: 'all', min: 2, pattern: '', extra: true, test: '' }, self.state.cards[i], { type: e.target.value, len: 30 }, fixMedia(e.target.value, self.state.cards[i].media))); },
         onTitle: function (e) { upd(i, { title: e.target.value }); },
         onText: function (e) { upd(i, { text: e.target.value }); },
@@ -355,16 +396,23 @@ class Component extends DCLogic {
         len30: function () { upd(i, { len: 30 }); }, len90: function () { upd(i, { len: 90, media: 'none' }); },
         up: function (ev) { if (ev) ev.stopPropagation(); if (i === 0) return; var nx = self.state.cards.slice(); var x = nx[i - 1]; nx[i - 1] = nx[i]; nx[i] = x; self.setState({ cards: nx, sel: i - 1 }); },
         down: function (ev) { if (ev) ev.stopPropagation(); if (i === self.state.cards.length - 1) return; var nx = self.state.cards.slice(); var x = nx[i + 1]; nx[i + 1] = nx[i]; nx[i] = x; self.setState({ cards: nx, sel: i + 1 }); },
-        dup: function (ev) { if (ev) ev.stopPropagation(); uid++; var nx = self.state.cards.slice(); nx.splice(i + 1, 0, Object.assign({}, nx[i], { id: 'x' + uid, title: nx[i].title + ' (copy)' })); self.setState({ cards: nx, sel: i + 1 }); },
-        del: function (ev) { if (ev) ev.stopPropagation(); var nx = self.state.cards.slice(); nx.splice(i, 1); self.setState({ cards: nx, sel: Math.max(0, Math.min(self.state.sel, nx.length - 1)) }); }
+        dup: function (ev) { if (ev) ev.stopPropagation(); uid++; var nx = self.state.cards.slice(); nx.splice(i + 1, 0, Object.assign({}, nx[i], { id: 'x' + uid, title: nx[i].title + ' (copy)', existing: false, recs: 0, orig: null, open: true })); self.setState({ cards: nx, sel: i + 1 }); },
+        del: function (ev) { if (ev) ev.stopPropagation(); var c = self.state.cards[i]; if (c.existing && c.recs) self.setState({ del: i }); else remove(i); }
       };
     });
     var sel = cards[Math.min(st.sel, cards.length - 1)], ts = sel ? T[sel.type] : null;
-        var bad = cards.filter(function (c) { return errOf(c); }).length;
+    var bad = cards.filter(function (c) { return errOf(c); }).length;
+    var added = cards.filter(function (c) { return !c.existing; }).length, ed = cards.filter(edited).length, rm = st.removed.length, total = added + ed + rm, parts = [];
+    if (added) parts.push(added + ' added'); if (ed) parts.push(ed + ' edited'); if (rm) parts.push(rm + ' removed');
     var v = {
       cards: list,
-      saveLabel: 'Save ' + cards.length + (cards.length === 1 ? ' exercise' : ' exercises'),
-      pvN: sel ? 5 + Math.min(st.sel, cards.length - 1) + 1 : 0, pvTotal: 5 + cards.length,
+      saveLabel: total ? 'Save changes' : 'No changes to save',
+      changeSummary: total ? parts.join(' \u00b7 ') : '', hasChanges: total > 0, noChanges: total === 0,
+      askLeave: function () { self.setState({ leave: true }); }, leaveOpen: st.leave, keepEditing: function () { self.setState({ leave: false }); },
+      delOpen: st.del >= 0 && !!cards[st.del], delTitle: st.del >= 0 && cards[st.del] ? cards[st.del].title : '', delRecs: st.del >= 0 && cards[st.del] ? cards[st.del].recs + ' recordings' : '',
+      delCancel: function () { self.setState({ del: -1 }); }, delConfirm: function () { remove(self.state.del); },
+      canUndo: !!st.undo && !!st.toast, undo: function () { var u = self.state.undo; if (!u) return; var nx = self.state.cards.slice(); nx.splice(u.at, 0, u.card); self.setState({ cards: nx, removed: self.state.removed.filter(function (r) { return r !== u.card; }), undo: null, toast: '', sel: u.at }); },
+      pvN: sel ? Math.min(st.sel, cards.length - 1) + 1 : 0, pvTotal: cards.length,
       pvType: ts ? ts.name : '', pvt_reading: !!sel && sel.type === 'reading', pvt_long: !!sel && sel.type === 'long', pvt_q: !!sel && sel.type === 'q', pvt_media: !!sel && sel.type === 'media', pvt_self: !!sel && sel.type === 'self',
       pvKw: !!(sel && ts.kw && sel.showKw !== false && (sel.kws || []).length),
       pvKws: sel && sel.kws ? sel.kws.map(function (w) { return { label: w }; }) : [],
@@ -376,14 +424,16 @@ class Component extends DCLogic {
       pvNext: function () { self.setState({ sel: Math.min(self.state.cards.length - 1, self.state.sel + 1) }); },
       pvOpen: st.pv, openPv: function () { self.setState({ pv: true }); }, closePv: function () { self.setState({ pv: false }); },
       saveAll: function () {
-        if (!self.state.cards.length) { self.setState({ toast: 'Add at least one exercise.', saved: false }); return; }
-        if (bad) { self.setState({ showErr: true, toast: bad + (bad === 1 ? ' exercise needs' : ' exercises need') + ' attention before saving.', saved: false }); return; }
-        self.setState({ showErr: false, toast: self.state.cards.length + ' exercises added to Goldilocks & the Three Bears.', saved: true });
+        if (!total) { self.setState({ toast: 'No changes to save.', saved: false, undo: null }); return; }
+        if (!self.state.cards.length) { self.setState({ toast: 'A lesson needs at least one exercise.', saved: false, undo: null }); return; }
+        if (bad) { self.setState({ showErr: true, cards: self.state.cards.map(function (c) { return errOf(c) ? Object.assign({}, c, { open: true }) : c; }), toast: bad + (bad === 1 ? ' exercise needs' : ' exercises need') + ' attention before saving.', saved: false, undo: null }); return; }
+        var msg = 'Saved: ' + parts.join(', ') + '.';
+        self.setState({ showErr: false, cards: self.state.cards.map(function (c) { var x = Object.assign({}, c, { existing: true, open: false }); x.orig = snap(x); return x; }), removed: [], toast: msg, saved: true, undo: null });
       },
       toast: !!st.toast, toastText: st.toast, saved: st.saved, dismissToast: function () { self.setState({ toast: '' }); }
     };
     KEYS.forEach(function (k) {
-      v['add_' + k] = function () { var nx = self.state.cards.concat([blank(k, 5 + self.state.cards.length + 1)]); self.setState({ cards: nx, sel: nx.length - 1 }); };
+      v['add_' + k] = function () { var nx = self.state.cards.concat([blank(k, self.state.cards.length + 1)]); self.setState({ cards: nx, sel: nx.length - 1 }); };
     });
     return v;
   }

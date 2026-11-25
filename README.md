@@ -8,7 +8,7 @@ Clickable mockup of the redesigned teacher reporting screens. Open `index.html` 
 | `classes.html` | **My Classes** — list of the teacher's classes; opens the Class Overview |
 | `class-lessons.html` | **Class › Lessons** — the class's default tab; Create lesson, Add from Practice Packs |
 | `lesson-exercises.html` | **Lesson › Exercises** — exercises in a lesson; Create exercise |
-| `exercise-builder.html` | **Add exercises** — build many exercises for one lesson at once, with a student preview |
+| `exercise-builder.html` | **Edit exercises** — edit, reorder, add and remove all of a lesson's exercises in one place, with a student preview |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
 | `student.html` | **Student profile** — reached from any student name |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
@@ -64,7 +64,10 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Lessons list: drag handle, #, lesson name and description or source link, availability (Always available / Open until… / Scheduled / Ended), exercises, recordings, last recording. Filters: All · Open · Scheduled · Ended.
 - **+ Create lesson** dialog: name, optional description or source link, availability (always or between dates). The new lesson appears at the end of the list, marked New.
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
-- **+ Add exercises** opens the exercise builder (`exercise-builder.html`), a Google Forms–style page:
+- **Edit exercises** (lesson header) opens the exercise editor (`exercise-builder.html`) for the whole lesson. The pencil on a row opens it at that exercise (`?ex=3`); **+ Add an exercise** opens it at the add bar (`?add=1`).
+  - Existing exercises start collapsed (number, icon, name, type, text snippet, recording count); click to expand. New ones start open and are marked **New**; changed ones are marked **Edited**.
+  - Exercises with recordings: type is locked, a note says edits apply to new attempts only, and **Save as a new exercise** turns the edits into a new exercise and restores the original. Removing one asks first and archives it (results stay in reports); a toast offers **Undo**.
+  - The header sums up unsaved changes ("4 added · 1 edited · 1 removed"). **Save changes** saves everything at once; **Cancel** with unsaved changes asks before discarding.
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
   - 5 types, each with its own icon: **Short Reading** (30s, optional picture), **Long Reading** (90s, no picture), **Question** (text question), **Picture/Video Prompt** (a picture or video is required, plus a prompt such as "Describe what you see"), **Self Practice**. Everything except Long Reading records for up to 30 seconds; no preparation time.
   - **Question** and **Picture/Video Prompt** share "How should answers be checked?":
