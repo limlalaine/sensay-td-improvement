@@ -68,7 +68,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
   - One card is open at a time: click its header or chevron. **Expand all / Collapse all** sits above the list.
   - Each card header has a drag handle (hidden on phones), number, icon, name, type and snippet, badges (**New**, **Edited**, recording count), a **⋯** menu (Duplicate, Insert exercise below, Move up, Move down, Delete) and the chevron.
   - A **+** between cards inserts an exercise there; **Add exercise** at the bottom adds one at the end. A new card starts as type tiles.
-  - Default names ("Part 3") follow the exercise's position; once a teacher types a name, it stays.
+  - Exercise names are written by teachers and never change when exercises move; the number badge shows position. New cards start with an empty name.
   - Uploaded pictures and videos show as a thumbnail with Replace and Remove. Type descriptions and field hints show on new cards only.
   - Exercises with recordings: type is locked, a note says edits apply to new attempts only, and **Save as a new exercise** turns the edits into a new exercise and restores the original. Removing one asks first and archives it (results stay in reports); a toast offers **Undo**.
   - A sticky bar at the bottom shows unsaved changes ("5 added · order changed"), when the draft was last saved automatically, and, after a blocked save, "N exercises need attention" with **Go to next**. It holds Preview as student, Cancel (asks before discarding) and **Save changes**.
