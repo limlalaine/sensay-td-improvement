@@ -46,8 +46,6 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
 <a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">G5-B Reading Practice</a>
 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-<a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">Lessons</a>
-<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
 <span aria-current="page" style="color: #222222">Goldilocks &amp; the Three Bears</span>
 </nav>
 <a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px 0 10px; border-radius: 8px; background: #FFFFFF; border: 1px solid #D5DCE1; font-size: 14px; font-weight: 700; text-decoration: none">
@@ -101,7 +99,8 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px">
 <sc-if value="{{h.hard}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 700; color: #5C3D00; background: #FDEFD3; border-radius: 999px; padding: 1px 8px">Hardest</span></sc-if>
 <span style="font-weight: 700; font-size: 13px; color: #111111">{{h.name}}</span>
-<span style="font-size: 11px; color: #5F6B73">Reading</span>
+<span style="font-size: 11px; color: #5F6B73">{{h.type}}</span>
+<sc-if value="{{h.edited}}" hint-placeholder-val="{{ false }}"><span title="{{h.editedTitle}}" style="font-size: 11px; font-weight: 700; color: #33438A; background: #E8EAFF; border-radius: 999px; padding: 1px 8px; white-space: nowrap">Edited {{h.editedShort}}</span></sc-if>
 </div>
 </th>
 </sc-for>
@@ -155,7 +154,7 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
 <div style="display: flex; flex-direction: column; gap: 4px">
 <div style="font-family: Lato, sans-serif; font-size: 22px; font-weight: 900; color: #111111">{{selName}}</div>
-<div style="font-size: 14px; color: #4A555C">{{selEx}} · Reading</div>
+<div style="font-size: 14px; color: #4A555C">{{selEx}} · {{selType}}</div>
 </div>
 <button type="button" aria-label="Close details" onClick="{{closeSel}}" style="width: 44px; height: 44px; border: 0; background: #F2F2F2; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
 </div>
@@ -172,6 +171,12 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 8px; background: #FDF5E6; color: #5C3D00; font-size: 13px">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A15C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 1px"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.2v.1"/></svg>
 <div><span style="font-weight: 700">Check this score.</span> {{selFlagText}} Listen before deciding whether to adjust it.</div>
+</div>
+</sc-if>
+<sc-if value="{{selEdited}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 8px; background: #E8EAFF; color: #1A1F3A; font-size: 13px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33438A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 1px"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>
+<div>{{selEditedText}}</div>
 </div>
 </sc-if>
 
@@ -270,6 +275,8 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <script src="dc-lite.js"></script>
 <script>
 var EX = ['Part 1', 'Part 2', 'Part 3', 'Part 4', 'Part 5'];
+var TYPES = ['Short Reading', 'Short Reading', 'Short Reading', 'Long Reading', 'Question'];
+var EDITED = { 2: { full: 'Nov 16, 2026', short: 'Nov 16', before: 3 } };
 var LI0 = 1;
 var N = null;
 var ROWS = [
@@ -424,7 +431,7 @@ class Component extends DCLogic {
 
     var v = {
       rows: st.onlyUnf ? rows.filter(function (r, i) { return ROWS[i].s.some(function (raw) { return partOf(raw) < 100; }); }) : rows,
-      exHeads: exStats.map(function (e) { return { name: e.name, hard: e === hard && e.avg < 70 }; }),
+      exHeads: exStats.map(function (e, k) { return { name: e.name, hard: e === hard && e.avg < 70, type: TYPES[k], edited: !!EDITED[k], editedShort: EDITED[k] ? EDITED[k].short : '', editedTitle: EDITED[k] ? 'Edited on ' + EDITED[k].full + '. Earlier attempts used the previous version.' : '' }; }),
       exAvgs: exStats.map(function (e, k) {
         var nd = ROWS.filter(function (r) { return partOf(r.s[k]) < 100; }).length;
         var base = mode === 'score' ? { main: e.avg, fg: textFg(e.avg) } : { main: e.tries + ' tries', fg: e.tries >= 4 ? '#8A5A00' : '#111111' };
@@ -463,7 +470,8 @@ class Component extends DCLogic {
       var ri = st.sel.ri, k = st.sel.k, r = ROWS[ri], ai = aiOf(r.s[k]), key = ri + '-' + k, o = st.ov[key];
       var fin = o != null ? o : ai, b = band(fin), list = attemptsOf(ri, k);
       var lo = Math.min.apply(null, list), loIdx = list.indexOf(lo), bestIdx = list.lastIndexOf(ai);
-      v.selName = r.name; v.selEx = EX[k];
+      v.selName = r.name; v.selEx = EX[k]; v.selType = TYPES[k];
+      v.selEdited = !!EDITED[k]; v.selEditedText = EDITED[k] ? EX[k] + ' was edited on ' + EDITED[k].full + '. Attempts marked \u201cEarlier version\u201d were recorded before the change, so their scores may not be directly comparable.' : '';
       v.selFinal = fin; v.selBg = b.bg; v.selFg = b.fg; v.selRing = o != null ? OV_RING : 'none';
       v.selSource = o != null ? 'Teacher score (AI best was ' + ai + ')' : 'AI best of ' + list.length + (list.length === 1 ? ' attempt' : ' attempts');
       v.selAi = String(ai); v.selIsOv = o != null;
@@ -478,6 +486,7 @@ class Component extends DCLogic {
         if (i === bestIdx) tags.push({ text: 'Best', bg: '#D6F0EE', fg: '#123F3B' });
         if (i === loIdx && list.length > 1) tags.push({ text: 'Lowest', bg: '#EEF2F5', fg: '#4A555C' });
         if (suspicious(sc, ai)) tags.push({ text: 'Check audio', bg: '#FDEFD3', fg: '#5C3D00' });
+        if (EDITED[k] && i < EDITED[k].before) tags.push({ text: 'Earlier version', bg: '#E8EAFF', fg: '#33438A' });
         var on = i === att;
         return {
           n: i + 1, when: ['3 weeks ago', '2 weeks ago', '9 days ago', '6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', 'Yesterday'][i] || 'Today', full: ['Nov 3, 2026', 'Nov 10, 2026', 'Nov 15, 2026', 'Nov 18, 2026', 'Nov 19, 2026', 'Nov 20, 2026', 'Nov 21, 2026', 'Nov 22, 2026', 'Nov 23, 2026'][i] || 'Nov 24, 2026', score: sc, fg: textFg(sc), tags: tags, on: on,
@@ -529,7 +538,7 @@ class Component extends DCLogic {
         self.setState({ ov: next, draft: '', err: '' });
       };
     } else {
-      v.selName = ''; v.selEx = ''; v.selFinal = ''; v.selBg = '#F2F2F2'; v.selFg = '#222222'; v.selRing = 'none';
+      v.selName = ''; v.selEx = ''; v.selType = ''; v.selEdited = false; v.selEditedText = ''; v.selFinal = ''; v.selBg = '#F2F2F2'; v.selFg = '#222222'; v.selRing = 'none';
       v.selSource = ''; v.selAi = ''; v.selIsOv = false; v.selFlag = false; v.selFlagText = ''; v.selTriesText = '';
       v.selInputLabel = ''; v.attempts = []; v.words = []; v.wave = [];
       v.atN = ''; v.atScore = ''; v.atFg = '#111111'; v.isPlaying = false; v.notPlaying = true; v.togglePlay = function () {};

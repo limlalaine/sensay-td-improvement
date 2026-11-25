@@ -66,7 +66,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Opening a class lands on its **Lessons** tab; Class Overview stays a tab next to it.
 - Lessons list: drag handle, #, lesson name and description or source link, availability (Always available / Open until… / Scheduled / Ended), exercises, recordings, last recording. Filters: All · Open · Scheduled · Ended.
 - **+ Create lesson** dialog: name, optional description or source link, availability (always or between dates). The new lesson appears at the end of the list, marked New.
-- Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
+- Lesson page: **Edit lesson** sets the name, source and **active dates** (always available, or Opens / Closes dates; the badge shows Opens / Open until / Closed). **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
 - Lesson and exercise lists: drag the handle to reorder. The new order saves right away, with **Undo** in the confirmation.
 - The lesson header button reads **Edit exercises** when the lesson has exercises and **Create exercises** when it has none; an empty lesson shows a "No exercises yet" panel with the same button (`lesson-empty.html` → `exercise-create.html`).
 - **Edit exercises** (lesson header) opens the exercise editor (`exercise-builder.html`) for the whole lesson. The pencil on a row opens it at that exercise (`?ex=3`); **+ Add an exercise** opens it at the add bar (`?add=1`).
@@ -90,6 +90,9 @@ All three pages share one header and sidebar, styled with the Sensay design syst
   - **Save N exercises** checks every card and highlights missing fields before saving.
 
 **Shared patterns**
+- Breadcrumbs: My Classes › Class › Lesson › Edit exercises (no separate "Lessons" step; the class page opens on its Lessons tab).
+- Phones (below 720px): list tables turn into stacked cards, with the name as the card heading and each column as a labeled row.
+- Results: an edited exercise shows "Edited Nov 16" in its column; attempts from before the edit are tagged "Earlier version" with a note in the detail panel.
 - Page header: uppercase section label + title on portal pages; class, lesson and student pages add a white breadcrumb bar.
 - One toolbar for every list: search (with icon), filter dropdowns, Sort and Export CSV on the right, status filters as rounded buttons underneath. Rounded buttons filter; the grey switch changes how data is shown (e.g. Best score / Attempts, Recordings / By student).
 - Export CSV: in the page header for whole-page reports (Overview, Class Overview), in the toolbar for lists.
@@ -167,3 +170,23 @@ While the panel is open the table compacts (smaller cells, sub-lines hidden) so 
 - Returning via "Back to Class Overview" should restore the teacher's previous view state.
 - Accessibility: score cells have text labels for screen readers; color is never the only signal (outline, underline/strikethrough, icons, text).
 - Brand: Sensay teal `#00A094` for actions, secondary blue `#4357AD` for teacher-adjusted, Lato headings, Noto Sans / Noto Sans TC body.
+
+## Glossary
+
+| Term | Meaning |
+|---|---|
+| **Organization** | A school or business account. Teachers who buy for themselves become a one-person organization. |
+| **Class** | A group of students taught by one or more teachers. Contains lessons. |
+| **Roster** | A saved list of students that can be added to classes. |
+| **Lesson** | A set of exercises in a class, e.g. "Goldilocks & the Three Bears". Has **active dates**: always available, or open between an opening and closing date. Students only see it while it's open. |
+| **Exercise** | One task in a lesson. Its **title** (e.g. "Part 1") is written by the teacher; the number badge only shows its position. |
+| **Exercise type** | Short Reading (30s, optional picture), Long Reading (90s), Question, Picture/Video Prompt, Self Practice. Every recording is 30s except Long Reading; no preparation time. |
+| **Answer checking** | How Question and Picture/Video Prompt answers are checked: Open answer, Exact answer, Keywords (All / Any one / At least N; "/" for alternatives) or Sentence pattern ("I'm [number] years old."). |
+| **Recording** | One spoken attempt by a student on an exercise. A student can record an exercise several times; each is an **attempt**. |
+| **Score** | 0–100. The **AI score** comes first; a teacher can set a **teacher score** that replaces it (shown with a blue outline, AI score crossed out). Bands: 70+ green, 60–69 amber, below 60 red. |
+| **Teacher comment** | Feedback on a recording that students can see. |
+| **Edited exercise** | An exercise changed after students recorded it. Results mark it "Edited <date>", and attempts from before the change are tagged "Earlier version". |
+| **Active student** | A student who submitted at least one recording this month. Shown to organization admins only. |
+| **Joined** | A student who has accepted the invitation and has an account (account state, separate from active). |
+| **Credit** | 1 credit = 1 active student for one month, deducted monthly. Bought in top-ups that expire. |
+| **Out of scope** | A link to something not designed yet opens the "Out of scope" page naming it. |

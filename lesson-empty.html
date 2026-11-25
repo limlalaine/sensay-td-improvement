@@ -22,6 +22,7 @@ thead .sk{z-index:5}
 .nav-toggle:checked~* .scrim{display:block}.nav-toggle:checked~* .nav-close{display:flex}}
 @media (max-width:720px){.hdr-search{display:none!important}.app-header{padding:12px 16px!important}.logo{font-size:28px!important}main,.page-main{padding:20px 16px 40px!important}.kpi-row{grid-template-columns:1fr!important}}
 tbody tr:hover>td{background-color:#F7F9FA}
+/*rtable*/@media (max-width:719px){table.rtable{min-width:0!important;width:100%!important}table.rtable thead{display:none}table.rtable,table.rtable tbody{display:block}table.rtable tr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:12px 16px;border-bottom:1px solid #E2E7EB}table.rtable td:not([data-label=""]){flex:1 1 100%}table.rtable td[data-label=""]{flex:0 0 auto}table.rtable td{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:2px 0!important;border:0!important;text-align:left!important;width:auto!important;min-width:0}table.rtable td[data-label]::before{content:attr(data-label);color:#5F6B73;font-size:13px;font-weight:600;flex:none}table.rtable td[data-label=""]::before{content:none}table.rtable td[data-label=""]:empty{display:none}table.rtable td[data-label=""] *{white-space:normal!important;overflow-wrap:anywhere;max-width:100%}table.rtable td[data-label=""]{max-width:100%;min-width:0}}
 </style>
 </head>
 <body>
@@ -48,8 +49,6 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
 <a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">G5-B Reading Practice</a>
 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-<a href="class-lessons.html" style="text-decoration: none; min-height: 32px; display: inline-flex; align-items: center">Lessons</a>
-<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#8A959C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
 <span aria-current="page" style="color: #222222">{{lessonName}}</span>
 </nav>
 </div>
@@ -60,10 +59,10 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <div>
 <div style="font-size: 13px; font-weight: 700; color: #4A555C; text-transform: uppercase; letter-spacing: 0.04em">Lesson</div>
 <h1 style="margin: 4px 0; font-family: Lato, sans-serif; font-weight: 700; font-size: 31px; line-height: 1.15; color: #111111">{{lessonName}}</h1>
-<sc-if value="{{hasEx}}" hint-placeholder-val="{{ true }}"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; color: #5F6B73"><span style="background: #D3EEDD; color: #1E5C3C; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700">Open until Dec 20, 2026</span><a href="https://storiestogrowby.org/story/goldilocks-and-the-three-bears-bedtime-stories-for-kids/" target="_blank" rel="noopener" style="font-size: 13px">storiestogrowby.org</a></div></sc-if><sc-if value="{{noEx}}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: 8px; align-items: center"><span style="background: #E2E7EB; color: #4A555C; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700">Always available</span></div></sc-if>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; color: #5F6B73"><span style="background: {{availBg}}; color: {{availFg}}; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700">{{availText}}</span><sc-if value="{{hasEx}}" hint-placeholder-val="{{ true }}"><a href="https://storiestogrowby.org/story/goldilocks-and-the-three-bears-bedtime-stories-for-kids/" target="_blank" rel="noopener" style="font-size: 13px">storiestogrowby.org</a></sc-if></div>
 </div>
 <div style="display: flex; gap: 8px; flex-wrap: wrap">
-<button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Edit lesson</button>
+<button onClick="{{openEdit}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Edit lesson</button>
 <sc-if value="{{hasEx}}" hint-placeholder-val="{{ true }}"><a href="exercise-builder.html" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; text-decoration: none">Edit exercises</a></sc-if><sc-if value="{{noEx}}" hint-placeholder-val="{{ false }}"><a href="exercise-create.html" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; text-decoration: none">Create exercises</a></sc-if>
 </div>
 </div>
@@ -78,20 +77,20 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <button style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Export CSV</button>
 </div>
 <div style="overflow-x: auto">
-<table style="width: 100%; border-collapse: collapse; min-width: 900px">
+<table class="rtable" style="width: 100%; border-collapse: collapse; min-width: 900px">
 <thead><tr><th scope="col" style="padding: 12px 8px 12px 16px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Reorder</span></th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">#</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Exercise</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Type</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Recordings</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Last recording</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Recording time</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Words read</th><th scope="col" style="padding: 12px 16px 12px 8px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Actions</span></th></tr></thead>
 <tbody>
 <sc-for list="{{exercises}}" as="e" hint-placeholder-count="5">
 <tr onDragOver="{{e.dragOver}}" onDrop="{{e.drop}}" style="{{e.rowStyle}}">
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-left: 16px; width: 32px"><span draggable="true" onDragStart="{{e.dragStart}}" onDragEnd="{{e.dragEnd}}" title="Drag to reorder" aria-label="Drag to reorder" style="display: inline-flex; cursor: grab; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span></td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; width: 32px; color: #4A555C">{{e.n}}</td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span style="font-weight: 700; font-size: 15px">{{e.title}}</span><sc-if value="{{e.isNew}}" hint-placeholder-val="{{ false }}"><span style="background: #D6F0EE; color: #0B6B63; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">New</span></sc-if></div><div style="color: #5F6B73; font-size: 13px; max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{e.preview}}</div></td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><span style="display: inline-flex; gap: 6px; align-items: center; background: #EEF2F5; color: #4A555C; border-radius: 6px; padding: 3px 8px; font-size: 13px; font-weight: 600; white-space: nowrap">{{e.type}}</span></td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{e.recs}}</td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C; white-space: nowrap"><span title="{{e.lastFull}}">{{e.last}}</span></td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C">{{e.time}}</td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C">{{e.words}}</td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-right: 16px; text-align: right; white-space: nowrap"><a href="exercise-builder.html?ex={{e.n}}" aria-label="Edit {{e.title}}" title="Edit" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #C0C0C0; border-radius: 8px; color: #4A555C; margin-right: 6px; vertical-align: middle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></a><button aria-label="More actions for {{e.title}}: preview as student, duplicate, delete" style="background: #FFFFFF; border: 1px solid #C0C0C0; border-radius: 8px; width: 44px; height: 44px; font-size: 18px; color: #4A555C; cursor: pointer">⋯</button></td>
+<td data-label="" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-left: 16px; width: 32px"><span draggable="true" onDragStart="{{e.dragStart}}" onDragEnd="{{e.dragEnd}}" title="Drag to reorder" aria-label="Drag to reorder" style="display: inline-flex; cursor: grab; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span></td>
+<td data-label="" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; width: 32px; color: #4A555C">{{e.n}}</td>
+<td data-label="" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span style="font-weight: 700; font-size: 15px">{{e.title}}</span><sc-if value="{{e.isEdited}}" hint-placeholder-val="{{ false }}"><span title="Text changed on Nov 16, 2026. Earlier attempts used the previous version." style="background: #E8EAFF; color: #33438A; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">Edited {{e.edited}}</span></sc-if><sc-if value="{{e.isNew}}" hint-placeholder-val="{{ false }}"><span style="background: #D6F0EE; color: #0B6B63; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">New</span></sc-if></div><div style="color: #5F6B73; font-size: 13px; max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{e.preview}}</div></td>
+<td data-label="Type" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><span style="display: inline-flex; gap: 6px; align-items: center; background: #EEF2F5; color: #4A555C; border-radius: 6px; padding: 3px 8px; font-size: 13px; font-weight: 600; white-space: nowrap">{{e.type}}</span></td>
+<td data-label="Recordings" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{e.recs}}</td>
+<td data-label="Last recording" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C; white-space: nowrap"><span title="{{e.lastFull}}">{{e.last}}</span></td>
+<td data-label="Recording time" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C">{{e.time}}</td>
+<td data-label="Words read" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C">{{e.words}}</td>
+<td data-label="" style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-right: 16px; text-align: right; white-space: nowrap"><a href="exercise-builder.html?ex={{e.n}}" aria-label="Edit {{e.title}}" title="Edit" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #C0C0C0; border-radius: 8px; color: #4A555C; margin-right: 6px; vertical-align: middle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></a><button aria-label="More actions for {{e.title}}: preview as student, duplicate, delete" style="background: #FFFFFF; border: 1px solid #C0C0C0; border-radius: 8px; width: 44px; height: 44px; font-size: 18px; color: #4A555C; cursor: pointer">⋯</button></td>
 </tr>
 </sc-for>
 </tbody>
@@ -106,6 +105,32 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <a href="exercise-create.html" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; text-decoration: none; margin-top: 4px">Create exercises</a>
 </section></sc-if>
 </div>
+<sc-if value="{{dlgOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 80; background: rgba(17,17,17,.45); display: flex; align-items: flex-start; justify-content: center; padding: 48px 16px; box-sizing: border-box; overflow-y: auto">
+<div role="dialog" aria-modal="true" aria-labelledby="editLessonTitle" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 16px 48px rgba(17,17,17,.25); width: 100%; max-width: 560px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid #E2E7EB">
+<h2 id="editLessonTitle" style="margin: 0; font-family: Lato, sans-serif; font-size: 20px; font-weight: 700; color: #111111">Edit lesson</h2>
+<button onClick="{{closeDlg}}" aria-label="Close" style="width: 44px; height: 44px; border: 0; background: #F2F2F2; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222">Lesson name<input id="lessonName" type="text" value="{{draftName}}" onInput="{{onName}}" placeholder="e.g. Little Red Riding Hood" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #222222"><span>Description or source link <span style="font-size: 13px; font-weight: 400; color: #5F6B73">(optional)</span></span><input type="text" value="{{sourceVal}}" placeholder="Shown to students under the lesson name" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF"></label>
+<fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 14px; font-weight: 600; color: #222222; margin-bottom: 6px; padding: 0">When can students do it?</legend>
+<label style="display: flex; gap: 10px; align-items: center; font-size: 14px; min-height: 32px"><input type="radio" name="avail" checked="{{avAlways}}" onChange="{{setAlways}}" style="width: 18px; height: 18px">Always available</label>
+<label style="display: flex; gap: 10px; align-items: center; font-size: 14px; min-height: 32px"><input type="radio" name="avail" checked="{{avDates}}" onChange="{{setDates}}" style="width: 18px; height: 18px">Between dates</label>
+<sc-if value="{{avDates}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 6px; padding-left: 28px"><div style="display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end"><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Opens<input id="opens" type="date" value="{{openDate}}" onInput="{{onOpen}}" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto"></label><label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Closes<input id="closes" type="date" value="{{closeDate}}" onInput="{{onClose}}" style="width: 100%; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid #C0C0C0; border-radius: 8px; font: 400 14px 'Noto Sans','Noto Sans TC',sans-serif; color: #222222; background: #FFFFFF; width: auto"></label></div><span style="font-size: 13px; font-weight: 400; color: #5F6B73">Students see the lesson from the opening date and can record until the end of the closing date.</span></div></sc-if>
+</fieldset>
+
+<sc-if value="{{dlgErr}}" hint-placeholder-val="{{ false }}"><div role="alert" style="font-size: 13px; color: #B42323">Give the lesson a name.</div></sc-if>
+</div>
+<div style="display: flex; justify-content: flex-end; gap: 8px; padding: 16px 24px; border-top: 1px solid #E2E7EB">
+<button onClick="{{closeDlg}}" style="background: #FFFFFF; border: 1px solid #C0C0C0; color: #222222; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Cancel</button>
+<button onClick="{{saveLesson}}" style="background: #00A094; border: 0; color: #FFFFFF; border-radius: 8px; min-height: 44px; padding: 0 16px; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer; white-space: nowrap">Save lesson</button>
+</div>
+</div>
+</div>
+</sc-if>
 <sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25)">{{toastText}}<sc-if value="{{canUndo}}" hint-placeholder-val="{{ false }}"><button onClick="{{undo}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Undo</button></sc-if><button onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
 </div>
 </div>
@@ -115,6 +140,8 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <script>
 var EMPTY = true;
 var LESSON = EMPTY ? 'The Gingerbread Man' : 'Goldilocks & the Three Bears';
+var TODAY = '2026-11-25';
+function fmtDate(iso) { var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; var p = (iso || '').split('-'); return p.length === 3 ? M[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0] : iso; }
 function orderOf(ord, n) { var o = (ord || []).filter(function (k) { return k < n; }); for (var k = 0; k < n; k++) if (o.indexOf(k) < 0) o.push(k); return o; }
 function dndRow(self, pos, label) {
   var st = self.state, dragging = st.drag !== null && st.drag !== undefined;
@@ -137,7 +164,7 @@ function undoVals(self) {
 var EXS = EMPTY ? [] : [
   { title: 'Part 1', preview: 'Once upon a time, there was a little girl named Goldilocks. She went for a walk in the forest…', type: 'Short Reading', recs: '150', last: '6 days ago', lastFull: 'Nov 18, 2026', time: '18:40', words: '2,310' },
   { title: 'Part 2', preview: 'She came upon a house. She knocked and, when no one answered, she walked right in…', type: 'Short Reading', recs: '140', last: '6 days ago', lastFull: 'Nov 18, 2026', time: '17:05', words: '2,060' },
-  { title: 'Part 3', preview: 'At the table in the kitchen, there were three bowls of porridge…', type: 'Short Reading', recs: '130', last: '8 days ago', lastFull: 'Nov 16, 2026', time: '21:30', words: '2,480' },
+  { title: 'Part 3', edited: 'Nov 16', isEdited: true, preview: 'At the table in the kitchen, there were three bowls of porridge…', type: 'Short Reading', recs: '130', last: '8 days ago', lastFull: 'Nov 16, 2026', time: '21:30', words: '2,480' },
   { title: 'Part 4', preview: 'After she ate the three bears’ breakfasts she decided she was feeling a little tired…', type: 'Long Reading', recs: '120', last: '8 days ago', lastFull: 'Nov 16, 2026', time: '14:55', words: '1,790' },
   { title: 'Part 5', preview: 'What would you do if you found Goldilocks in your house? Tell us in 3 sentences.', type: 'Question', recs: '100', last: '2 weeks ago', lastFull: 'Nov 10, 2026', time: '41:20', words: '3,105' }
 ];
@@ -148,7 +175,7 @@ var TYPE = {
   repeat: { name: 'Listen & repeat', passage: true, audio: true, label: 'Sentence to repeat', hint: 'e.g. Someone’s been eating my porridge!', short: 'Listen & repeat' }
 };
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { open: false, step: 1, type: null, title: '', passage: '', err: '', added: [], toast: '' }; }
+  constructor(props) { super(props); this.state = { open: false, step: 1, type: null, title: '', passage: '', err: '', added: [], toast: '', dlg: false, name: LESSON, avail: EMPTY ? 'always' : 'dates', dOpen: '2026-11-01', dClose: '2026-12-20', availSaved: EMPTY ? null : ['2026-11-01', '2026-12-20'] }; }
   renderVals() {
     var self = this, st = this.state, T = st.type ? TYPE[st.type] : null;
     var all = EXS.concat(st.added), o = orderOf(st.ord, all.length); self.curOrder = o;
@@ -156,7 +183,20 @@ class Component extends DCLogic {
     var words = (st.passage || '').trim() ? st.passage.trim().split(/\s+/).length : 0;
     var v = {
       exercises: o.map(function (k, i) { return Object.assign({ n: i + 1, isNew: !!all[k].isNew }, all[k], dndRow(self, i, 'Exercise')); }),
-      lessonName: LESSON, hasEx: all.length > 0, noEx: all.length === 0, canUndo: !!st.toast && !!st.undoOrd, undo: function () { self.setState({ ord: self.state.prevOrd, prevOrd: null, undoOrd: false, toast: 'Order restored.' }); },
+      lessonName: st.savedName || LESSON,
+      availText: st.availSaved ? (TODAY < st.availSaved[0] ? 'Opens ' + fmtDate(st.availSaved[0]) : TODAY > st.availSaved[1] ? 'Closed ' + fmtDate(st.availSaved[1]) : 'Open until ' + fmtDate(st.availSaved[1])) : 'Always available',
+      availBg: st.availSaved ? (TODAY < st.availSaved[0] ? '#E8EAFF' : TODAY > st.availSaved[1] ? '#F2F2F2' : '#D3EEDD') : '#E2E7EB', availFg: st.availSaved ? (TODAY < st.availSaved[0] ? '#33438A' : TODAY > st.availSaved[1] ? '#5F6B73' : '#1E5C3C') : '#4A555C',
+      dlgOpen: st.dlg, draftName: st.name, dlgErr: !!st.nameErr, avAlways: st.avail === 'always', avDates: st.avail === 'dates', sourceVal: EMPTY ? '' : 'storiestogrowby.org/story/goldilocks-and-the-three-bears',
+      openDate: st.dOpen, closeDate: st.dClose, onOpen: function (e) { self.setState({ dOpen: e.target.value }); }, onClose: function (e) { self.setState({ dClose: e.target.value }); },
+      openEdit: function () { var a = self.state.availSaved; self.setState({ dlg: true, nameErr: false, name: self.state.savedName || LESSON, avail: a ? 'dates' : 'always', dOpen: a ? a[0] : '2026-12-01', dClose: a ? a[1] : '2026-12-20' }); },
+      closeDlg: function () { self.setState({ dlg: false }); },
+      onName: function (e) { self.setState({ name: e.target.value, nameErr: false }); },
+      setAlways: function () { self.setState({ avail: 'always' }); }, setDates: function () { self.setState({ avail: 'dates' }); },
+      saveLesson: function () {
+        var n = (self.state.name || '').trim(); if (!n) { self.setState({ nameErr: true }); return; }
+        var dates = self.state.avail === 'dates';
+        self.setState({ dlg: false, savedName: n, availSaved: dates ? [self.state.dOpen, self.state.dClose] : null, toast: dates ? 'Lesson saved. Students see it from ' + fmtDate(self.state.dOpen) + ' to ' + fmtDate(self.state.dClose) + '.' : 'Lesson saved. Students can always see it.', undoOrd: false });
+      }, hasEx: all.length > 0, noEx: all.length === 0, canUndo: !!st.toast && !!st.undoOrd, undo: function () { self.setState({ ord: self.state.prevOrd, prevOrd: null, undoOrd: false, toast: 'Order restored.' }); },
       exCount: all.length, nextN: all.length + 1,
       exOpen: st.open, step1: st.step === 1, step2: st.step === 2, step3: st.step === 3, showBack: st.step > 1,
       nextLabel: st.step === 3 ? 'Add exercise' : 'Next',
