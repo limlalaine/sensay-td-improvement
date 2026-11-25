@@ -66,7 +66,7 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
 - **+ Add exercises** opens the exercise builder (`exercise-builder.html`), a Google Forms–style page:
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
-  - 4 types, each with its own icon: **Reading** (Short · 30s with an optional picture, or Long · 90s with no picture), **Question** (text question), **Picture/Video Prompt** (a picture or video is required, plus a prompt such as "Describe what you see"), **Self Practice**. Every other attempt is 30 seconds; no preparation time.
+  - 5 types, each with its own icon: **Short Reading** (30s, optional picture), **Long Reading** (90s, no picture), **Question** (text question), **Picture/Video Prompt** (a picture or video is required, plus a prompt such as "Describe what you see"), **Self Practice**. Everything except Long Reading records for up to 30 seconds; no preparation time.
   - **Question** and **Picture/Video Prompt** share "How should answers be checked?":
     - **Open answer**: anything is accepted, scored on speaking only.
     - **Exact answer**: compared with the teacher's answer; small differences (I'm / I am, 11 / eleven) are accepted.
