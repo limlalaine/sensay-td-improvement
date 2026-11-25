@@ -11,6 +11,7 @@ Clickable mockup of the redesigned teacher reporting screens. Open `index.html` 
 | `exercise-builder.html` | **Edit exercises** — edit, reorder, add and remove all of a lesson's exercises in one place, with a student preview |
 | `lesson-empty.html` | A new lesson with no exercises: empty state with **Create exercises** |
 | `exercise-create.html` | **Create exercises**: the same editor, starting with one blank exercise |
+| `out-of-scope.html` | Where placeholder links go: an "Out of scope" page naming the item (e.g. Practice Packs) |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
 | `student.html` | **Student profile** — reached from any student name |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
