@@ -467,7 +467,7 @@ class Component extends DCLogic {
       goNext: function () { var nxt = errIdx.filter(function (j) { return j > self.state.sel; })[0]; if (nxt === undefined) nxt = errIdx[0]; if (nxt === undefined) return; openOnly(nxt); scrollTo(self.state.cards[nxt].id); },
       listInfo: cards.length + (cards.length === 1 ? ' exercise' : ' exercises') + ' \u00b7 drag to reorder',
       toggleAllLabel: allOpen ? 'Collapse all' : 'Expand all', toggleAll: function () { self.setState({ cards: self.state.cards.map(function (c) { return Object.assign({}, c, { open: !allOpen }); }), menu: null }); },
-      addHint: openIdx >= 0 ? 'Goes below ' + (cards[openIdx].title || 'exercise ' + (openIdx + 1)) + ', the exercise you have open.' : 'Goes at the end of the lesson.',
+      addHint: 'Added at the end. Drag it to move it, or use \u22ef \u203a Insert exercise below.',
       addShort: openIdx >= 0 ? 'Add below ' + (cards[openIdx].title || 'exercise ' + (openIdx + 1)) : 'Add exercise',
       addMenuOpen: !!st.addMenu, addMenuAttr: st.addMenu ? 'true' : 'false', toggleAddMenu: function () { self.setState({ addMenu: !self.state.addMenu, menu: null }); },
       changeSummary: total ? parts.join(' \u00b7 ') : '', hasChanges: total > 0, noChanges: total === 0,
@@ -496,7 +496,7 @@ class Component extends DCLogic {
       toast: !!st.toast, toastText: st.toast, saved: st.saved, dismissToast: function () { self.setState({ toast: '' }); }
     };
     KEYS.forEach(function (k) {
-      v['add_' + k] = function () { var pos = openIdx >= 0 ? openIdx + 1 : self.state.cards.length; var b = Object.assign(blank(k, pos + 1), fixMedia(k, 'none')); var nx = self.state.cards.map(function (c) { return c.open ? Object.assign({}, c, { open: false }) : c; }); nx.splice(pos, 0, b); commit(nx, { sel: pos, menu: null, addMenu: false }); scrollTo(b.id); };
+      v['add_' + k] = function () { var pos = self.state.cards.length; var b = Object.assign(blank(k, pos + 1), fixMedia(k, 'none')); var nx = self.state.cards.map(function (c) { return c.open ? Object.assign({}, c, { open: false }) : c; }); nx.splice(pos, 0, b); commit(nx, { sel: pos, menu: null, addMenu: false }); scrollTo(b.id); };
     });
     return v;
   }
