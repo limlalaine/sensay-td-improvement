@@ -462,7 +462,7 @@ class Component extends DCLogic {
     var v = {
       cards: list,
       saveLabel: total ? 'Save exercises' : 'Nothing to save yet',
-      barSummary: total ? 'Unsaved: ' + parts.join(' \u00b7 ') : 'No unsaved changes', draftText: total && st.draftAt ? 'Draft saved automatically \u00b7 ' + st.draftAt : (total ? 'Draft saves automatically as you work' : 'Everything is saved'),
+      barSummary: total ? 'Unsaved: ' + parts.join(' \u00b7 ') : 'No unsaved changes', draftText: total ? 'Changes are lost if you leave without saving.' : 'Everything is saved.',
       hasIssues: !!st.showErr && errIdx.length > 0, issuesText: errIdx.length + (errIdx.length === 1 ? ' exercise needs' : ' exercises need') + ' attention',
       goNext: function () { var nxt = errIdx.filter(function (j) { return j > self.state.sel; })[0]; if (nxt === undefined) nxt = errIdx[0]; if (nxt === undefined) return; openOnly(nxt); scrollTo(self.state.cards[nxt].id); },
       listInfo: cards.length + (cards.length === 1 ? ' exercise' : ' exercises') + ' \u00b7 drag to reorder',
