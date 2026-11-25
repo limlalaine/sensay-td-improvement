@@ -82,21 +82,23 @@ tbody tr:hover>td{background-color:#F7F9FA}
             </fieldset>
           <div role="group" aria-label="Quick ranges" style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{dbSet_month}}" aria-pressed="{{dbOn_month}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_month}}">This month</button><button onClick="{{dbSet_3m}}" aria-pressed="{{dbOn_3m}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_3m}}">Last 3 months</button><button onClick="{{dbSet_year}}" aria-pressed="{{dbOn_year}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_year}}">This year</button><button onClick="{{dbSet_all}}" aria-pressed="{{dbOn_all}}" style="border-radius:999px;min-height:36px;padding:0 14px;font:inherit;font-size:14px;cursor:pointer;{{dbPill_all}}">All time</button></div>
         </div>
-        <button style="background:#00A094;color:#fff;border:0;border-radius:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer">+ Invite students</button>
       </div></div>
 
             <div class="metric-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Students who recorded</div>
-          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbStu}}</span> <span style="color:#5F6B73;font-size:16px">of 12 in my classes</span></div>
+          <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbStu}}</span> <span style="color:#5F6B73;font-size:16px">of 18 in my classes</span></div>
+          <sc-if value="{{dbShowDelta}}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;font-weight:600;color:{{dbD1c}}">{{dbD1}}</div></sc-if>
         </div>
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Recordings</div>
           <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbRec}}</span></div>
+          <sc-if value="{{dbShowDelta}}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;font-weight:600;color:{{dbD2c}}">{{dbD2}}</div></sc-if>
         </div>
         <div style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
           <div style="color:#4A555C;font-size:13px;font-weight:600">Average practice time</div>
           <div style="margin:8px 0"><span style="font-family:Lato,sans-serif;font-size:31px;font-weight:900">{{dbAvg}}</span> <span style="color:#5F6B73;font-size:16px">min / student</span></div>
+          <sc-if value="{{dbShowDelta}}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;font-weight:600;color:{{dbD3c}}">{{dbD3}}</div></sc-if>
           
         </div>
       </div>
@@ -148,7 +150,7 @@ tbody tr:hover>td{background-color:#F7F9FA}
               </tr>
             </thead>
             <tbody>
-              <tr><td data-label="" style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="class-lessons.html">G5-B Reading Practice</a></td><td data-label="Students" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">6</td><td data-label="Students who recorded" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbA1}}</td><td data-label="Recordings" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbA2}}</td></tr>
+              <tr><td data-label="" style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="class-lessons.html">G5-B Reading Practice</a></td><td data-label="Students" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">12</td><td data-label="Students who recorded" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbA1}}</td><td data-label="Recordings" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbA2}}</td></tr>
               <tr><td data-label="" style="padding:14px 8px;border-bottom:1px solid #E2E7EB;font-weight:600"><a href="class-lessons.html">Sensay Class (Lite Report)</a></td><td data-label="Students" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">4</td><td data-label="Students who recorded" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbB1}}</td><td data-label="Recordings" style="padding:14px 8px;border-bottom:1px solid #E2E7EB">{{dbB2}}</td></tr>
               <tr><td data-label="" style="padding:14px 8px;font-weight:600"><a href="class-lessons.html">Sensay DM (Simple)</a></td><td data-label="Students" style="padding:14px 8px">2</td><td data-label="Students who recorded" style="padding:14px 8px">{{dbC1}}</td><td data-label="Recordings" style="padding:14px 8px">{{dbC2}}</td></tr>
             </tbody>
@@ -156,6 +158,24 @@ tbody tr:hover>td{background-color:#F7F9FA}
         </div>
       </section>
       </div>
+
+      <section style="background:#FFFFFF;border-radius:12px;padding:16px 24px;box-shadow:0 1px 2px rgba(17,17,17,0.06)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:4px">
+          <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:700;color:#111111;font-size:20px">Monthly summary</h2>
+          <span style="font-size:13px;color:#5F6B73">Your classes · last 6 months</span>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="rtable" style="width:100%;border-collapse:collapse;font-size:14px;min-width:560px">
+            <thead><tr style="text-align:left;color:#5F6B73;font-size:13px"><th style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Month</th><th style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Students who recorded</th><th style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Recordings</th><th style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Avg practice time</th><th style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600">Avg score</th></tr></thead>
+            <tbody>
+              <sc-for list="{{dbMonths}}" as="m" hint-placeholder-count="6">
+              <tr style="background:{{m.bg}}"><td data-label="Month" style="padding:12px 8px;border-bottom:1px solid #E2E7EB;font-weight:600;white-space:nowrap">{{m.name}} <span style="font-weight:400;color:#5F6B73;font-size:13px">{{m.note}}</span></td><td data-label="Students who recorded" style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{m.stu}} <span style="color:#5F6B73">of 18</span></td><td data-label="Recordings" style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><div style="display:flex;align-items:center;gap:10px"><span style="min-width:36px">{{m.rec}}</span><span aria-hidden="true" style="flex:1;max-width:160px;height:8px;background:#EEF2F5;border-radius:4px;overflow:hidden"><span style="display:block;height:100%;width:{{m.w}};background:#00A094;border-radius:4px"></span></span></div></td><td data-label="Avg practice time" style="padding:12px 8px;border-bottom:1px solid #E2E7EB">{{m.min}} min</td><td data-label="Avg score" style="padding:12px 8px;border-bottom:1px solid #E2E7EB"><span style="display:inline-block;min-width:40px;text-align:center;border-radius:6px;padding:2px 8px;font-weight:600;background:{{m.sbg}};color:{{m.sfg}}">{{m.score}}</span></td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:8px 0 0;color:#5F6B73;font-size:13px">Avg practice time is per student who recorded. November so far: Nov 1–25.</p>
+      </section>
     </main>
     </sc-if>
     <sc-if value="{{isOv}}" hint-placeholder-val="{{ true }}">
@@ -1238,8 +1258,12 @@ class Component extends DCLogic {
     const POFF = 'background:#FFFFFF;border:1px solid #D5DCE1;color:#4A555C;font-weight:400;';
     const rangeVals = (px, key, cur) => { const o = {}; ['month', '3m', 'year', 'all'].forEach((k) => { o[px + 'On_' + k] = cur === k; o[px + 'Pill_' + k] = cur === k ? PON : POFF; o[px + 'Set_' + k] = () => this.setState({ [key]: k }); }); return o; };
     const dper = (this.state && this.state.dper) || 'month';
-    const DB = { month: ['1', '1', '4', '1 of 6', '1', '0 of 4', '0', '0 of 2', '0'], '3m': ['1', '9', '6', '1 of 6', '9', '0 of 4', '0', '0 of 2', '0'],
-      year: ['9', '1,950', '11', '5 of 6', '1,210', '3 of 4', '640', '1 of 2', '100'], all: ['12', '6,120', '12', '6 of 6', '3,800', '4 of 4', '1,820', '2 of 2', '500'] }[dper];
+    const DB = { month: ['14', '231', '19', '10 of 12', '198', '3 of 4', '27', '1 of 2', '6'], '3m': ['17', '711', '20', '11 of 12', '612', '4 of 4', '82', '2 of 2', '17'],
+      year: ['18', '1,252', '16', '12 of 12', '1,040', '4 of 4', '172', '2 of 2', '40'], all: ['18', '1,385', '15', '12 of 12', '1,040', '4 of 4', '285', '2 of 2', '60'] }[dper];
+    const MONTHS = [['June', 9, 96, 12, 74], ['July', 6, 54, 9, 72], ['August', 10, 88, 11, 75], ['September', 15, 212, 18, 77], ['October', 17, 268, 21, 79], ['November', 14, 231, 19, 80]];
+    const dbMonths = MONTHS.slice().reverse().map(function (m, i) { var sc = m[4]; return { name: m[0], note: i === 0 ? '(so far)' : '', stu: m[1], rec: m[2], min: m[3], score: sc, w: Math.round(m[2] / 268 * 100) + '%', bg: i === 0 ? '#F7FBFA' : 'transparent', sbg: sc >= 70 ? '#D3EEDD' : sc >= 60 ? '#FDEFD3' : '#FBE1E1', sfg: sc >= 70 ? '#111111' : sc >= 60 ? '#8A5A00' : '#B42323' }; });
+    const dlt = function (cur, prev, unit) { var d = cur - prev; return { t: (d > 0 ? '\u25B2 ' : d < 0 ? '\u25BC ' : '') + (d === 0 ? 'Same as' : Math.abs(d) + (unit || '') + (d > 0 ? ' more than' : ' fewer than')) + ' Oct 1\u201325', c: d >= 0 ? '#1E5C3C' : '#B42323' }; };
+    const D1 = dlt(14, 13), D2 = dlt(231, 205), D3 = dlt(19, 17, ' min');
     const per = (this.state && this.state.period) || '3m';
     const RANGES = Object.assign({}, rangeVals('ov', 'period', per), rangeVals('db', 'dper', dper));
     const pOn = 'background:#E6F7F5;border:1px solid #00A094;color:#0B6B63;font-weight:600;';
@@ -1286,6 +1310,7 @@ class Component extends DCLogic {
       o[px + 'Clear'] = () => this.setState({ [key]: {} }); return o; };
     const SEL = Object.assign(selOf('sb', 'stuSel', 8), selOf('rb', 'recSel', 8));
     return Object.assign(RANGES, SEL, {
+      dbMonths: dbMonths, dbShowDelta: dper === 'month', dbD1: D1.t, dbD1c: D1.c, dbD2: D2.t, dbD2c: D2.c, dbD3: D3.t.replace('min more than', 'min longer than').replace('min fewer than', 'min shorter than'), dbD3c: D3.c,
       dbStu: DB[0], dbRec: DB[1], dbAvg: DB[2], dbA1: DB[3], dbA2: DB[4], dbB1: DB[5], dbB2: DB[6], dbC1: DB[7], dbC2: DB[8],
       vAllOn: rv === 'all', vRevOn: rv === 'rev', vLowOn: rv === 'low', vAllSt: rv === 'all' ? tabOn : tabOff, vRevSt: rv === 'rev' ? tabOn : tabOff, vLowSt: rv === 'low' ? tabOn : tabOff,
       viewAll: setView('all'), viewRev: setView('rev'), viewLow: setView('low'),

@@ -89,6 +89,11 @@ All three pages share one header and sidebar, styled with the Sensay design syst
   - Live **Preview as student** beside the cards (phone frame, Prev/Next); below 1200px it opens as an overlay.
   - **Save N exercises** checks every card and highlights missing fields before saving.
 
+**Teacher Dashboard**
+- No invite button (inviting lives on Students and Rosters).
+- Stat cards for the chosen range; with **This month**, each shows the change against the same days last month ("▲ 26 more than Oct 1–25").
+- **Monthly summary**: last 6 months for the teacher's classes: students who recorded, recordings (with a bar), average practice time and average score; the current month is marked "so far".
+
 **Shared patterns**
 - Breadcrumbs: My Classes › Class › Lesson › Edit exercises (no separate "Lessons" step; the class page opens on its Lessons tab).
 - Phones (below 720px): list tables turn into stacked cards, with the name as the card heading and each column as a labeled row.
