@@ -1219,9 +1219,11 @@ tbody tr:hover>td{background-color:#F7F9FA}
 </script>
 <script src="dc-lite.js"></script>
 <script>
+function urlScreen() { try { var m = /[?&#]s=(\w+)/.exec((window.location.search || '') + (window.location.hash || '')); return m ? m[1] : null; } catch (e) { return null; } }
+var START = urlScreen();
 class Component extends DCLogic {
   renderVals() {
-    const s = (this.state && this.state.screen) || 'ov';
+    const s = (this.state && this.state.screen) || START || 'ov';
     const open = !!(this.state && this.state.menuOpen);
     const on = 'color:#0B6B63;font-weight:700;background:#E6F7F5;';
     const off = 'color:#4A555C;font-weight:400;background:none;';
