@@ -9,6 +9,8 @@ Clickable mockup of the redesigned teacher reporting screens. Open `index.html` 
 | `class-lessons.html` | **Class › Lessons** — the class's default tab; Create lesson, Add from Practice Packs |
 | `lesson-exercises.html` | **Lesson › Exercises** — exercises in a lesson; Create exercise |
 | `exercise-builder.html` | **Edit exercises** — edit, reorder, add and remove all of a lesson's exercises in one place, with a student preview |
+| `lesson-empty.html` | A new lesson with no exercises: empty state with **Create exercises** |
+| `exercise-create.html` | **Create exercises**: the same editor, starting with one blank exercise |
 | `index.html` | **Class Overview** — every student × every exercise, grouped by lesson |
 | `student.html` | **Student profile** — reached from any student name |
 | `lesson.html` | **Lesson Overview** — one lesson's exercises, attempts, Text Analyzer and score adjustment |
@@ -64,6 +66,8 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - Lessons list: drag handle, #, lesson name and description or source link, availability (Always available / Open until… / Scheduled / Ended), exercises, recordings, last recording. Filters: All · Open · Scheduled · Ended.
 - **+ Create lesson** dialog: name, optional description or source link, availability (always or between dates). The new lesson appears at the end of the list, marked New.
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
+- Lesson and exercise lists: drag the handle to reorder. The new order saves right away, with **Undo** in the confirmation.
+- The lesson header button reads **Edit exercises** when the lesson has exercises and **Create exercises** when it has none; an empty lesson shows a "No exercises yet" panel with the same button (`lesson-empty.html` → `exercise-create.html`).
 - **Edit exercises** (lesson header) opens the exercise editor (`exercise-builder.html`) for the whole lesson. The pencil on a row opens it at that exercise (`?ex=3`); **+ Add an exercise** opens it at the add bar (`?add=1`).
   - One card is open at a time: click its header or chevron. **Expand all / Collapse all** sits above the list.
   - Each card header has a drag handle (hidden on phones), number, icon, name, type and snippet, badges (**New**, **Edited**, recording count), a **⋯** menu (Duplicate, Insert exercise below, Move up, Move down, Delete) and the chevron.

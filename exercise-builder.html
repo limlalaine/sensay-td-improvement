@@ -299,6 +299,7 @@ function summary(c) {
   if (c.rule === 'any') return 'Passes if the student says at least one of: ' + list.join(', ') + '.';
   return 'Passes if the student says at least ' + Math.min(c.min, k.length) + ' of: ' + list.join(', ') + '.';
 }
+var CREATE = false;
 var FIELDS = ['type', 'title', 'text', 'answer', 'media', 'check', 'kws', 'rule', 'min', 'pattern', 'extra'];
 function full(c) { return Object.assign({ autoName: false, file: '', media: 'none', answer: '', len: 30, kws: [], kwDraft: '', rule: 'all', min: 2, check: 'open', pattern: '', extra: true, test: '', existing: false, recs: 0, open: true }, c); }
 function snap(c) { var o = {}; FIELDS.forEach(function (k) { o[k] = c[k]; }); o.file = c.file || ''; return JSON.stringify(o); }
@@ -324,6 +325,7 @@ class Component extends DCLogic {
     var sel = 5, q = '';
     try { q = (window.location.search || '') + (window.location.hash || ''); } catch (e) {}
     var m = /[?&#]ex=(\d+)/.exec(q), toAdd = /[?&#]add=1/.test(q);
+    if (CREATE) { cards = [blank('pick', 1)]; sel = 0; m = null; }
     if (m) sel = Math.max(0, Math.min(cards.length - 1, +m[1] - 1));
     cards = cards.map(function (c, j) { return Object.assign({}, c, { open: j === sel }); });
     if (m || toAdd) { var target = m ? 'card-' + cards[sel].id : 'add-bar'; setTimeout(function () { var el = document.getElementById(target); if (el && el.scrollIntoView) el.scrollIntoView({ block: 'start' }); }, 300); }

@@ -91,15 +91,15 @@ tbody tr:hover>td{background-color:#F7F9FA}
 <thead><tr><th scope="col" style="padding: 12px 8px 12px 16px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Reorder</span></th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">#</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Lesson</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Availability</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Exercises</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Recordings</th><th scope="col" style="padding: 12px 8px; font-weight: 600; font-size: 13px; color: #4A555C; text-align: left; border-bottom: 1px solid #E2E7EB; white-space: nowrap">Last recording</th><th scope="col" style="padding: 12px 16px 12px 8px; border-bottom: 1px solid #E2E7EB"><span style="position: absolute; left: -9999px">Open</span></th></tr></thead>
 <tbody>
 <sc-for list="{{lessons}}" as="l" hint-placeholder-count="4">
-<tr>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-left: 16px; width: 32px"><span title="Drag to reorder" style="display: inline-flex; cursor: grab"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span></td>
+<tr onDragOver="{{l.dragOver}}" onDrop="{{l.drop}}" style="{{l.rowStyle}}">
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-left: 16px; width: 32px"><span draggable="true" onDragStart="{{l.dragStart}}" onDragEnd="{{l.dragEnd}}" title="Drag to reorder" aria-label="Drag to reorder" style="display: inline-flex; cursor: grab; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="#8A959C"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></svg></span></td>
 <td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; width: 32px; color: #4A555C">{{l.n}}</td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><a href="lesson-exercises.html" style="font-weight: 700; font-size: 15px; text-decoration: none">{{l.name}}</a><sc-if value="{{l.isNew}}" hint-placeholder-val="{{ false }}"><span style="background: #D6F0EE; color: #0B6B63; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">New</span></sc-if></div><div style="color: #5F6B73; font-size: 13px; max-width: 520px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{l.sub}}</div></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><a href="{{l.href}}" style="font-weight: 700; font-size: 15px; text-decoration: none">{{l.name}}</a><sc-if value="{{l.isNew}}" hint-placeholder-val="{{ false }}"><span style="background: #D6F0EE; color: #0B6B63; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700">New</span></sc-if></div><div style="color: #5F6B73; font-size: 13px; max-width: 520px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{l.sub}}</div></td>
 <td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px"><span style="display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700; white-space: nowrap; background: {{l.avBg}}; color: {{l.avFg}}">{{l.av}}</span></td>
 <td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{l.ex}}</td>
 <td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px">{{l.recs}}</td>
 <td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; color: #4A555C; white-space: nowrap"><span title="{{l.lastFull}}">{{l.last}}</span></td>
-<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-right: 16px; text-align: right; white-space: nowrap"><a href="lesson-exercises.html" aria-label="Open {{l.name}}" style="display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 8px; color: #0B6B63"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #E2E7EB; vertical-align: middle; font-size: 14px; padding-right: 16px; text-align: right; white-space: nowrap"><a href="{{l.href}}" aria-label="Open {{l.name}}" style="display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 8px; color: #0B6B63"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></td>
 </tr>
 </sc-for>
 </tbody>
@@ -133,27 +133,47 @@ tbody tr:hover>td{background-color:#F7F9FA}
 </div>
 </div>
 </sc-if>
-<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25)">{{toastText}}<button onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div role="status" style="position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 90; background: #111111; color: #FFFFFF; border-radius: 8px; padding: 12px 16px; font-size: 14px; display: flex; gap: 16px; align-items: center; box-shadow: 0 8px 24px rgba(17,17,17,.25)">{{toastText}}<sc-if value="{{canUndo}}" hint-placeholder-val="{{ false }}"><button onClick="{{undo}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Undo</button></sc-if><button onClick="{{dismissToast}}" style="background: none; border: 0; color: #9ADBD5; font: 700 14px 'Noto Sans','Noto Sans TC',sans-serif; cursor: pointer">Dismiss</button></div></sc-if>
 </div>
 </div>
 </div>
 </script>
 <script src="dc-lite.js"></script>
 <script>
+function orderOf(ord, n) { var o = (ord || []).filter(function (k) { return k < n; }); for (var k = 0; k < n; k++) if (o.indexOf(k) < 0) o.push(k); return o; }
+function dndRow(self, pos, label) {
+  var st = self.state, dragging = st.drag !== null && st.drag !== undefined;
+  return {
+    dragStart: function (e) { try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', String(pos)); } catch (x) {} self.setState({ drag: pos }); },
+    dragEnd: function () { self.setState({ drag: null, over: null }); },
+    dragOver: function (e) { if (self.state.drag === null || self.state.drag === undefined) return; e.preventDefault(); if (self.state.over !== pos) self.setState({ over: pos }); },
+    drop: function (e) {
+      e.preventDefault(); var from = self.state.drag;
+      if (from === null || from === undefined || from === pos) { self.setState({ drag: null, over: null }); return; }
+      var o = self.curOrder.slice(), x = o.splice(from, 1)[0]; o.splice(pos, 0, x);
+      self.setState({ prevOrd: self.curOrder.slice(), ord: o, drag: null, over: null, toast: label + ' order saved. Students see the new order.', undoOrd: true });
+    },
+    rowStyle: (dragging && st.over === pos && st.drag !== pos ? 'outline: 2px solid #00A094; outline-offset: -2px;' : '') + (st.drag === pos ? 'opacity: .5;' : '')
+  };
+}
+function undoVals(self) {
+  return { canUndo: !!self.state.toast && !!self.state.undoOrd, undo: function () { self.setState({ ord: self.state.prevOrd, prevOrd: null, undoOrd: false, toast: 'Order restored.' }); } };
+}
 var LESSONS = [
   { name: 'How to Use Sensay', sub: 'Getting started · 1 exercise to try every feature', av: 'Always available', kind: 'always', ex: 1, recs: '182', last: '1 year ago', lastFull: 'May 12, 2025' },
   { name: 'Goldilocks & the Three Bears', sub: 'https://storiestogrowby.org/story/goldilocks-and-the-three-bears-bedtime-stories-for-kids/', av: 'Open until Dec 20, 2026', kind: 'open', ex: 5, recs: '640', last: '6 days ago', lastFull: 'Nov 18, 2026' },
   { name: 'The Three Little Pigs', sub: 'https://storiestogrowby.org/story/the-three-little-pigs-fairy-tale-for-kids/', av: 'Open until Jan 15, 2027', kind: 'open', ex: 4, recs: '170', last: '8 days ago', lastFull: 'Nov 16, 2026' },
-  { name: 'Jack and the Beanstalk', sub: 'https://storiestogrowby.org/story/jack-and-the-beanstalk-story-for-kids/', av: 'Open until Dec 31, 2026', kind: 'open', ex: 3, recs: '48', last: '2 weeks ago', lastFull: 'Nov 10, 2026' }
+  { name: 'Jack and the Beanstalk', sub: 'https://storiestogrowby.org/story/jack-and-the-beanstalk-story-for-kids/', av: 'Open until Dec 31, 2026', kind: 'open', ex: 3, recs: '48', last: '2 weeks ago', lastFull: 'Nov 10, 2026' },
+  { name: 'The Gingerbread Man', sub: 'No exercises yet · open it to add the first one', av: 'Always available', kind: 'always', ex: 0, recs: '0', last: '–', lastFull: 'No recordings yet', href: 'lesson-empty.html' }
 ];
 var AV = { always: ['#EEF2F5', '#4A555C'], open: ['#D3EEDD', '#1E5C3C'], scheduled: ['#E8EAFF', '#33438A'], ended: ['#F2F2F2', '#5F6B73'] };
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { added: [], dlg: false, name: '', avail: 'always', err: false, toast: '' }; }
   renderVals() {
     var self = this, st = this.state;
-    var all = LESSONS.concat(st.added);
-    return {
-      lessons: all.map(function (l, i) { return { n: i + 1, name: l.name, sub: l.sub, av: l.av, avBg: AV[l.kind][0], avFg: AV[l.kind][1], ex: l.ex, recs: l.recs, last: l.last, lastFull: l.lastFull, isNew: !!l.isNew }; }),
+    var all = LESSONS.concat(st.added), o = orderOf(st.ord, all.length); self.curOrder = o;
+    return Object.assign(undoVals(self), {
+      lessons: o.map(function (k, i) { var l = all[k]; return Object.assign(dndRow(self, i, 'Lesson'), { href: l.href || 'lesson-exercises.html', n: i + 1, name: l.name, sub: l.sub, av: l.av, avBg: AV[l.kind][0], avFg: AV[l.kind][1], ex: l.ex, recs: l.recs, last: l.last, lastFull: l.lastFull, isNew: !!l.isNew }); }),
       lessonCount: all.length,
       dlgOpen: st.dlg, draftName: st.name, dlgErr: st.err, avAlways: st.avail === 'always', avDates: st.avail === 'dates',
       openDlg: function () { self.setState({ dlg: true, name: '', avail: 'always', err: false, toast: '' }); },
@@ -165,11 +185,11 @@ class Component extends DCLogic {
         var n = (self.state.name || '').trim();
         if (!n) { self.setState({ err: true }); return; }
         var dates = self.state.avail === 'dates';
-        var l = { name: n, sub: 'No exercises yet · open it to add the first one', av: dates ? 'Opens Nov 25, 2026' : 'Always available', kind: dates ? 'scheduled' : 'always', ex: 0, recs: '0', last: '–', lastFull: 'No recordings yet', isNew: true };
-        self.setState({ added: self.state.added.concat([l]), dlg: false, toast: '“' + n + '” created. Open it to add exercises.' });
+        var l = { name: n, sub: 'No exercises yet · open it to add the first one', av: dates ? 'Opens Nov 25, 2026' : 'Always available', kind: dates ? 'scheduled' : 'always', ex: 0, recs: '0', last: '–', lastFull: 'No recordings yet', isNew: true, href: 'lesson-empty.html' };
+        self.setState({ added: self.state.added.concat([l]), dlg: false, toast: '“' + n + '” created. Open it to add exercises.', undoOrd: false });
       },
       toast: !!st.toast, toastText: st.toast, dismissToast: function () { self.setState({ toast: '' }); }
-    };
+    });
   }
 }
 mountDC(Component, 'tpl', 'app');
