@@ -65,9 +65,13 @@ All three pages share one header and sidebar, styled with the Sensay design syst
 - **+ Create lesson** dialog: name, optional description or source link, availability (always or between dates). The new lesson appears at the end of the list, marked New.
 - Lesson page: **Exercises** and **Results** tabs (Results is the Lesson Overview). Exercises list: drag handle, #, title and text preview, type, recordings, last recording, recording time, words read, ⋯ (edit, preview as student, duplicate, move up/down, delete).
 - **Edit exercises** (lesson header) opens the exercise editor (`exercise-builder.html`) for the whole lesson. The pencil on a row opens it at that exercise (`?ex=3`); **+ Add an exercise** opens it at the add bar (`?add=1`).
-  - Existing exercises start collapsed (number, icon, name, type, text snippet, recording count); click to expand. New ones start open and are marked **New**; changed ones are marked **Edited**.
+  - One card is open at a time: click its header or chevron. **Expand all / Collapse all** sits above the list.
+  - Each card header has a drag handle (hidden on phones), number, icon, name, type and snippet, badges (**New**, **Edited**, recording count), a **⋯** menu (Duplicate, Insert exercise below, Move up, Move down, Delete) and the chevron.
+  - A **+** between cards inserts an exercise there; **Add exercise** at the bottom adds one at the end. A new card starts as type tiles.
+  - Default names ("Part 3") follow the exercise's position; once a teacher types a name, it stays.
+  - Uploaded pictures and videos show as a thumbnail with Replace and Remove. Type descriptions and field hints show on new cards only.
   - Exercises with recordings: type is locked, a note says edits apply to new attempts only, and **Save as a new exercise** turns the edits into a new exercise and restores the original. Removing one asks first and archives it (results stay in reports); a toast offers **Undo**.
-  - The header sums up unsaved changes ("4 added · 1 edited · 1 removed"). **Save changes** saves everything at once; **Cancel** with unsaved changes asks before discarding.
+  - A sticky bar at the bottom shows unsaved changes ("5 added · order changed"), when the draft was last saved automatically, and, after a blocked save, "N exercises need attention" with **Go to next**. It holds Preview as student, Cancel (asks before discarding) and **Save changes**.
   - Stack as many exercise cards as needed; each card has a type dropdown, name, and fields for that type. Move up/down, duplicate, delete.
   - 5 types, each with its own icon: **Short Reading** (30s, optional picture), **Long Reading** (90s, no picture), **Question** (text question), **Picture/Video Prompt** (a picture or video is required, plus a prompt such as "Describe what you see"), **Self Practice**. Everything except Long Reading records for up to 30 seconds; no preparation time.
   - **Question** and **Picture/Video Prompt** share "How should answers be checked?":
